@@ -1,0 +1,53 @@
+.atmo-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--tm-mint);
+  pointer-events: none;
+}
+
+.atmo-overlay__contours path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.atmo-overlay__scan circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  transform-origin: 1010px 150px;
+  animation: atmo-pulse 5.5s var(--ease-precise) infinite;
+}
+
+.atmo-overlay__scan circle:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.atmo-overlay__scan circle:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+@keyframes atmo-pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+.atmo-overlay--paused .atmo-overlay__scan circle {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atmo-overlay__scan circle {
+    animation: none;
+  }
+}

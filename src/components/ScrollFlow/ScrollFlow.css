@@ -1,0 +1,46 @@
+.scroll-flow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  z-index: 101;
+  pointer-events: none;
+}
+
+.scroll-flow__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 57, 42, 0.08);
+}
+
+.scroll-flow__fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top;
+  background: linear-gradient(180deg, var(--tm-moss), var(--tm-forest));
+  transition: transform 60ms linear;
+}
+
+.scroll-flow__marker {
+  position: absolute;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tm-mint);
+  box-shadow: 0 0 0 3px rgba(185, 216, 200, 0.35);
+  transform: translate(-50%, -50%);
+  transition: top 60ms linear;
+}
+
+@media (max-width: 900px) {
+  .scroll-flow {
+    width: 2px;
+  }
+  .scroll-flow__marker {
+    width: 6px;
+    height: 6px;
+  }
+}

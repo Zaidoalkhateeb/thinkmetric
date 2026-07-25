@@ -1,0 +1,55 @@
+.ribbon {
+  overflow: hidden;
+  border-top: 1px solid var(--border-inverse);
+  border-bottom: 1px solid var(--border-inverse);
+  padding-block: var(--space-4);
+}
+
+.ribbon__track {
+  display: flex;
+  gap: var(--space-6);
+  width: max-content;
+  animation: ribbon-scroll 26s linear infinite;
+}
+
+.ribbon--static .ribbon__track {
+  animation: none;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.ribbon__item {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: var(--tm-mint);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.ribbon__item::after {
+  content: '•';
+  margin-left: var(--space-6);
+  color: var(--tm-moss);
+}
+
+.ribbon--static .ribbon__item::after {
+  display: none;
+}
+
+@keyframes ribbon-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbon__track {
+    animation: none;
+    flex-wrap: wrap;
+  }
+}

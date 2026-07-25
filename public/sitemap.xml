@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Static sitemap covering the site's fixed routes and product detail pages.
+  Regenerate this file whenever a product is added to src/data/products.js
+  or a route is added to src/App.jsx. A small Node script can automate this:
+  read src/data/products.js and src/data/siteContent.js, then print a <url>
+  entry per route/product, redirecting output to public/sitemap.xml.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.think-metric.co/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.think-metric.co/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.think-metric.co/products/wind-measurement-lidar</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/wind-measurement-met-mast</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/environmental-meteorological-lidar</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/remote-power-supply-systems</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windhorizon-h400</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-wp350</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-350-mb</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/lc-lhm-905</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-pbl</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-pbl-m-windflux-3000</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-pbl-s</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-pbl-sv-mv</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/wind3d-10k</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/wind3d-6000</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windmast-pbl-ma</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/watcl-15k</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/mwra-12k</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/windflux-3000plus</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/o3-ddlidar</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/co2-flux</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/about</loc><priority>0.7</priority></url>
+  <url><loc>https://www.think-metric.co/contact</loc><priority>0.7</priority></url>
+</urlset>

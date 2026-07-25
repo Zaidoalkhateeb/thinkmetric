@@ -1,60 +1,90 @@
-.about-media {
-  margin-top: var(--space-5);
-  aspect-ratio: 21 / 9;
-  border-radius: var(--radius);
-  background: linear-gradient(135deg, #1b4d3e 0%, #0c1f18 100%);
+.about-hero {
+  background: linear-gradient(180deg, var(--tm-fog) 0%, var(--bg-page) 100%);
 }
 
-.values {
+.about-body {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  .about-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-body__text h2 {
+  margin-bottom: var(--space-4);
+  max-width: 18ch;
+}
+
+.about-body__text p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-3);
+}
+
+.about-body__media img {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.about-principles__title {
+  color: var(--tm-off-white);
+}
+
+.about-principles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-4);
-  margin-top: var(--space-6);
 }
 
-.value-card {
-  padding: var(--space-4);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+@media (max-width: 860px) {
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
 }
 
-.value-card h3 {
+.about-principle {
+  border-top: 1px solid var(--border-inverse);
+  padding-top: var(--space-4);
+}
+
+.about-principle__number {
+  color: var(--tm-moss);
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.about-principle h3 {
+  color: var(--tm-off-white);
   margin-bottom: var(--space-2);
 }
 
-.value-card p {
-  font-size: 15px;
+.about-principle p {
+  color: var(--tm-mint);
+  font-size: 0.92rem;
+  line-height: 1.6;
 }
 
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-  margin-top: var(--space-6);
-  padding: var(--space-5) 0;
-  border-top: 1px solid var(--color-border);
+.about-cta {
+  text-align: center;
 }
 
-.stat {
+.about-cta__inner {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  align-items: center;
+  gap: var(--space-4);
 }
 
-.stat__value {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-.stat__label {
-  font-size: 14px;
-  color: var(--color-text-muted);
-}
-
-@media (max-width: 768px) {
-  .values,
-  .stats {
-    grid-template-columns: 1fr;
-  }
+.about-cta__actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
 }

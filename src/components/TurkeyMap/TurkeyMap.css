@@ -1,0 +1,108 @@
+.turkey-map {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--tm-white);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.turkey-map__surface {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3.4;
+  min-height: 420px;
+  background: #f5f6f4;
+  flex: 1;
+}
+
+.turkey-map__canvas {
+  position: absolute;
+  inset: 0;
+  background: #f5f6f4;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
+
+.turkey-map__marker-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.turkey-map__pin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--tm-forest);
+  border: 2px solid var(--tm-white);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.turkey-map__pulse {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--tm-forest);
+  animation: turkey-map-pulse 2s ease-out infinite;
+}
+
+@keyframes turkey-map-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .turkey-map__pulse {
+    animation: none;
+    display: none;
+  }
+}
+
+.turkey-map__popup .leaflet-popup-content-wrapper {
+  padding: 2px 4px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.turkey-map__popup .leaflet-popup-content {
+  margin: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.turkey-map__popup strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.turkey-map__popup span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.turkey-map__popup .leaflet-popup-tip {
+  background: var(--tm-white);
+}

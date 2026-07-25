@@ -1,121 +1,137 @@
-import { useState } from 'react';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import Button from '../../components/Button/Button';
+import { useEffect, useState } from 'react';
+import { Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
+import SEO from '../../components/SEO/SEO';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
+import Reveal from '../../components/Reveal/Reveal';
+import { contact, location } from '../../data/siteContent';
 import './Contact.css';
 
-const offices = [
-  { city: 'Copenhagen', role: 'HQ / Key Market' },
-  { city: 'London', role: 'Regional Office' },
-  { city: 'Istanbul', role: 'Primary Market — Turkey' },
+const otherWaysToReachUs = [
+  {
+    label: 'General Enquiries',
+    value: contact.generalEmail,
+    href: `mailto:${contact.generalEmail}`,
+    icon: Mail,
+  },
+  {
+    label: 'Sales  Enquiries',
+    value: contact.salesEmail,
+    href: `mailto:${contact.salesEmail}`,
+    icon: Mail,
+  },
+  {
+    label: 'Phone',
+    value: contact.phoneDisplay,
+    href: contact.phoneHref,
+    icon: Phone,
+  },
+  {
+    label: 'Address',
+    value: location.label,
+    href: location.mapsUrl,
+    icon: MapPin,
+    external: true,
+  },
 ];
 
-const initialForm = {
-  name: '',
-  email: '',
-  interest: '',
-  message: '',
-};
-
 function Contact() {
-  const [form, setForm] = useState(initialForm);
-  const [submitted, setSubmitted] = useState(false);
+  const [atTop, setAtTop] = useState(true);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setSubmitted(true);
-    setForm(initialForm);
-  };
+  useEffect(() => {
+    const onScroll = () => setAtTop(window.scrollY < 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <section className="page">
-      <div className="container">
-        <SectionHeader
-          align="center"
-          eyebrow="Get In Touch"
-          title="Connect with ThinkMetric"
-          description="Serving wind energy operators across Europe with a primary focus on Turkey's rapidly growing renewable energy market. Our team is ready to help."
-        />
+    <>
+      <SEO
+        title="Contact ThinkMetric"
+        description="Get in touch with ThinkMetric's technical and sales team, based in Istanbul, Türkiye."
+        path="/contact"
+      />
 
-        <div className="contact-grid">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <label>
-              Name
-              <input
-                type="text"
-                name="name"
-                placeholder="Your full name"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
-            </label>
+      <section className="page-hero contact-hero">
+        <picture className="contact-hero__photo" aria-hidden="true">
+          <source srcSet="/media/thinkmetric-hero-poster.webp" type="image/webp" />
+          <img src="/media/thinkmetric-hero-poster.jpg" alt="" loading="eager" />
+        </picture>
+        <div className="contact-hero__tint" aria-hidden="true" />
+        <div className="contact-hero__bg" aria-hidden="true" />
+        <div className="container">
+          <Reveal variant="fade">
+            <span className="eyebrow">Get In Touch</span>
+          </Reveal>
+          <Reveal variant="up" delay={80}>
+            <h1 className="page-hero__title">Connect with ThinkMetric</h1>
+          </Reveal>
+          <Reveal variant="up" delay={160}>
+            <p className="page-hero__lede">
+              Whether you&apos;re planning a wind resource campaign, an atmospheric research programme, or
+              need a remote power solution. Our team is ready to help.
+            </p>
+          </Reveal>
+        </div>
+        <span
+          className={`scroll-indicator ${atTop ? '' : 'scroll-indicator--hidden'}`}
+          aria-hidden="true"
+        >
+          <span className="scroll-indicator__mouse">
+            <span className="scroll-indicator__wheel" />
+          </span>
+          <ChevronDown size={14} className="scroll-indicator__chevron" aria-hidden="true" />
+          <span className="scroll-indicator__label mono">Scroll</span>
+        </span>
+      </section>
 
-            <label>
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="your@company.com"
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-            </label>
+      <section className="section">
+        <div className="container contact-grid">
+          <Reveal as="div" variant="left" className="contact-grid__form">
+            <span className="eyebrow">Send an Inquiry</span>
+            <h2 className="home-section__title">Tell us about your project.</h2>
+            <ContactForm />
+          </Reveal>
+          <Reveal as="div" variant="right" delay={120} className="contact-grid__map">
+            <span className="eyebrow">Location</span>
+            <h2 className="home-section__title">{location.label}</h2>
+            <TurkeyMap />
+          </Reveal>
+        </div>
+      </section>
 
-            <label>
-              Product Interest
-              <input
-                type="text"
-                name="interest"
-                placeholder="e.g. WindSense Pro Hardware"
-                value={form.interest}
-                onChange={handleChange}
-              />
-            </label>
-
-            <label>
-              Message
-              <textarea
-                name="message"
-                rows={5}
-                placeholder="Tell us about your project or wind farm..."
-                value={form.message}
-                onChange={handleChange}
-                required
-              />
-            </label>
-
-            <Button type="submit">Submit →</Button>
-
-            {submitted && (
-              <p className="contact-form__success">
-                Thanks — we&apos;ve received your message and will be in touch soon.
-              </p>
-            )}
-          </form>
-
-          <div className="offices">
-            <h3>Our Offices</h3>
-            <ul>
-              {offices.map((office) => (
-                <li key={office.city} className="office">
-                  <span className="office__dot" />
-                  <div>
-                    <p className="office__city">{office.city}</p>
-                    <p className="office__role">{office.role}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+      <section className="section">
+        <div className="container">
+          <Reveal variant="fade">
+            <span className="eyebrow">Other Ways to Reach Us</span>
+          </Reveal>
+          <div className="contact-cards">
+            {otherWaysToReachUs.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={item.label} variant="up" delay={i * 90}>
+                  <a
+                    href={item.href}
+                    className="contact-card"
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                  >
+                    <span className="contact-card__icon">
+                      <Icon size={20} aria-hidden="true" />
+                    </span>
+                    <div>
+                      <span className="contact-card__label">{item.label}</span>
+                      <span className="contact-card__value">{item.value}</span>
+                    </div>
+                  </a>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

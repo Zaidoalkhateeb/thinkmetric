@@ -1,57 +1,77 @@
-.footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
-  margin-top: auto;
+.site-footer {
+  background: var(--tm-forest-deep);
+  color: var(--tm-off-white);
+  padding-block: var(--space-7) var(--space-4);
 }
 
-.footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  padding-top: var(--space-5);
-  padding-bottom: var(--space-5);
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
 }
 
-.footer__brand {
+@media (max-width: 900px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.site-footer__logo {
+  height: 22px;
+  margin-bottom: var(--space-3);
+}
+
+.site-footer__tagline {
+  color: var(--tm-mint);
+  font-size: 0.9rem;
+  line-height: 1.6;
   max-width: 320px;
 }
 
-.footer__logo {
+.site-footer__heading {
   font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--tm-silver);
+  margin-bottom: var(--space-3);
 }
 
-.footer__logo span {
-  color: var(--color-primary);
-}
-
-.footer__brand p {
-  margin-top: var(--space-2);
-  font-size: 14px;
-  color: var(--color-text-muted);
-}
-
-.footer__links {
+.site-footer__list {
   display: flex;
-  gap: var(--space-4);
-  font-size: 14px;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.footer__links a:hover {
-  color: var(--color-primary);
+.site-footer__list a {
+  font-size: 0.92rem;
+  color: var(--tm-off-white);
+  opacity: 0.88;
+  transition: opacity var(--dur-fast) var(--ease-precise);
 }
 
-.footer__copy {
-  font-size: 13px;
-  color: var(--color-text-muted);
+.site-footer__list a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
-@media (max-width: 640px) {
-  .footer__inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.site-footer__contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-footer__bottom {
+  border-top: 1px solid var(--border-inverse);
+  padding-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--tm-silver);
 }

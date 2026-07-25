@@ -1,29 +1,53 @@
 :root {
-  /* Brand colors */
-  --color-primary: #1b4d3e;
-  --color-primary-dark: #123529;
-  --color-accent: #3fa66d;
-  --color-accent-light: #eaf5ee;
+  /* ---- Brand: Atmospheric Precision ---- */
+  --tm-forest: #0e392a;
+  --tm-forest-deep: #08271d;
+  --tm-evergreen: #174c3a;
+  --tm-moss: #6e9c83;
+  --tm-mint: #b9d8c8;
+  --tm-fog: #e8eeeb;
+  --tm-off-white: #f5f6f2;
+  --tm-silver: #a3a5a6;
+  --tm-graphite: #151a18;
+  --tm-white: #ffffff;
+  --tm-sky: #9cbfd0;
+  --tm-amber: #c98a3a;
 
-  /* Neutrals */
-  --color-bg: #ffffff;
-  --color-surface: #f7f8f7;
-  --color-heading: #111315;
-  --color-text: #5b6169;
-  --color-text-muted: #8b9098;
-  --color-border: #e5e6e8;
+  /* Semantic surfaces */
+  --bg-page: var(--tm-off-white);
+  --bg-canvas: var(--tm-white);
+  --bg-inverse: var(--tm-forest-deep);
+  --bg-inverse-soft: var(--tm-evergreen);
+  --bg-raised: var(--tm-white);
+  --bg-fog: var(--tm-fog);
+
+  --text-primary: var(--tm-graphite);
+  --text-secondary: #3f4844;
+  --text-muted: #6b746f;
+  --text-inverse: var(--tm-off-white);
+  --text-inverse-muted: var(--tm-mint);
+  --text-brand: var(--tm-forest);
+
+  --border-subtle: #d8ddd8;
+  --border-strong: #b8c0ba;
+  --border-inverse: rgba(245, 246, 242, 0.22);
+
+  --focus-ring: #2f6f52;
 
   /* Typography */
-  --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
-  --font-mono: ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  --font-display: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
 
   /* Layout */
-  --max-width: 1200px;
-  --radius: 6px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --max-width: 1320px;
+  --max-width-narrow: 820px;
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 2px rgba(8, 39, 29, 0.06);
+  --shadow-md: 0 12px 32px rgba(8, 39, 29, 0.12);
+  --shadow-lg: 0 24px 64px rgba(8, 39, 29, 0.18);
 
   /* Spacing scale */
   --space-1: 4px;
@@ -34,4 +58,10 @@
   --space-6: 48px;
   --space-7: 64px;
   --space-8: 96px;
+  --space-9: 128px;
+
+  --ease-precise: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 620ms;
 }

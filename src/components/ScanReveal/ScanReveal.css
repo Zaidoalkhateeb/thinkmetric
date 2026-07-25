@@ -1,0 +1,156 @@
+.scan-reveal {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-5);
+  background: var(--tm-forest-deep);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  color: var(--tm-off-white);
+}
+
+@media (max-width: 780px) {
+  .scan-reveal {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scan-reveal__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 780px) {
+  .scan-reveal__tabs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.scan-reveal__tab {
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-left: 2px solid transparent;
+  color: var(--tm-mint);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-precise), color var(--dur-fast) var(--ease-precise),
+    border-color var(--dur-fast) var(--ease-precise);
+}
+
+.scan-reveal__tab:hover {
+  background: rgba(245, 246, 242, 0.06);
+}
+
+.scan-reveal__tab.is-active {
+  background: rgba(245, 246, 242, 0.09);
+  border-left-color: var(--tm-mint);
+  color: var(--tm-off-white);
+}
+
+.scan-reveal__stage {
+  background: rgba(245, 246, 242, 0.04);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 320px;
+}
+
+.scan-illus {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+}
+
+.scan-illus__ground {
+  stroke: var(--tm-moss);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.scan-illus__gridline {
+  stroke: rgba(185, 216, 200, 0.25);
+  stroke-width: 1;
+}
+
+.scan-illus__mast {
+  stroke: var(--tm-mint);
+  stroke-width: 2;
+}
+
+.scan-illus__panel {
+  fill: none;
+  stroke: var(--tm-mint);
+  stroke-width: 2;
+}
+
+.scan-illus__bolt {
+  fill: none;
+  stroke: var(--tm-amber);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.scan-illus__flow {
+  fill: none;
+  stroke: var(--tm-mint);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 6 10;
+  animation: scan-flow 3.5s linear infinite;
+}
+
+@keyframes scan-flow {
+  to {
+    stroke-dashoffset: -160;
+  }
+}
+
+.scan-illus__layer {
+  fill: var(--tm-mint);
+}
+
+.scan-illus__dot {
+  fill: var(--tm-mint);
+  animation: scan-pulse-op 2.4s ease-in-out infinite;
+}
+
+@keyframes scan-pulse-op {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scan-illus__ring {
+  fill: none;
+  stroke: var(--tm-mint);
+  stroke-width: 1;
+  animation: atmo-pulse 4s var(--ease-precise) infinite;
+  transform-origin: 240px 55px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-illus__flow,
+  .scan-illus__dot,
+  .scan-illus__ring {
+    animation: none;
+  }
+}
+
+.scan-reveal__desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--tm-off-white);
+  max-width: 46ch;
+}
