@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
 import { categoryIcons } from '../IconMark/IconMark';
 import { categories } from '../../data/siteContent';
 import './ProductCard.css';
@@ -23,12 +22,7 @@ function ProductCard({ product }) {
         </div>
 
         <div className="product-card__body">
-          <span className="tag-pill">{product.categoryLabel}</span>
           <h3 className="product-card__title">{product.modelName}</h3>
-          <p className="product-card__type">{product.productType}</p>
-          <span className="product-card__cta">
-            View product <ArrowUpRight size={14} aria-hidden="true" />
-          </span>
         </div>
       </Link>
     </article>

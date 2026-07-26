@@ -77,7 +77,7 @@ p {
 
 h1 {
   font-size: clamp(2.4rem, 5vw, 4.4rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -134,6 +134,10 @@ select:focus-visible,
 
 .container--narrow {
   max-width: var(--max-width-narrow);
+}
+
+.container--wide {
+  max-width: var(--max-width-wide);
 }
 
 .eyebrow {

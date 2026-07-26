@@ -5,8 +5,6 @@ import { LocationIcon } from '../IconMark/IconMark';
 import './Footer.css';
 
 function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="site-footer">
       <div className="container site-footer__inner">
@@ -18,18 +16,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="site-footer__col">
-          <h3 className="site-footer__heading">Categories</h3>
-          <ul className="site-footer__list">
-            {categories.map((cat) => (
-              <li key={cat.slug}>
-                <Link to={`/products/${cat.slug}`}>{cat.label}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="site-footer__col">
+        <div className="site-footer__col site-footer__col--company">
           <h3 className="site-footer__heading">Company</h3>
           <ul className="site-footer__list">
             <li>
@@ -44,6 +31,17 @@ function Footer() {
             <li>
               <Link to="/contact">Contact Us</Link>
             </li>
+          </ul>
+        </div>
+
+        <div className="site-footer__col">
+          <h3 className="site-footer__heading">Products &amp; Services</h3>
+          <ul className="site-footer__list">
+            {categories.map((cat) => (
+              <li key={cat.slug}>
+                <Link to={`/products/${cat.slug}`}>{cat.shortLabel}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -72,12 +70,6 @@ function Footer() {
             </li>
           </ul>
         </div>
-      </div>
-
-      <div className="container site-footer__bottom">
-        <p>
-          © {year} {brand.name}. All rights reserved.
-        </p>
       </div>
     </footer>
   );

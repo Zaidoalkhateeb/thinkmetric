@@ -39,7 +39,7 @@ function Home() {
         <HeroMedia />
         <div className="container home-hero__inner">
           <Reveal as="h1" variant="up" className="home-hero__title">
-            Measure the invisible. Decide with confidence.
+            Measure the invisible — decide with confidence
           </Reveal>
           <Reveal as="p" variant="up" delay={90} className="home-hero__desc">
             Advanced measurement and autonomous power technologies for wind, atmospheric, industrial, and
@@ -69,7 +69,7 @@ function Home() {
             <span className="eyebrow">Products &amp; Services</span>
           </Reveal>
           <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">Four technology categories, one measurement portfolio.</h2>
+            <h2 className="home-section__title">Four technology categories, one measurement portfolio</h2>
           </Reveal>
           <div className="home-gateways">
             {categories.map((cat, i) => (
@@ -87,7 +87,7 @@ function Home() {
             <span className="eyebrow">From Field to Decision</span>
           </Reveal>
           <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">How the portfolio supports a measurement campaign.</h2>
+            <h2 className="home-section__title">How the portfolio supports a measurement campaign</h2>
           </Reveal>
           <div className="home-process">
             <ProcessSteps />
@@ -101,7 +101,7 @@ function Home() {
             <span className="eyebrow">Atmospheric Intelligence</span>
           </Reveal>
           <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">Sense what moves through the atmosphere.</h2>
+            <h2 className="home-section__title">Sense what moves through the atmosphere</h2>
           </Reveal>
           <Reveal variant="up" delay={140}>
             <p className="home-section__lede">
@@ -129,7 +129,7 @@ function Home() {
           </Reveal>
           <Reveal as="div" variant="right" delay={100} className="home-about-preview__body">
             <span className="eyebrow eyebrow--inverse">About ThinkMetric</span>
-            <h2>Reliable data begins with reliable equipment.</h2>
+            <h2>Reliable data begins with reliable equipment</h2>
             <p>{about.paragraphs[0]}</p>
             <p>{about.paragraphs[2]}</p>
             <Link to="/about" className="btn btn--on-dark">
@@ -147,7 +147,7 @@ function Home() {
         <div className="container home-location">
           <Reveal as="div" variant="left" className="home-location__body">
             <span className="eyebrow">Location</span>
-            <h2 className="home-section__title">Based in Istanbul, Türkiye.</h2>
+            <h2 className="home-section__title">Based in Istanbul, Türkiye</h2>
             <p className="home-section__lede">
               Serving wind developers, researchers, and industrial operators from our home base at the
               crossroads of Europe and Asia.

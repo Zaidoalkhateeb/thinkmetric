@@ -17,7 +17,7 @@ function NotFound() {
             <path d="M70 60 L130 60" className="not-found__break" strokeDasharray="4 6" />
           </svg>
           <span className="mono not-found__code">404</span>
-          <h1>Signal not found.</h1>
+          <h1>Signal not found</h1>
           <p>The page you&apos;re looking for doesn&apos;t exist, or may have moved.</p>
           <Link to="/" className="btn btn--primary">
             <ArrowLeft size={16} aria-hidden="true" /> Back to Home

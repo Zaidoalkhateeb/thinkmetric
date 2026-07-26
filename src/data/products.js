@@ -9,13 +9,9 @@
 //        datasheet is supplied.
 
 const CATEGORY = {
-  WIND_LIDAR: {
-    slug: 'wind-measurement-lidar',
-    label: 'Wind Measurement — LiDAR',
-  },
-  ENV_LIDAR: {
-    slug: 'environmental-meteorological-lidar',
-    label: 'Environmental & Meteorological LiDAR',
+  LIDARS: {
+    slug: 'lidars',
+    label: 'Lidars',
   },
 };
 
@@ -25,24 +21,24 @@ function buildSummary(modelName, productType) {
 
 const raw = [
   // ---- Wind Measurement — LiDAR ----
-  { slug: 'windhorizon-h400', modelName: 'WindHorizon H400', productType: 'Nacelle Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-wp350', modelName: 'WindMast WP350', productType: 'Vertical Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-350-mb', modelName: 'WindMast 350-MB', productType: 'Floating Buoy Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'lc-lhm-905', modelName: 'LC-LHM-905', productType: 'Blade Clearance Monitoring LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-pbl', modelName: 'WindMast PBL', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-pbl-m-windflux-3000', modelName: 'WindMast PBL(M) / WindFlux 3000', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-pbl-s', modelName: 'WindMast PBL(S)', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-pbl-sv-mv', modelName: 'WindMast PBL(SV) / PBL(MV)', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'wind3d-10k', modelName: 'Wind3D 10K', productType: '3D Scanning Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'wind3d-6000', modelName: 'Wind3D 6000', productType: '3D Scanning Wind LiDAR', category: CATEGORY.WIND_LIDAR },
-  { slug: 'windmast-pbl-ma', modelName: 'WindMast PBL(MA)', productType: 'Airborne Wind LiDAR', category: CATEGORY.WIND_LIDAR },
+  { slug: 'windhorizon-h400', modelName: 'WindHorizon H400', productType: 'Nacelle Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-wp350', modelName: 'WindMast WP350', productType: 'Vertical Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-350-mb', modelName: 'WindMast 350-MB', productType: 'Floating Buoy Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'lc-lhm-905', modelName: 'LC-LHM-905', productType: 'Blade Clearance Monitoring LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-pbl', modelName: 'WindMast PBL', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-pbl-m-windflux-3000', modelName: 'WindMast PBL(M) / WindFlux 3000', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-pbl-s', modelName: 'WindMast PBL(S)', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-pbl-sv-mv', modelName: 'WindMast PBL(SV) / PBL(MV)', productType: 'Boundary Layer Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'wind3d-10k', modelName: 'Wind3D 10K', productType: '3D Scanning Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'wind3d-6000', modelName: 'Wind3D 6000', productType: '3D Scanning Wind LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windmast-pbl-ma', modelName: 'WindMast PBL(MA)', productType: 'Airborne Wind LiDAR', category: CATEGORY.LIDARS },
 
   // ---- Environmental & Meteorological LiDAR ----
-  { slug: 'watcl-15k', modelName: 'WATCL 15K', productType: 'Raman Temperature and Humidity LiDAR', category: CATEGORY.ENV_LIDAR },
-  { slug: 'mwra-12k', modelName: 'MWRA 12K', productType: 'Raman and Mie Scattering Aerosol LiDAR', category: CATEGORY.ENV_LIDAR },
-  { slug: 'windflux-3000plus', modelName: 'WindFlux 3000Plus', productType: 'Particulate Matter Flux LiDAR', category: CATEGORY.ENV_LIDAR },
-  { slug: 'o3-ddlidar', modelName: 'O₃-DDLidar', productType: 'Ozone LiDAR', category: CATEGORY.ENV_LIDAR },
-  { slug: 'co2-flux', modelName: 'CO₂ FLUX', productType: 'CO₂ Gas Flux LiDAR', category: CATEGORY.ENV_LIDAR },
+  { slug: 'watcl-15k', modelName: 'WATCL 15K', productType: 'Raman Temperature and Humidity LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'mwra-12k', modelName: 'MWRA 12K', productType: 'Raman and Mie Scattering Aerosol LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'windflux-3000plus', modelName: 'WindFlux 3000Plus', productType: 'Particulate Matter Flux LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'o3-ddlidar', modelName: 'O₃-DDLidar', productType: 'Ozone LiDAR', category: CATEGORY.LIDARS },
+  { slug: 'co2-flux', modelName: 'CO₂ FLUX', productType: 'CO₂ Gas Flux LiDAR', category: CATEGORY.LIDARS },
 ];
 
 export const products = raw.map((item) => ({

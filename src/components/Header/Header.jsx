@@ -2,13 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { categories } from '../../data/siteContent';
-import { categoryIcons } from '../IconMark/IconMark';
+import { getProductsByCategory } from '../../data/products';
 import './Header.css';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(categories[0].slug);
   const location = useLocation();
   const closeTimer = useRef(null);
 
@@ -67,38 +68,73 @@ function Header() {
             onMouseEnter={openMega}
             onMouseLeave={scheduleClose}
           >
-            <button
-              type="button"
-              className={`site-header__link site-header__link--btn ${megaOpen ? 'is-active' : ''}`}
+            <Link
+              to="/products"
+              className={`site-header__link ${megaOpen ? 'is-active' : ''}`}
               aria-expanded={megaOpen}
               aria-haspopup="true"
-              onClick={() => setMegaOpen((v) => !v)}
             >
               Products &amp; Services
               <ChevronDown size={15} aria-hidden="true" />
-            </button>
+            </Link>
 
             {megaOpen && (
               <div className="mega-menu" role="menu" onMouseEnter={openMega} onMouseLeave={scheduleClose}>
-                <div className="mega-menu__grid">
+                <div className="mega-menu__body">
+                  <div className="mega-menu__sidebar">
+                    {categories.map((cat) => (
+                      <button
+                        key={cat.slug}
+                        type="button"
+                        className={`mega-menu__tab ${activeCategory === cat.slug ? 'is-active' : ''}`}
+                        onMouseEnter={() => setActiveCategory(cat.slug)}
+                        onFocus={() => setActiveCategory(cat.slug)}
+                        onClick={() => setActiveCategory(cat.slug)}
+                      >
+                        {cat.shortLabel}
+                      </button>
+                    ))}
+                  </div>
+
                   {categories.map((cat) => {
-                    const Icon = categoryIcons[cat.icon];
+                    if (cat.slug !== activeCategory) return null;
+                    const catProducts = getProductsByCategory(cat.slug);
+                    const mid = Math.ceil(catProducts.length / 2);
+                    const columns = [catProducts.slice(0, mid), catProducts.slice(mid)];
+
                     return (
-                      <Link key={cat.slug} to={`/products/${cat.slug}`} className="mega-menu__item" role="menuitem">
-                        <span className="mega-menu__icon">
-                          <Icon aria-hidden="true" />
-                        </span>
-                        <span>
-                          <span className="mega-menu__title">{cat.label}</span>
-                          <span className="mega-menu__desc">{cat.description}</span>
-                        </span>
-                      </Link>
+                      <div className="mega-menu__panel" key={cat.slug}>
+                        {catProducts.length > 0 ? (
+                          <div className="mega-menu__columns">
+                            {columns.map((col, i) => (
+                              <ul className="mega-menu__list" key={i}>
+                                {col.map((p) => (
+                                  <li key={p.slug}>
+                                    <Link to={`/products/detail/${p.slug}`} className="mega-menu__product" role="menuitem">
+                                      <span className="mega-menu__bullet" aria-hidden="true" />
+                                      <span>{p.modelName}</span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="mega-menu__empty">
+                            <p>{cat.description}</p>
+                            <Link to={`/products/${cat.slug}`} className="mega-menu__empty-link" role="menuitem">
+                              View category <ArrowRight size={14} aria-hidden="true" />
+                            </Link>
+                          </div>
+                        )}
+                      </div>
                     );
                   })}
+
+                  <div className="mega-menu__media" aria-hidden="true">
+                    <img src="/images/field-turbine-hills.webp" alt="" />
+                  </div>
                 </div>
-                <Link to="/products" className="mega-menu__all" role="menuitem">
-                  View all products &amp; services <ArrowRight size={15} aria-hidden="true" />
-                </Link>
               </div>
             )}
           </div>

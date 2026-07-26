@@ -25,7 +25,15 @@ function ProductCategory() {
         path={`/products/${category.slug}`}
       />
 
-      <section className="page-hero category-hero">
+      <section className={`page-hero category-hero ${category.heroImage ? 'category-hero--photo' : ''}`}>
+        {category.heroImage && (
+          <>
+            <div className="category-hero__photo" aria-hidden="true">
+              <img src={category.heroImage} alt="" loading="eager" />
+            </div>
+            <div className="category-hero__tint" aria-hidden="true" />
+          </>
+        )}
         <div className="container">
           <nav aria-label="Breadcrumb" className="breadcrumbs">
             <Link to="/products">Products &amp; Services</Link>

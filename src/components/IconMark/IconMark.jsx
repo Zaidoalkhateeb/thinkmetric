@@ -1,7 +1,6 @@
-// Custom line-icon set for ThinkMetric's four technology categories plus a
+// Custom line-icon set for ThinkMetric's technology categories plus a
 // few supporting marks. All drawn on a shared 40-unit grid with a consistent
-// 1.6 stroke weight and rounded joins so the set reads as one family rather
-// than four separately-styled glyphs.
+// 1.6 stroke weight and rounded joins so the set reads as one family.
 
 const common = {
   fill: 'none',
@@ -37,20 +36,6 @@ export function MetMastIcon(props) {
       {/* guy wires */}
       <path d="M20 4 8 34M20 4l12 30" opacity="0.45" />
       <path d="M6 34h28" />
-    </svg>
-  );
-}
-
-export function AtmosphericLidarIcon(props) {
-  return (
-    <svg viewBox="0 0 40 40" width="30" height="30" {...common} {...props}>
-      {/* vertical atmospheric beam */}
-      <path d="M20 34V10" />
-      <path d="M15 15 20 10 25 15" />
-      <circle cx="20" cy="7" r="2.2" />
-      {/* atmospheric layers */}
-      <path d="M6 28c5 2.4 23 2.4 28 0" opacity="0.55" />
-      <path d="M6 22c5 2.4 23 2.4 28 0" opacity="0.35" />
     </svg>
   );
 }
@@ -100,6 +85,5 @@ export function CampaignIcon(props) {
 export const categoryIcons = {
   windLidar: WindLidarIcon,
   metMast: MetMastIcon,
-  atmosphericLidar: AtmosphericLidarIcon,
   remotePower: RemotePowerIcon,
 };

@@ -9,17 +9,17 @@ import './ContactForm.css';
 const countryOptions = countries.map((c) => ({ value: c, label: c }));
 
 const inquiryTypes = [
-  { value: 'general', label: 'General' },
   { value: 'sales', label: 'Sales' },
+  { value: 'general', label: 'General' },
   { value: 'corporate', label: 'Corporate' },
   { value: 'technical', label: 'Technical discussion' },
 ];
 
 const categoryOptions = [
-  'Remote Power Supply Systems',
+  'Environmental LiDAR',
   'Wind Measurement — LiDAR',
+  'Remote Power Supply Systems',
   'Wind Measurement — Met Mast',
-  'Environmental & Meteorological LiDAR',
 ];
 
 const initialForm = {

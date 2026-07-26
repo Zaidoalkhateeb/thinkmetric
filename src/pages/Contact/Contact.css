@@ -29,7 +29,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(180deg, rgba(232, 238, 235, 0.55) 0%, rgba(232, 238, 235, 0.72) 55%, var(--bg-page) 100%);
+  background: linear-gradient(180deg, rgba(232, 238, 235, 0.28) 0%, rgba(232, 238, 235, 0.42) 55%, var(--bg-page) 100%);
 }
 
 .contact-hero__bg {
@@ -61,106 +61,11 @@
   }
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: var(--space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-muted);
-  opacity: 1;
-  animation: scroll-indicator-bounce 3.6s ease-in-out infinite;
-  transition: opacity var(--dur-med) var(--ease-precise);
-}
-
-.scroll-indicator--hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scroll-indicator__mouse {
-  width: 22px;
-  height: 34px;
-  border: 1.5px solid var(--tm-forest);
-  border-radius: 999px;
-  display: flex;
-  justify-content: center;
-  padding-top: 6px;
-  opacity: 0.7;
-}
-
-.scroll-indicator__wheel {
-  width: 3px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--tm-forest);
-  animation: scroll-indicator-wheel 2s ease-in-out infinite;
-}
-
-.scroll-indicator__chevron {
-  color: var(--tm-forest);
-  opacity: 0.6;
-  margin-top: -2px;
-}
-
-.scroll-indicator__label {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-@keyframes scroll-indicator-wheel {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(8px);
-    opacity: 0.3;
-  }
-}
-
-@keyframes scroll-indicator-bounce {
-  0%,
-  40%,
-  100% {
-    transform: translate(-50%, 0);
-  }
-  10% {
-    transform: translate(-50%, -5px);
-  }
-  20% {
-    transform: translate(-50%, 0);
-  }
-  30% {
-    transform: translate(-50%, -5px);
-  }
-}
-
-@media (max-width: 640px) {
-  .scroll-indicator {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scroll-indicator {
-    animation: none;
-  }
-  .scroll-indicator__wheel {
-    animation: none;
-  }
-}
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
+  gap: var(--space-7);
   align-items: stretch;
 }
 
@@ -178,10 +83,7 @@
 
 .contact-grid__form h2,
 .contact-grid__map h2 {
-  /* Reserve 2 lines' worth of height regardless of actual text length, so a
-     one-line heading ("Istanbul, Türkiye") doesn't leave its card taller
-     than a sibling with a two-line heading ("Tell us about your project."). */
-  min-height: 2.24em;
+  margin-bottom: var(--space-3);
 }
 
 .contact-grid__map .eyebrow,

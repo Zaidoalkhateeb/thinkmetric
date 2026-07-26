@@ -6,8 +6,6 @@ import countryBorders from '../../data/countryBorders.json';
 import './TurkeyMap.css';
 
 const ISTANBUL_CENTER = [location.lat, location.lng];
-const ISTANBUL_ZOOM = 11;
-const FLY_DURATION = 1;
 const FIT_PADDING = [24, 24];
 
 const TURKEY_ISO = 'TUR';
@@ -73,10 +71,11 @@ function TurkeyMap() {
 
     L.tileLayer(TILE_URL, { subdomains: 'abcd', maxZoom: 19 }).addTo(map);
 
-    // Fit the region view to the actual shapes rather than a guessed
-    // center/zoom, padded out further so more of the surrounding area
-    // (beyond just the 9 outlined countries) is visible at rest.
-    const regionBounds = L.geoJSON(countryBorders).getBounds().pad(0.35);
+    // Fit the view to Turkey's own shape (not the whole 9-country box) so
+    // it stays the clear visual focus at rest, with a small pad for context.
+    const regionBounds = L.geoJSON(countryBorders, {
+      filter: (feature) => feature.id === TURKEY_ISO,
+    }).getBounds().pad(0.2);
     map.fitBounds(regionBounds, { padding: FIT_PADDING });
 
     const marker = L.marker(ISTANBUL_CENTER, { icon: createMarkerIcon() });
@@ -94,18 +93,12 @@ function TurkeyMap() {
     }).setLatLng(ISTANBUL_CENTER).setContent('<strong>Istanbul</strong><span>Türkiye</span>');
     popupRef.current = popup;
 
-    let isHovered = false;
-
     const enter = () => {
-      isHovered = true;
-      map.flyTo(ISTANBUL_CENTER, ISTANBUL_ZOOM, { duration: FLY_DURATION, easeLinearity: 0.25 });
       marker.addTo(map);
       popup.addTo(map);
     };
 
     const leave = () => {
-      isHovered = false;
-      map.flyToBounds(regionBounds, { padding: FIT_PADDING, duration: FLY_DURATION, easeLinearity: 0.25 });
       map.removeLayer(marker);
       map.removeLayer(popup);
     };
@@ -127,11 +120,10 @@ function TurkeyMap() {
     }).addTo(map);
 
     // The map's container can still be resizing (flex-stretch layout,
-    // Reveal fade-in) after Leaflet reads its initial size — keep it synced,
-    // and re-fit the region view (unless the user is mid-hover on Istanbul).
+    // Reveal fade-in) after Leaflet reads its initial size — keep it synced.
     const resizeObserver = new ResizeObserver(() => {
       map.invalidateSize();
-      if (!isHovered) map.fitBounds(regionBounds, { padding: FIT_PADDING, animate: false });
+      map.fitBounds(regionBounds, { padding: FIT_PADDING, animate: false });
     });
     resizeObserver.observe(containerRef.current);
 

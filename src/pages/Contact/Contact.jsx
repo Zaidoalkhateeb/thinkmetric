@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
 import Reveal from '../../components/Reveal/Reveal';
+import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator';
 import { contact, location } from '../../data/siteContent';
 import './Contact.css';
 
@@ -36,15 +36,6 @@ const otherWaysToReachUs = [
 ];
 
 function Contact() {
-  const [atTop, setAtTop] = useState(true);
-
-  useEffect(() => {
-    const onScroll = () => setAtTop(window.scrollY < 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   return (
     <>
       <SEO
@@ -65,7 +56,11 @@ function Contact() {
             <span className="eyebrow">Get In Touch</span>
           </Reveal>
           <Reveal variant="up" delay={80}>
-            <h1 className="page-hero__title">Connect with ThinkMetric</h1>
+            <h1 className="page-hero__title">
+              Connect with
+              <br />
+              ThinkMetric
+            </h1>
           </Reveal>
           <Reveal variant="up" delay={160}>
             <p className="page-hero__lede">
@@ -74,23 +69,14 @@ function Contact() {
             </p>
           </Reveal>
         </div>
-        <span
-          className={`scroll-indicator ${atTop ? '' : 'scroll-indicator--hidden'}`}
-          aria-hidden="true"
-        >
-          <span className="scroll-indicator__mouse">
-            <span className="scroll-indicator__wheel" />
-          </span>
-          <ChevronDown size={14} className="scroll-indicator__chevron" aria-hidden="true" />
-          <span className="scroll-indicator__label mono">Scroll</span>
-        </span>
+        <ScrollIndicator />
       </section>
 
       <section className="section">
         <div className="container contact-grid">
           <Reveal as="div" variant="left" className="contact-grid__form">
             <span className="eyebrow">Send an Inquiry</span>
-            <h2 className="home-section__title">Tell us about your project.</h2>
+            <h2 className="home-section__title">Tell us about your project</h2>
             <ContactForm />
           </Reveal>
           <Reveal as="div" variant="right" delay={120} className="contact-grid__map">

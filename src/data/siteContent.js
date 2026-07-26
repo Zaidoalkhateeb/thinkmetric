@@ -29,12 +29,11 @@ export const location = {
 };
 
 export const about = {
-  heroHeading: 'Precision begins in the field.',
   paragraphs: [
     'ThinkMetric is a provider of advanced environmental measurement, remote monitoring, and autonomous power solutions for the renewable energy and industrial sectors.',
-    'We supply a carefully selected portfolio of high-performance technologies, including wind LiDAR systems, boundary layer and atmospheric LiDAR, meteorological sensing solutions, and autonomous off-grid power systems designed for demanding field applications. Our product range supports wind resource assessment, atmospheric research, industrial monitoring, and long-term remote measurement campaigns.',
-    'At ThinkMetric, we believe that reliable data begins with reliable equipment. Every solution is chosen to deliver accuracy, durability, and dependable operation in challenging environments, backed by technical expertise and responsive customer support.',
-    'Whether supporting a single measurement campaign or a large-scale monitoring programme, ThinkMetric is committed to delivering precision measurement solutions that enable confident decision-making.',
+    'We supply a focused portfolio of high-performance technologies — wind LiDAR, boundary-layer and atmospheric LiDAR, meteorological sensing, and autonomous off-grid power systems built for demanding field conditions, supporting wind resource assessment, atmospheric research, industrial monitoring, and long-term measurement campaigns.',
+    'Every solution is chosen for accuracy, durability, and dependable operation in challenging environments, backed by technical expertise and responsive support.',
+    'Whether supporting a single campaign or a large-scale monitoring programme, we help clients make confident, data-driven decisions.',
   ],
   principles: [
     {
@@ -43,7 +42,7 @@ export const about = {
         'Every technology in our portfolio is chosen for accuracy and fit-for-purpose performance, not added to fill a catalog.',
     },
     {
-      title: 'Dependability in demanding environments',
+      title: 'Trusted In the field',
       description:
         'From exposed ridgelines to remote uplands, our equipment is selected to operate reliably where onshore conditions are unforgiving.',
     },
@@ -94,21 +93,28 @@ export const categories = [
     slug: 'remote-power-supply-systems',
     number: '01',
     label: 'Remote Power Supply Systems',
-    shortLabel: 'Remote Power',
+    shortLabel: 'Power Solution',
     description:
       'Autonomous off-grid power solutions designed to support measurement equipment in demanding and remote field environments.',
     applications: ['Off-grid measurement sites', 'Remote monitoring stations', 'Extended field campaigns'],
     icon: 'remotePower',
     pending: true,
+    heroImage: '/images/field-turbine-power.webp',
   },
   {
-    slug: 'wind-measurement-lidar',
+    slug: 'lidars',
     number: '02',
-    label: 'Wind Measurement — LiDAR',
-    shortLabel: 'Wind LiDAR',
+    label: 'Lidars',
+    shortLabel: 'Lidars',
     description:
-      'Remote sensing technologies for wind-resource, turbine, boundary-layer, scanning, onshore, and airborne measurement applications.',
-    applications: ['Wind resource assessment', 'Turbine performance', 'Onshore campaigns', 'Boundary-layer profiling'],
+      'Remote sensing and atmospheric LiDAR technologies for wind-resource, turbine, boundary-layer, scanning, airborne, and atmospheric monitoring applications.',
+    applications: [
+      'Wind resource assessment',
+      'Turbine performance',
+      'Boundary-layer profiling',
+      'Atmospheric research',
+      'Air quality monitoring',
+    ],
     icon: 'windLidar',
   },
   {
@@ -121,16 +127,6 @@ export const categories = [
     applications: ['Site measurement campaigns', 'Long-term monitoring', 'Wind resource validation'],
     icon: 'metMast',
     pending: true,
-  },
-  {
-    slug: 'environmental-meteorological-lidar',
-    number: '04',
-    label: 'Environmental & Meteorological LiDAR',
-    shortLabel: 'Environment',
-    description:
-      'Atmospheric sensing technologies for temperature, humidity, aerosols, particulate matter, ozone, and gas-flux research and monitoring.',
-    applications: ['Atmospheric research', 'Air quality monitoring', 'Gas-flux studies'],
-    icon: 'atmosphericLidar',
   },
 ];
 

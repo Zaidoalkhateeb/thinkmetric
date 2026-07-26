@@ -35,13 +35,14 @@
   --focus-ring: #2f6f52;
 
   /* Typography */
-  --font-display: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
   --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Consolas, monospace;
 
   /* Layout */
   --max-width: 1320px;
   --max-width-narrow: 820px;
+  --max-width-wide: 1560px;
   --radius-sm: 3px;
   --radius-md: 6px;
   --radius-lg: 14px;

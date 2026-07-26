@@ -1,5 +1,69 @@
 .about-hero {
-  background: linear-gradient(180deg, var(--tm-fog) 0%, var(--bg-page) 100%);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-page);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.about-hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  /* Light touch only — this photo's warm sunset tones are the point, so we
+     keep it close to true color rather than flattening it like the other
+     hero treatments. */
+  filter: saturate(0.95) brightness(1.03);
+}
+
+.about-hero__tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(232, 238, 235, 0.32) 0%, rgba(232, 238, 235, 0.46) 55%, var(--bg-page) 100%);
+}
+
+/* Extra contrast behind the text column specifically — fades out toward the
+   right so the photo still reads clearly on that side. */
+.about-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(232, 238, 235, 0.85) 0%,
+    rgba(232, 238, 235, 0.6) 34%,
+    rgba(232, 238, 235, 0.18) 64%,
+    transparent 82%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .about-hero__scrim {
+    background: rgba(232, 238, 235, 0.75);
+  }
+}
+
+.about-hero__cta {
+  margin-top: var(--space-4);
+}
+
+.about-hero .page-hero__title {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
 }
 
 .about-body {
@@ -15,15 +79,32 @@
   }
 }
 
+.about-body__text {
+  height: auto;
+}
+
 .about-body__text h2 {
   margin-bottom: var(--space-4);
-  max-width: 18ch;
+  max-width: 55ch;
 }
 
 .about-body__text p {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: var(--space-3);
+  max-width: 55ch;
+  text-align: justify;
+}
+
+.about-body__text .about-body__trust {
+  border-left: 2px solid var(--tm-moss);
+  padding-left: var(--space-3);
+  margin-top: var(--space-4);
+  margin-bottom: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  color: var(--tm-forest);
 }
 
 .about-body__media img {
@@ -31,10 +112,20 @@
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  /* Source photo is a wide aerial shot — bias the crop left, away from the
+     frame's right edge, for the cleanest composition at this portrait ratio. */
+  object-position: 30% center;
 }
 
 .about-principles__title {
-  color: var(--tm-off-white);
+  color: var(--text-primary);
+}
+
+@media (min-width: 600px) {
+  .about-principles__title {
+    max-width: none;
+    white-space: nowrap;
+  }
 }
 
 .about-principles {
@@ -50,7 +141,7 @@
 }
 
 .about-principle {
-  border-top: 1px solid var(--border-inverse);
+  border-top: 1px solid var(--border-subtle);
   padding-top: var(--space-4);
 }
 
@@ -61,30 +152,14 @@
 }
 
 .about-principle h3 {
-  color: var(--tm-off-white);
+  color: var(--text-primary);
   margin-bottom: var(--space-2);
 }
 
 .about-principle p {
-  color: var(--tm-mint);
+  color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
+  text-align: justify;
 }
 
-.about-cta {
-  text-align: center;
-}
-
-.about-cta__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.about-cta__actions {
-  display: flex;
-  gap: var(--space-3);
-  flex-wrap: wrap;
-  justify-content: center;
-}

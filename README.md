@@ -23,7 +23,7 @@ updated without touching component code:
 
 - **`src/data/siteContent.js`** — company name, tagline, contact details,
   Istanbul location + Google Maps link, About copy, process steps,
-  the four product categories, and applications list.
+  the product categories, and applications list.
 - **`src/data/products.js`** — the full product catalog. Each entry:
 
   ```js
@@ -31,8 +31,8 @@ updated without touching component code:
     slug: 'windhorizon-h400',
     modelName: 'WindHorizon H400',
     productType: 'Nacelle Wind LiDAR',
-    categorySlug: 'wind-measurement-lidar',
-    categoryLabel: 'Wind Measurement — LiDAR',
+    categorySlug: 'lidars',
+    categoryLabel: 'Lidars',
     summary: '...',
     applications: [],
     image: null,      // see "Adding product images" below
@@ -124,10 +124,9 @@ for a lightweight decorative graphic. Attribution retained here per the license.
 
 ```
 /                                                Home
-/products                                        Products & Services overview (search + filter)
-/products/wind-measurement-lidar                 Category
+/products                                        Products & Services overview (filter by category)
+/products/lidars                                 Category
 /products/wind-measurement-met-mast              Category (pending model list)
-/products/environmental-meteorological-lidar     Category
 /products/remote-power-supply-systems            Category (pending model list)
 /products/detail/:productSlug                    Individual product page
 /about                                            About
