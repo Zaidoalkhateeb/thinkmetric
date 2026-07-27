@@ -19,7 +19,6 @@ const categoryOptions = [
   'Environmental LiDAR',
   'Wind Measurement — LiDAR',
   'Remote Power Supply Systems',
-  'Wind Measurement — Met Mast',
 ];
 
 const initialForm = {

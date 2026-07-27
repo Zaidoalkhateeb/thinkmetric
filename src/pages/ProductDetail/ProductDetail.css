@@ -83,6 +83,33 @@
   margin-bottom: var(--space-2);
 }
 
+.product-detail__features,
+.product-detail__extras {
+  margin-bottom: var(--space-5);
+}
+
+.product-detail__features ul,
+.product-detail__extras ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--text-secondary);
+  padding-left: 1.2em;
+}
+
+.product-detail__features li,
+.product-detail__extras li {
+  line-height: 1.5;
+}
+
+.product-detail__applications {
+  margin-bottom: var(--space-5);
+}
+
+.product-detail__applications .category-hero__tags {
+  margin: 0;
+}
+
 .product-detail__pdf {
   margin-bottom: var(--space-5);
 }

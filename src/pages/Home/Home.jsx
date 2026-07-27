@@ -29,8 +29,8 @@ function Home() {
   return (
     <>
       <SEO
-        title="Wind LiDAR, Met Mast &amp; Atmospheric Measurement"
-        description="ThinkMetric supplies wind LiDAR, meteorological mast, atmospheric LiDAR, and autonomous remote power systems for wind resource assessment, atmospheric research, and industrial monitoring."
+        title="Wind LiDAR, Atmospheric &amp; Remote Power Measurement"
+        description="ThinkMetric supplies wind LiDAR, atmospheric LiDAR, and autonomous remote power systems for wind resource assessment, atmospheric research, and industrial monitoring."
         path="/"
         jsonLd={jsonLd}
       />

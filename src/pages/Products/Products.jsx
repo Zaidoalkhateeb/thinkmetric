@@ -9,7 +9,7 @@ function Products() {
     <>
       <SEO
         title="Products &amp; Services"
-        description="Explore ThinkMetric's portfolio of wind LiDAR, meteorological mast, atmospheric LiDAR, and autonomous remote power systems."
+        description="Explore ThinkMetric's portfolio of wind LiDAR, atmospheric LiDAR, and autonomous remote power systems."
         path="/products"
       />
 

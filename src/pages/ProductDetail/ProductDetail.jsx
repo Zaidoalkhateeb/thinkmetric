@@ -64,6 +64,41 @@ function ProductDetail() {
               <h1 className="product-detail__title">{product.modelName}</h1>
               <p className="product-detail__summary">{product.summary}</p>
 
+              {product.features.length > 0 && (
+                <div className="product-detail__features">
+                  <h2 className="product-detail__section-title">Key Features</h2>
+                  <ul>
+                    {product.features.map((f) => (
+                      <li key={f}>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {product.applications.length > 0 && (
+                <div className="product-detail__applications">
+                  <h2 className="product-detail__section-title">Typical Applications</h2>
+                  <ul className="category-hero__tags">
+                    {product.applications.map((app) => (
+                      <li key={app} className="tag-pill">
+                        {app}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {product.optionalExtras.length > 0 && (
+                <div className="product-detail__extras">
+                  <h2 className="product-detail__section-title">Optional Extras</h2>
+                  <ul>
+                    {product.optionalExtras.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
               <div className="product-detail__pdf">
                 <h2 className="product-detail__section-title">Datasheet</h2>
                 <PdfAction pdfUrl={product.pdfUrl} modelName={product.modelName} />

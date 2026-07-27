@@ -83,16 +83,16 @@ function Header() {
                 <div className="mega-menu__body">
                   <div className="mega-menu__sidebar">
                     {categories.map((cat) => (
-                      <button
+                      <Link
                         key={cat.slug}
-                        type="button"
+                        to={`/products/${cat.slug}`}
                         className={`mega-menu__tab ${activeCategory === cat.slug ? 'is-active' : ''}`}
                         onMouseEnter={() => setActiveCategory(cat.slug)}
                         onFocus={() => setActiveCategory(cat.slug)}
-                        onClick={() => setActiveCategory(cat.slug)}
+                        role="menuitem"
                       >
                         {cat.shortLabel}
-                      </button>
+                      </Link>
                     ))}
                   </div>
 

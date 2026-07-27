@@ -93,12 +93,11 @@ export const categories = [
     slug: 'remote-power-supply-systems',
     number: '01',
     label: 'Remote Power Supply Systems',
-    shortLabel: 'Power Solution',
+    shortLabel: 'Power Solutions',
     description:
       'Autonomous off-grid power solutions designed to support measurement equipment in demanding and remote field environments.',
     applications: ['Off-grid measurement sites', 'Remote monitoring stations', 'Extended field campaigns'],
     icon: 'remotePower',
-    pending: true,
     heroImage: '/images/field-turbine-power.webp',
   },
   {
@@ -116,17 +115,6 @@ export const categories = [
       'Air quality monitoring',
     ],
     icon: 'windLidar',
-  },
-  {
-    slug: 'wind-measurement-met-mast',
-    number: '03',
-    label: 'Wind Measurement — Met Mast',
-    shortLabel: 'Met Mast',
-    description:
-      'Meteorological mast solutions for dependable, long-term wind and site measurement campaigns.',
-    applications: ['Site measurement campaigns', 'Long-term monitoring', 'Wind resource validation'],
-    icon: 'metMast',
-    pending: true,
   },
 ];
 
