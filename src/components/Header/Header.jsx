@@ -5,6 +5,11 @@ import { categories } from '../../data/siteContent';
 import { getProductsByCategory } from '../../data/products';
 import './Header.css';
 
+const megaMenuImages = {
+  'remote-power-supply-systems': '/images/remote-power-container.webp',
+};
+const defaultMegaMenuImage = '/images/field-turbine-hills.webp';
+
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
@@ -132,7 +137,7 @@ function Header() {
                   })}
 
                   <div className="mega-menu__media" aria-hidden="true">
-                    <img src="/images/field-turbine-hills.webp" alt="" />
+                    <img src={megaMenuImages[activeCategory] || defaultMegaMenuImage} alt="" />
                   </div>
                 </div>
               </div>

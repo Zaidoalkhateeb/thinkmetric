@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import Reveal from '../../components/Reveal/Reveal';
@@ -95,14 +95,6 @@ function ProductCategory() {
           </p>
           <Link to={`/contact?type=technical&product=${encodeURIComponent(category.label)}`} className="btn btn--secondary">
             Request a Technical Discussion
-          </Link>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <Link to="/products" className="category-back">
-            <ArrowLeft size={16} aria-hidden="true" /> Back to all products &amp; services
           </Link>
         </div>
       </section>

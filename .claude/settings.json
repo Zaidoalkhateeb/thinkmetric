@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-mfc-375a-2.png\" --window-size=1400,2200 \"http://localhost:5174/products/detail/tm-mfc-375a\")",
+      "Bash(python3 -c ' *)",
+      "Bash(node \"C:\\\\Users\\\\zaido\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-zaido-Projects-thinkmetric\\\\f4af4480-cf9d-4b63-b7e0-058c31e0639b\\\\scratchpad\\\\cdp-debug.mjs\")",
+      "Bash(npx vite *)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-mfc-375a-nopdf.png\" --window-size=1400,1400 \"http://localhost:5174/products/detail/tm-mfc-375a\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-mfc-375a-restyled.png\" --window-size=1400,1300 \"http://localhost:5174/products/detail/tm-mfc-375a\")",
+      "Bash(ffmpeg -i \"/c/Users/zaido/Desktop/Gemini_Generated_Image_m3tru2m3tru2m3tr.png\" -vf \"scale=800:-1\" -q:v 80 public/images/products/tm-hd-container.webp -y)",
+      "Bash(pip show *)",
+      "Bash(where rembg *)",
+      "Bash(python -c \"import PIL; print\\(PIL.__version__\\)\")",
+      "Bash(python -c \"import numpy; print\\(numpy.__version__\\)\")",
+      "Bash(python -c \"import scipy; print\\(scipy.__version__\\)\")",
+      "Bash(time python remove_bg2.py \"/c/Users/zaido/Desktop/Gemini_Generated_Image_an64i3an64i3an64.png\" \"./container-nobg-v2.png\" 22)",
+      "Bash(python -c ' *)",
+      "Bash(python -m pip --version)",
+      "Bash(python -m pip install --quiet rembg onnxruntime)",
+      "Bash(python -c \"import rembg; print\\('ok'\\)\")",
+      "Bash(ffmpeg -i \"C:/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/hd-10000c-user-cut.png\" -vf \"scale=800:-1\" -lossless 0 -q:v 90 public/images/products/tm-hd-10000c.webp -y)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/catalog-check.png\" --window-size=1400,700 \"http://localhost:5174/products/remote-power-supply-systems\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/catalog-check2.png\" --window-size=1400,1200 \"http://localhost:5174/products/remote-power-supply-systems\")",
+      "Bash(sed -i \"s/require\\('fs'\\).writeFileSync/\\(await import\\('fs'\\)\\).writeFileSync/\" mega-menu-check.mjs)",
+      "Bash(node mega-menu-check.mjs)",
+      "Bash(node mega-menu-check2.mjs)",
+      "Bash(sed -i \"s/=== 'Lidars'/=== 'Power Solutions'/\" mega-menu-check2.mjs)",
+      "Bash(sed -i \"s/mega-menu-lidars.png/mega-menu-power.png/\" mega-menu-check2.mjs)",
+      "Bash(node mega-menu-check3.mjs)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-hd-10000c-final.png\" --window-size=1400,1300 \"http://localhost:5174/products/detail/tm-hd-10000c\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-hd-10000c-final2.png\" --window-size=1400,1300 \"http://localhost:5174/products/detail/tm-hd-10000c\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-mfc-final.png\" --window-size=1400,1300 \"http://localhost:5174/products/detail/tm-mfc-375a\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/tm-hd-10000c-bgfix.png\" --window-size=1000,700 \"http://localhost:5174/products/detail/tm-hd-10000c\")",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/catalog-bgfix.png\" --window-size=1400,1200 \"http://localhost:5174/products/remote-power-supply-systems\")",
+      "Bash(ffmpeg -i \"C:/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/hd-consistent-wide.png\" -vf \"scale=800:-1\" -lossless 0 -q:v 90 public/images/products/tm-hd-wide.webp -y)",
+      "Bash(\"/c/Program Files \\(x86\\)/Microsoft/Edge/Application/msedge.exe\" --headless=new --disable-gpu --force-prefers-reduced-motion --virtual-time-budget=6000 --screenshot=\"/c/Users/zaido/AppData/Local/Temp/claude/c--Users-zaido-Projects-thinkmetric/f4af4480-cf9d-4b63-b7e0-058c31e0639b/scratchpad/catalog-final-check.png\" --window-size=1400,2000 \"http://localhost:5174/products/remote-power-supply-systems\")"
+    ]
+  }
+}

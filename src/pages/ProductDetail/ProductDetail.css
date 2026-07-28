@@ -6,7 +6,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-6);
-  align-items: start;
+  align-items: center;
+}
+
+.category-back--top {
+  margin-bottom: var(--space-4);
 }
 
 @media (max-width: 860px) {
@@ -18,10 +22,10 @@
 .product-detail__media {
   position: sticky;
   top: 100px;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
-  background: var(--tm-fog);
+  background: var(--bg-page);
 }
 
 @media (max-width: 860px) {
@@ -33,7 +37,8 @@
 .product-detail__media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 20px rgba(14, 57, 42, 0.22));
 }
 
 .product-detail__placeholder {
@@ -47,6 +52,7 @@
   color: var(--tm-moss);
   text-align: center;
   padding: var(--space-4);
+  border-radius: var(--radius-lg);
   background: repeating-linear-gradient(
     135deg,
     rgba(14, 57, 42, 0.05),
@@ -76,6 +82,8 @@
   font-size: 1.05rem;
   line-height: 1.65;
   margin-bottom: var(--space-5);
+  text-align: justify;
+  text-align-last: left;
 }
 
 .product-detail__section-title {
@@ -99,7 +107,49 @@
 
 .product-detail__features li,
 .product-detail__extras li {
+  position: relative;
   line-height: 1.5;
+  text-align: justify;
+  text-align-last: left;
+}
+
+.product-detail__features li::before,
+.product-detail__extras li::before {
+  content: '';
+  position: absolute;
+  left: -1.2em;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  background: var(--tm-moss);
+}
+
+.product-detail__specs {
+  margin-bottom: var(--space-5);
+}
+
+.product-detail__specs dl {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.product-detail__specs-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-3);
+  padding-block: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.product-detail__specs-row dt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.product-detail__specs-row dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .product-detail__applications {
@@ -111,10 +161,5 @@
 }
 
 .product-detail__pdf {
-  margin-bottom: var(--space-5);
-}
-
-.product-detail__contact-cta {
-  width: fit-content;
   margin-bottom: var(--space-5);
 }

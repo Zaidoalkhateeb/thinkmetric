@@ -22,6 +22,7 @@ function ProductCard({ product }) {
         </div>
 
         <div className="product-card__body">
+          <span className="product-card__type">{product.productType}</span>
           <h3 className="product-card__title">{product.modelName}</h3>
         </div>
       </Link>
