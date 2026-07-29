@@ -18,7 +18,7 @@ const inquiryTypes = [
 const categoryOptions = [
   'Environmental LiDAR',
   'Wind Measurement — LiDAR',
-  'Remote Power Supply Systems',
+  'Power Solutions',
 ];
 
 const initialForm = {

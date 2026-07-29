@@ -37,8 +37,8 @@ function ProductDetail() {
 
       <section className="section product-detail">
         <div className="container">
-          <Link to="/products" className="category-back category-back--top">
-            <ArrowLeft size={16} aria-hidden="true" /> Back to all products
+          <Link to={`/products/${product.categorySlug}`} className="category-back category-back--top">
+            <ArrowLeft size={16} aria-hidden="true" /> Back to {category ? category.shortLabel : 'all products'}
           </Link>
 
           <div className="product-detail__grid">

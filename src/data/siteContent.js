@@ -30,10 +30,7 @@ export const location = {
 
 export const about = {
   paragraphs: [
-    'ThinkMetric is a provider of advanced environmental measurement, remote monitoring, and autonomous power solutions for the renewable energy and industrial sectors.',
-    'We supply a focused portfolio of high-performance technologies — wind LiDAR, boundary-layer and atmospheric LiDAR, meteorological sensing, and autonomous off-grid power systems built for demanding field conditions, supporting wind resource assessment, atmospheric research, industrial monitoring, and long-term measurement campaigns.',
-    'Every solution is chosen for accuracy, durability, and dependable operation in challenging environments, backed by technical expertise and responsive support.',
-    'Whether supporting a single campaign or a large-scale monitoring programme, we help clients make confident, data-driven decisions.',
+
   ],
   principles: [
     {
@@ -92,11 +89,11 @@ export const categories = [
   {
     slug: 'remote-power-supply-systems',
     number: '01',
-    label: 'Remote Power Supply Systems',
+    label: 'Power Solutions',
     shortLabel: 'Power Solutions',
     description:
-      'Autonomous off-grid power solutions designed to support measurement equipment in demanding and remote field environments.',
-    applications: ['Off-grid measurement sites', 'Remote monitoring stations', 'Extended field campaigns'],
+      '',
+    applications: [],
     icon: 'remotePower',
     heroImage: '/images/field-turbine-power.webp',
   },
@@ -106,13 +103,8 @@ export const categories = [
     label: 'Lidars',
     shortLabel: 'Lidars',
     description:
-      'Remote sensing and atmospheric LiDAR technologies for wind-resource, turbine, boundary-layer, scanning, airborne, and atmospheric monitoring applications.',
+      '',
     applications: [
-      'Wind resource assessment',
-      'Turbine performance',
-      'Boundary-layer profiling',
-      'Atmospheric research',
-      'Air quality monitoring',
     ],
     icon: 'windLidar',
   },

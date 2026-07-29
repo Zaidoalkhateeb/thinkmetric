@@ -28,6 +28,16 @@
   box-shadow: var(--shadow-lg);
 }
 
+.floating-contact__btn--pending {
+  background: var(--tm-silver);
+  cursor: not-allowed;
+}
+
+.floating-contact__btn--pending:hover {
+  transform: none;
+  box-shadow: var(--shadow-md);
+}
+
 @media (max-width: 640px) {
   .floating-contact {
     right: var(--space-3);

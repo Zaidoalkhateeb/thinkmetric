@@ -1,9 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, Home } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import CategoryCtaTab from '../../components/CategoryCtaTab/CategoryCtaTab';
 import Reveal from '../../components/Reveal/Reveal';
-import { categoryIcons } from '../../components/IconMark/IconMark';
 import { categories } from '../../data/siteContent';
 import { getProductsByCategory } from '../../data/products';
 import './ProductCategory.css';
@@ -15,7 +15,6 @@ function ProductCategory() {
   if (!category) return <Navigate to="/products" replace />;
 
   const products = getProductsByCategory(category.slug);
-  const Icon = categoryIcons[category.icon];
 
   return (
     <>
@@ -36,17 +35,15 @@ function ProductCategory() {
         )}
         <div className="container">
           <nav aria-label="Breadcrumb" className="breadcrumbs">
-            <Link to="/products">Products &amp; Services</Link>
-            <span aria-hidden="true">/</span>
+            <Link to="/">
+              <Home size={13} aria-hidden="true" /> Home
+            </Link>
+            <ChevronRight size={13} aria-hidden="true" />
+            <Link to="/products">Products</Link>
+            <ChevronRight size={13} aria-hidden="true" />
             <span aria-current="page">{category.label}</span>
           </nav>
 
-          <div className="category-hero__top">
-            <span className="category-hero__icon">
-              <Icon aria-hidden="true" />
-            </span>
-            <span className="mono category-hero__number">{category.number}</span>
-          </div>
           <h1 className="page-hero__title">{category.label}</h1>
           <p className="page-hero__lede">{category.description}</p>
 
@@ -71,8 +68,7 @@ function ProductCategory() {
             </div>
           ) : (
             <>
-              <span className="eyebrow">Models in this category</span>
-              <h2 className="home-section__title">{products.length} products available to explore.</h2>
+              <span className="eyebrow category-products__eyebrow">Products in this category</span>
               <div className="product-catalog__grid">
                 {products.map((p, i) => (
                   <Reveal key={p.slug} variant="up" delay={(i % 6) * 70}>
@@ -85,19 +81,7 @@ function ProductCategory() {
         </div>
       </section>
 
-      <section className="section section--fog">
-        <div className="container category-guidance">
-          <h2>Choosing the right solution</h2>
-          <p>
-            The right technology depends on your measurement objective, site conditions, and deployment
-            constraints. Our technical team can help you evaluate fit within this category before you commit
-            to a configuration.
-          </p>
-          <Link to={`/contact?type=technical&product=${encodeURIComponent(category.label)}`} className="btn btn--secondary">
-            Request a Technical Discussion
-          </Link>
-        </div>
-      </section>
+      <CategoryCtaTab categoryLabel={category.label} />
     </>
   );
 }

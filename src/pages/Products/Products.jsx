@@ -15,11 +15,8 @@ function Products() {
 
       <section className="page-hero page-hero--light">
         <div className="container">
-          <Reveal variant="fade">
-            <span className="eyebrow">Products &amp; Services</span>
-          </Reveal>
           <Reveal variant="up" delay={80}>
-            <h1 className="page-hero__title">A curated portfolio for environmental measurement</h1>
+            <h1 className="page-hero__title"></h1>
           </Reveal>
           <Reveal variant="up" delay={160}>
             <p className="page-hero__lede">{about.paragraphs[1]}</p>

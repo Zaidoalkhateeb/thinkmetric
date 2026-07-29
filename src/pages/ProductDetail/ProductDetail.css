@@ -75,6 +75,14 @@
 
 .product-detail__title {
   margin-block: var(--space-2) var(--space-3);
+  font-size: clamp(1.7rem, 3.6vw, 3rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .product-detail__title {
+    white-space: normal;
+  }
 }
 
 .product-detail__summary {
