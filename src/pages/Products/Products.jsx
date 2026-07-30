@@ -1,5 +1,6 @@
 import SEO from '../../components/SEO/SEO';
 import ProductCatalog from '../../components/ProductCatalog/ProductCatalog';
+import CategoryCtaTab from '../../components/CategoryCtaTab/CategoryCtaTab';
 import Reveal from '../../components/Reveal/Reveal';
 import './Products.css';
 
@@ -22,6 +23,8 @@ function Products() {
           <ProductCatalog />
         </div>
       </section>
+
+      <CategoryCtaTab categoryLabel="Products & Services" />
     </>
   );
 }

@@ -1,7 +1,7 @@
 .ribbon {
   overflow: hidden;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-inverse);
+  border-bottom: 1px solid var(--border-inverse);
   padding-block: var(--space-4);
 }
 
@@ -22,7 +22,7 @@
   font-family: var(--font-mono);
   font-size: 0.9rem;
   letter-spacing: 0.03em;
-  color: var(--tm-moss);
+  color: var(--tm-mint);
   white-space: nowrap;
   display: flex;
   align-items: center;

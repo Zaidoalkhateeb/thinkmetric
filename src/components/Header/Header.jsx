@@ -7,6 +7,7 @@ import './Header.css';
 
 const megaMenuImages = {
   'remote-power-supply-systems': '/images/remote-power-container.webp',
+  lidars: '/images/lidars-mega-menu.webp',
 };
 const defaultMegaMenuImage = '/images/field-turbine-hills.webp';
 
@@ -136,7 +137,10 @@ function Header() {
                     );
                   })}
 
-                  <div className="mega-menu__media" aria-hidden="true">
+                  <div
+                    className={`mega-menu__media ${activeCategory === 'lidars' ? 'mega-menu__media--contain' : ''}`}
+                    aria-hidden="true"
+                  >
                     <img src={megaMenuImages[activeCategory] || defaultMegaMenuImage} alt="" />
                   </div>
                 </div>

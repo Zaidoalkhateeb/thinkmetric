@@ -62,7 +62,7 @@ function Home() {
         </span>
       </section>
 
-      <section className="section">
+      <section className="section section--tight">
         <div className="container">
           <Reveal variant="fade">
             <span className="eyebrow">Products &amp; Services</span>
@@ -77,7 +77,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tight">
         <div className="container">
           <Reveal variant="fade">
             <span className="eyebrow">From Field to Decision</span>
@@ -88,9 +88,12 @@ function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tight">
         <div className="container">
-          <Reveal variant="scale">
+          <Reveal variant="fade">
+            <span className="eyebrow">Technology Overview</span>
+          </Reveal>
+          <Reveal variant="scale" delay={80} className="home-scan-reveal">
             <ScanReveal />
           </Reveal>
         </div>
@@ -100,7 +103,7 @@ function Home() {
         <ApplicationsRibbon />
       </section>
 
-      <section className="section">
+      <section className="section section--tight">
         <div className="container home-location">
           <Reveal as="div" variant="left" className="home-location__body">
             <span className="eyebrow">Location</span>

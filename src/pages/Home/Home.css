@@ -129,6 +129,10 @@
   margin-top: var(--space-5);
 }
 
+.home-scan-reveal {
+  margin-top: var(--space-5);
+}
+
 .home-about-preview__grid {
   display: grid;
   grid-template-columns: 0.85fr 1fr;
@@ -164,6 +168,11 @@
 
 .home-about-preview__body .btn {
   margin-top: var(--space-3);
+}
+
+.home-ribbon-wrap {
+  background: var(--tm-forest);
+  padding-block: 0;
 }
 
 .home-location {

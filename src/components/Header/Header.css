@@ -237,6 +237,15 @@
   display: block;
 }
 
+.mega-menu__media--contain {
+  background: var(--tm-white);
+}
+
+.mega-menu__media--contain img {
+  object-fit: contain;
+  padding: var(--space-1);
+}
+
 @media (max-width: 1100px) {
   .mega-menu {
     width: 96vw;
