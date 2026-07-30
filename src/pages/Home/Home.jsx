@@ -8,7 +8,7 @@ import ScanReveal from '../../components/ScanReveal/ScanReveal';
 import ApplicationsRibbon from '../../components/ApplicationsRibbon/ApplicationsRibbon';
 import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
 import Reveal from '../../components/Reveal/Reveal';
-import { about, brand, contact, location, categories, siteUrl } from '../../data/siteContent';
+import { brand, contact, location, categories, siteUrl } from '../../data/siteContent';
 import './Home.css';
 
 function Home() {
@@ -39,7 +39,9 @@ function Home() {
         <HeroMedia />
         <div className="container home-hero__inner">
           <Reveal as="h1" variant="up" className="home-hero__title">
-            Measure the invisible — decide with confidence
+            Measure the invisible,
+            <br />
+            decide with confidence
           </Reveal>
           <Reveal as="p" variant="up" delay={90} className="home-hero__desc">
             Advanced measurement and autonomous power technologies for wind, atmospheric, industrial, and
@@ -53,9 +55,6 @@ function Home() {
               Talk to Our Team
             </Link>
           </Reveal>
-          <a href={location.mapsUrl} target="_blank" rel="noopener noreferrer" className="home-hero__location">
-            {location.label}
-          </a>
         </div>
         <span className="home-hero__scroll-cue" aria-hidden="true">
           <span className="home-hero__scroll-cue-line" />
@@ -68,9 +67,6 @@ function Home() {
           <Reveal variant="fade">
             <span className="eyebrow">Products &amp; Services</span>
           </Reveal>
-          <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">Four technology categories, one measurement portfolio</h2>
-          </Reveal>
           <div className="home-gateways">
             {categories.map((cat, i) => (
               <Reveal key={cat.slug} variant="up" delay={i * 90}>
@@ -81,13 +77,10 @@ function Home() {
         </div>
       </section>
 
-      <section className="section section--fog">
+      <section className="section">
         <div className="container">
           <Reveal variant="fade">
             <span className="eyebrow">From Field to Decision</span>
-          </Reveal>
-          <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">How the portfolio supports a measurement campaign</h2>
           </Reveal>
           <div className="home-process">
             <ProcessSteps />
@@ -97,44 +90,8 @@ function Home() {
 
       <section className="section">
         <div className="container">
-          <Reveal variant="fade">
-            <span className="eyebrow">Atmospheric Intelligence</span>
-          </Reveal>
-          <Reveal variant="up" delay={80}>
-            <h2 className="home-section__title">Sense what moves through the atmosphere</h2>
-          </Reveal>
-          <Reveal variant="up" delay={140}>
-            <p className="home-section__lede">
-              An illustrated look at what our portfolio is designed to measure — from surface wind to the
-              atmospheric column above it. Educational, not live telemetry.
-            </p>
-          </Reveal>
-          <Reveal variant="scale" delay={180}>
+          <Reveal variant="scale">
             <ScanReveal />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section section--inverse home-about-preview">
-        <div className="container home-about-preview__grid">
-          <Reveal as="div" variant="left" className="home-about-preview__media">
-            <picture>
-              <source srcSet="/images/field-turbine-hills.webp" type="image/webp" />
-              <img
-                src="/images/field-turbine-hills.jpg"
-                alt="Wind turbine standing on open grassland, viewed from above"
-                loading="lazy"
-              />
-            </picture>
-          </Reveal>
-          <Reveal as="div" variant="right" delay={100} className="home-about-preview__body">
-            <span className="eyebrow eyebrow--inverse">About ThinkMetric</span>
-            <h2>Reliable data begins with reliable equipment</h2>
-            <p>{about.paragraphs[0]}</p>
-            <p>{about.paragraphs[2]}</p>
-            <Link to="/about" className="btn btn--on-dark">
-              Discover ThinkMetric <ArrowRight size={16} aria-hidden="true" />
-            </Link>
           </Reveal>
         </div>
       </section>
@@ -155,27 +112,6 @@ function Home() {
           </Reveal>
           <Reveal as="div" variant="right" delay={120} className="home-location__map">
             <TurkeyMap />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section home-cta">
-        <div className="container home-cta__inner">
-          <Reveal variant="scale">
-            <h2>Planning a measurement campaign?</h2>
-          </Reveal>
-          <Reveal variant="up" delay={100}>
-            <p>Tell us about the environment, measurement objective, and deployment requirements.</p>
-          </Reveal>
-          <Reveal variant="up" delay={180}>
-            <div className="home-cta__actions">
-              <Link to="/contact" className="btn btn--ghost-on-dark">
-                Start a Conversation
-              </Link>
-              <a href={`mailto:${contact.salesEmail}`} className="home-cta__email">
-                {contact.salesEmail}
-              </a>
-            </div>
           </Reveal>
         </div>
       </section>

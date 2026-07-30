@@ -116,19 +116,19 @@ export const categories = [
 export const atmosphericModes = [
   {
     id: 'wind',
-    label: 'Wind',
+    label: 'Wind Wave',
     description:
       'Horizontal wind flow measured at multiple heights, revealing shear and turbulence across a rotor swept area.',
   },
   {
     id: 'boundary-layer',
-    label: 'Boundary Layer',
+    label: 'Lidar',
     description:
       'The atmospheric layer nearest the surface, where wind behaviour is shaped by terrain, heat, and turbulence.',
   },
   {
     id: 'atmosphere',
-    label: 'Atmosphere',
+    label: 'Met Mast',
     description:
       'Temperature, humidity, and aerosol structure through the atmospheric column, sensed remotely without physical contact.',
   },

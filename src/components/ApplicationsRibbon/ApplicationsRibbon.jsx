@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { applications } from '../../data/siteContent';
+import { products } from '../../data/products';
 import './ApplicationsRibbon.css';
 
 function ApplicationsRibbon() {
@@ -13,7 +13,8 @@ function ApplicationsRibbon() {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const items = [...applications, ...applications];
+  const productNames = products.map((p) => p.modelName);
+  const items = [...productNames, ...productNames];
 
   return (
     <div className={`ribbon ${reduced ? 'ribbon--static' : ''}`} role="list" aria-label="Supported applications">

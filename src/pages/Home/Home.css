@@ -32,19 +32,6 @@
   margin-bottom: var(--space-5);
 }
 
-.home-hero__location {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  color: var(--tm-mint);
-}
-
-.home-hero__location:hover {
-  text-decoration: underline;
-}
-
 .home-hero__scroll-cue {
   position: absolute;
   bottom: var(--space-4);
@@ -123,6 +110,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-3);
+  margin-top: var(--space-5);
 }
 
 @media (max-width: 980px) {
@@ -176,10 +164,6 @@
 
 .home-about-preview__body .btn {
   margin-top: var(--space-3);
-}
-
-.home-ribbon-wrap {
-  background: var(--tm-forest);
 }
 
 .home-location {

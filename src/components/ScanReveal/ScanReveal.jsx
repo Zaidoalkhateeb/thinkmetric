@@ -72,7 +72,6 @@ function ScanReveal() {
             role="tab"
             type="button"
             aria-selected={active === mode.id}
-            aria-controls={`${baseId}-panel-${mode.id}`}
             className={`scan-reveal__tab ${active === mode.id ? 'is-active' : ''}`}
             onClick={() => setActive(mode.id)}
           >
@@ -90,19 +89,6 @@ function ScanReveal() {
         >
           {illustrations[active]}
         </svg>
-
-        {atmosphericModes.map((mode) => (
-          <div
-            key={mode.id}
-            id={`${baseId}-panel-${mode.id}`}
-            role="tabpanel"
-            aria-labelledby={`${baseId}-tab-${mode.id}`}
-            hidden={active !== mode.id}
-            className="scan-reveal__panel"
-          >
-            <p className="scan-reveal__desc">{mode.description}</p>
-          </div>
-        ))}
       </div>
     </div>
   );
