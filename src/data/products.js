@@ -102,19 +102,14 @@ const raw = [
     productType: 'Nacelle Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'The WindHorizon H400 is a compact, high-precision nacelle-mounted forward-looking pulsed wind LiDAR. It accurately measures wind speed and direction at any of 10 configurable range gates from 50m to 400m directly in front of the wind turbine hub. This system is ideal for yaw error correction, wind turbine power curve testing, feedforward control, and load reduction — improving power generation efficiency, reducing loads and failure rates, and extending turbine service life.',
+      'The WindHorizon H400 is a compact, high-precision nacelle-mounted forward-looking pulsed wind LiDAR. It accurately measures wind speed and direction at any of 10 configurable range gates from 50m to 400m directly in front of the wind turbine hub. This system is ideal for yaw error correction, wind turbine power curve testing, feedforward control, and load reduction  improving power generation efficiency, reducing loads and failure rates, and extending turbine service life.',
     features: [
-      'wind turbine yaw correction, feedforward control',
-      'High accuracy:wind speed <0.1m/s, wind direction <0.5°, passed white box and black box accuracy testing',
-      'High resolution: 1Hz–10Hz data refresh rate, meter-level distance resolution',
-      'Unattended: remote network data acquisition and device monitoring',
-      'Strong robustness: continuous, stable operation in harsh onshore and offshore environments',
+      'High accuracy',
+      'High resolution',
+      'Unattended',
+      'Strong robustness',
     ],
     applications: [
-      'Yaw error correction for wind turbines',
-      'Wind turbine power curve testing',
-      'Feedforward control',
-      'Load reduction',
     ],
     specifications: [
       { label: 'Detection range', value: '50m–400m' },
@@ -182,7 +177,7 @@ const raw = [
     productType: 'Floating Buoy Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'WindMast 350-MB is a fully self-developed floating buoy wind LiDAR system, combining a domestically produced wind LiDAR, a 6-meter large buoy platform, a self-supply power system, BeiDou positioning and communication, and a motion-platform attitude correction algorithm. Designed to withstand continuous rain and typhoon conditions at sea, it delivers stable, high-precision wind measurements under harsh meteorological and sea conditions.',
+      'WindMast 350-MB is a fully self-developed floating buoy wind LiDAR system, combining a domestically produced wind LiDAR, a 6-meter large buoy platform, a self supply power system, BeiDou positioning and communication, and a motion platform attitude correction algorithm. Designed to withstand continuous rain and typhoon conditions at sea, it delivers stable, high precision wind measurements under harsh meteorological and sea conditions.',
     features: [
       'High spatial & temporal resolution',
       'Real-time attitude correction algorithm for wind field inversion',
@@ -192,10 +187,6 @@ const raw = [
       'Remote control via satellite data transmission',
     ],
     applications: [
-      'Offshore wind resource assessment and evaluation',
-      'Offshore wind turbine power curve testing',
-      'Offshore wind power forecasting',
-      'Atmospheric boundary layer dynamics research in marine environments',
     ],
     specifications: [
       { label: 'Detection height', value: '10m–350m' },
@@ -224,17 +215,17 @@ const raw = [
     productType: 'Blade Clearance Monitoring LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      "The LC-LHM-905 blade clearance monitoring LiDAR uses laser ranging technology to build a blade clearance monitoring system, tracking the real-time clearance distance between wind turbine blades and the tower during operation. When clearance falls below the standard value, the system triggers an alarm, allowing the turbine's main controller to take protective measures — ensuring safe operation and ultimately increasing power generation.",
+      "The LC-LHM-905 blade clearance monitoring LiDAR uses laser ranging technology to build a blade clearance monitoring system, tracking the real time clearance distance between wind turbine blades and the tower during operation. When clearance falls below the standard value, the system triggers an alarm, allowing the turbine's main controller to take protective measures ensuring safe operation and ultimately increasing power generation.",
     features: [
       'Suitable for different terrain scenarios',
       'Small size, low power consumption',
       'Multiple beams',
       'Strong environmental adaptability',
       'Auto interference recognition',
-      'Real-time monitoring of blade-to-tower clearance distance',
+      'Real time monitoring of blade-to-tower clearance distance',
       'Automatic alarm and shutdown trigger when clearance falls below the safe distance',
     ],
-    applications: ['Wind turbine blade clearance monitoring', 'Turbine safety and protective shutdown'],
+    applications: [],
     specifications: [
       { label: 'Wavelength', value: '905nm, Class I laser eye safety requirements' },
       { label: 'Standard range', value: '200m @ 80% reflectivity' },
@@ -260,16 +251,12 @@ const raw = [
     productType: 'Boundary Layer Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'WindMast PBL is a boundary layer wind LiDAR based on the optical pulse coherent Doppler frequency-shift detection principle, designed to meet the fine detection needs of three-dimensional wind fields within the atmospheric boundary layer. It is available in two models: Model I for detailed low-altitude wind field detection within 350m (spatial resolution down to 1m), and Model II, which extends the detection range up to 1500m for broader detection needs.',
+      'WindMast PBL is a boundary layer wind LiDAR based on the optical pulse coherent Doppler frequency shift detection principle, designed to meet the fine detection needs of three dimensional wind fields within the atmospheric boundary layer. It is available in two models: Model I for detailed low-altitude wind field detection within 350m (spatial resolution down to 1m), and Model II, which extends the detection range up to 1500m for broader detection needs.',
     features: [
       'Pulsed coherent Doppler LiDAR for detection of wind field and aerosol',
       'Supports ground-based, vehicle-mounted, and shipborne platform monitoring modes, capable of real-time high-precision observations of wind fields, aerosols, and other parameters',
     ],
     applications: [
-      'Meteorological and climate research',
-      'Meteorological model assimilation',
-      'Atmospheric flux and pollutant regional transport and diffusion studies',
-      'Low-altitude wind shear detection',
     ],
     specifications: [
       { label: 'Wavelength', value: '1550nm, invisible and eye safe' },
@@ -297,16 +284,12 @@ const raw = [
     productType: 'Boundary Layer Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'WindFlux 3000 is a boundary layer wind LiDAR based on the optical pulse coherent Doppler frequency-shift detection principle, enabling refined detection of the three-dimensional wind field in the lower and middle troposphere, including the atmospheric boundary layer.',
+      'WindFlux 3000 is a boundary layer wind LiDAR based on the optical pulse coherent Doppler frequency shift detection principle, enabling refined detection of the three dimensional wind field in the lower and middle troposphere, including the atmospheric boundary layer.',
     features: [
       'Pulsed coherent Doppler LiDAR for detection of wind field and aerosol',
       'Supports ground-based, vehicle-mounted, and shipborne platform monitoring modes, capable of real-time high-precision observations of wind fields, aerosols, and other parameters',
     ],
     applications: [
-      'Meteorological and climate research',
-      'Assimilation of meteorological forecasting models',
-      'Studies on atmospheric material fluxes, regional transport, and diffusion of pollutants',
-      'Low-altitude wind shear detection',
     ],
     specifications: [
       { label: 'Wavelength', value: '1550nm' },
@@ -334,14 +317,14 @@ const raw = [
     productType: 'Boundary Layer Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'Based on the optical pulse coherent Doppler shift detection principle, the WindMast PBL(S) vertical profile wind LiDAR is characterized by miniaturization, low power consumption, and high accuracy. It can be mounted on fixed or mobile platforms across different fields — ground-based, air-based, sea-based, and space-based — to meet monitoring needs across diverse scenarios. The modular design supports personalized customization, allowing users to choose and combine attachments to suit different monitoring requirements.',
+      'Based on the optical pulse coherent Doppler shift detection principle, the WindMast PBL(S) vertical profile wind LiDAR is characterized by miniaturization, low power consumption, and high accuracy. It can be mounted on fixed or mobile platforms across different fields  ground-based, air based, sea based, and space based  to meet monitoring needs across diverse scenarios. The modular design supports personalized customization, allowing users to choose and combine attachments to suit different monitoring requirements.',
     features: [
       'Miniaturized, low power consumption, high precision',
       'Mountable on multiple platforms: ground, air, sea, and space',
       'Modular design supports personalized customization with interchangeable attachments',
       'Real-time output of wind profile, vertical airflow, wind shear, low-level rapids, gusts, and turbulence intensity',
     ],
-    applications: ['Environmental monitoring', 'Low-altitude economy', 'Emergency monitoring'],
+    applications: [],
     specifications: [
       { label: 'Detection range', value: '30m–800m' },
       { label: 'Operating wavelength', value: '1550nm' },
@@ -365,18 +348,13 @@ const raw = [
     productType: 'Boundary Layer Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'WindMast PBL(SV) is a boundary layer wind LiDAR based on optical coherent Doppler frequency-shift detection principles, designed to meet the requirements for high-precision, refined detection of three-dimensional atmospheric wind fields within the atmospheric boundary layer up to 1500m. Built with an IP67 protection rating and anti-corrosion, salt-resistant technologies, it can be mounted on wave gliders for ultra-low-power autonomous navigation, heading stabilization, and real-time communication observations in marine environments.',
+      'WindMast PBL(SV) is a boundary layer wind LiDAR based on optical coherent Doppler frequency shift detection principles, designed to meet the requirements for high precision, refined detection of three dimensional atmospheric wind fields within the atmospheric boundary layer up to 1500m. Built with an IP67 protection rating and anti corrosion, salt resistant technologies, it can be mounted on wave gliders for ultra low power autonomous navigation, heading stabilization, and real time communication observations in marine environments.',
     features: [
       'Mini size, low power consumption, and high precision',
-      'Meets high-precision, refined detection requirements for atmospheric 3D wind fields within 1500m',
-      'Equipped with a Wave Glider for ultra-low-power autonomous navigation, heading maintenance, and real-time communication observation in marine environments',
+      'Meets high precision, refined detection requirements for atmospheric 3D wind fields within 1500m',
+      'Equipped with a Wave Glider for ultra low power autonomous navigation, heading maintenance, and real time communication observation in marine environments',
     ],
     applications: [
-      'Offshore wind resource assessment',
-      'Meteorological and climate research',
-      'Weather forecasting model assimilation',
-      'Atmospheric flux and pollutant transport studies',
-      'Low-altitude wind shear detection',
     ],
     specifications: [
       { label: 'Wavelength', value: '1.5μm, invisible and eye safe' },
@@ -405,17 +383,13 @@ const raw = [
     productType: '3D Scanning Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'Wind3D 10K is a three-dimensional scanning wind LiDAR based on the principle of optical pulsed coherent Doppler frequency-shift detection, enabling refined detection of three-dimensional wind fields in the troposphere. Equipped with a high-precision optical scanning mirror, it supports multiple 3D scanning functions — including fixed-point modes such as DBS, VAD, PPI, RHI, and CAPPI — with the basic version reaching a detection radius of up to 15km. Purpose-built detection modes, including 3D volumetric scanning, aircraft glide-path scanning, wind profile scanning, and multi-lidar networked scanning, enable precise low-level wind shear detection and rapid early warning for aviation safety, as well as efficient aircraft wake vortex detection to optimize flight intervals.',
+      'Wind3D 10K is a three dimensional scanning wind LiDAR based on the principle of optical pulsed coherent Doppler frequency shift detection, enabling refined detection of three dimensional wind fields in the troposphere. Equipped with a high precision optical scanning mirror, it supports multiple 3D scanning functions  including fixed point modes such as DBS, VAD, PPI, RHI, and CAPPI  with the basic version reaching a detection radius of up to 15km. Purpose-built detection modes, including 3D volumetric scanning, aircraft glide path scanning, wind profile scanning, and multi lidar networked scanning, enable precise low level wind shear detection and rapid early warning for aviation safety, as well as efficient aircraft wake vortex detection to optimize flight intervals.',
     features: [
       'Pulsed coherent Doppler LiDAR for wind field and aerosol detection',
       'Measuring range up to 15km, IEC 61400-12-1 compliant (<0.1m/s)',
       'Sustained performance in harsh inland, coastal, and plateau environments',
     ],
     applications: [
-      'Low-level wind shear detection and early warning for aviation safety',
-      'Aircraft wake vortex detection and flight interval optimization',
-      '3D volumetric wind field scanning',
-      'Wind profile scanning and multi-lidar networked scanning',
     ],
     specifications: [
       { label: 'Wavelength', value: '1.5μm, invisible and eye-safe' },
@@ -438,17 +412,14 @@ const raw = [
     productType: '3D Scanning Wind LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'Wind3D 6000 is a three-dimensional scanning wind LiDAR based on the optical pulse coherent Doppler frequency-shift detection principle, enabling fine detection of the three-dimensional wind field in the lower and middle troposphere, including the atmospheric boundary layer. Equipped with a high-pointing-accuracy optical scanning mirror, it performs 3D scanning detection (DBS/VAD/PPI/RHI/CAPPI fixed-point scanning modes) with a maximum detection radius of up to 6km.',
+      'Wind3D 6000 is a three dimensional scanning wind LiDAR based on the optical pulse coherent Doppler frequency shift detection principle, enabling fine detection of the three dimensional wind field in the lower and middle troposphere, including the atmospheric boundary layer. Equipped with a high-pointing-accuracy optical scanning mirror, it performs 3D scanning detection (DBS/VAD/PPI/RHI/CAPPI fixed-point scanning modes) with a maximum detection radius of up to 6km.',
     features: [
       'Pulsed coherent Doppler LiDAR for wind field and aerosol detection',
       'Operational range up to 6km, real-time three-dimensional monitoring',
       'IEC 61400-12-1 compliant, 15m/30m/60m range resolution',
     ],
     applications: [
-      'Complex terrain wind measurement',
-      'Turbine wake analysis',
-      'Offshore remote virtual wind towers',
-      '3D distribution mapping of atmospheric pollutants',
+
     ],
     specifications: [
       { label: 'Wavelength', value: '1.5μm, invisible and eye-safe' },
@@ -479,7 +450,7 @@ const raw = [
       'Rapid wind field detection across plains, mountains, and oceans',
       'Suitable for environmental monitoring, wildfire detection, and other fields',
     ],
-    applications: ['Environmental monitoring', 'Fire emergency rescue'],
+    applications: [],
     specifications: [
       { label: 'Wavelength', value: '1.5μm, eye safe' },
       { label: 'Detection range', value: '45m–2000m (overhead detection)' },
@@ -511,7 +482,7 @@ const raw = [
     productType: 'Raman Temperature and Humidity LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'The WATCL 15K Raman temperature and humidity LiDAR is based on rotational Raman and vibrational Raman frequency-shift detection principles, enabling detailed detection of temperature, humidity, and aerosols in the boundary layer, troposphere, and even the lower stratosphere. Equipped with a high-energy pulsed laser, large-aperture receiving telescope, high-performance optical filters, and signal detection and acquisition devices, the system reaches a maximum detection altitude of 15km. Its modular design includes an internal temperature and humidity control system and an air purification system, meeting atmospheric detection requirements across a range of climatic conditions.',
+      'The WATCL 15K Raman temperature and humidity LiDAR is based on rotational Raman and vibrational Raman frequency shift detection principles, enabling detailed detection of temperature, humidity, and aerosols in the boundary layer, troposphere, and even the lower stratosphere. Equipped with a high energy pulsed laser, large aperture receiving telescope, high performance optical filters, and signal detection and acquisition devices, the system reaches a maximum detection altitude of 15km. Its modular design includes an internal temperature and humidity control system and an air purification system, meeting atmospheric detection requirements across a range of climatic conditions.',
     features: [
       'Aerosol and cloud optical characteristics detected at second resolution; water vapor and temperature at minute resolution, with a maximum range resolution of 7.5m',
       'Compliant with the EARLINET standard; maximum detection height reaches up to 15km',
@@ -542,17 +513,12 @@ const raw = [
     productType: 'Raman and Mie Scattering Aerosol LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'MWRA 12K Raman and Mie scattering aerosol LiDAR is based on the principles of Mie scattering, Raman scattering, and aerosol particle deflection to accurately detect atmospheric aerosol optical information. The system includes three emission wavelengths — 355nm, 532nm, and 1064nm — with a receiving system that processes backscatter signals from Mie and Raman scattering to derive detailed physical information about atmospheric aerosols. Multi-wavelength measurements enable more detailed study of aerosol microphysical characteristics, and the LiDAR can also measure aerosol depolarization signals and water vapor mixing ratios, closely linking aerosol optical properties to their shape, thermodynamic phase, and hygroscopicity.',
+      'MWRA 12K Raman and Mie scattering aerosol LiDAR is based on the principles of Mie scattering, Raman scattering, and aerosol particle deflection to accurately detect atmospheric aerosol optical information. The system includes three emission wavelengths  355nm, 532nm, and 1064nm  with a receiving system that processes backscatter signals from Mie and Raman scattering to derive detailed physical information about atmospheric aerosols. Multi wavelength measurements enable more detailed study of aerosol microphysical characteristics, and the LiDAR can also measure aerosol depolarization signals and water vapor mixing ratios, closely linking aerosol optical properties to their shape, thermodynamic phase, and hygroscopicity.',
     features: [
       'Based on Mie scattering, Raman scattering, and aerosol particle depolarization principles, precisely detects atmospheric aerosol optical information (extinction coefficient, backscattering coefficient, extinction-to-backscattering ratio, depolarization ratio, boundary layer height, optical thickness, visibility, particulate matter concentration, cloud information, etc.)',
       'Compared to traditional detection methods, offers higher measurement accuracy, greater spatiotemporal resolution, and longer detection range',
     ],
     applications: [
-      'Local high pollution monitoring',
-      'Atmospheric haze process studies',
-      'Atmospheric composition change monitoring',
-      'Meteorological pollution impact analysis',
-      'Particulate formation mechanism research',
     ],
     specifications: [
       { label: 'Wavelength', value: '355nm, 532nm, 1064nm three-wavelength emission' },
@@ -592,7 +558,7 @@ const raw = [
       'Monitors the transport direction of particulate matter in real time, calculates concentration and transport flux, and analyzes pollution sources and distribution across regions and heights',
       'Whole-machine protection with automatic wiper and internal temperature control system, enabling unattended long-term field observation',
     ],
-    applications: ['Particulate pollution source identification and tracing', 'Pollution prevention support across regions and heights'],
+    applications: [],
     specifications: [
       { label: 'Wavelength', value: '532nm / 1550nm' },
       { label: 'Detection range', value: '60m–6000m (wind profile), 200m–10000m (aerosols)' },
@@ -619,10 +585,10 @@ const raw = [
     productType: 'Ozone LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'O₃-DDLidar ozone LiDAR integrates gas differential absorption detection principles with Mie scattering detection technology, enabling high-precision detection of atmospheric ozone concentration profiles and aerosol optical information. It uses a high-energy pulsed laser, large-aperture receiving telescope, high-stability receiving system, and high-speed signal acquisition card, achieving ozone monitoring down to ppb-level detection limits. The LiDAR is equipped with a cabin featuring a temperature and humidity control system, suited for atmospheric detection across varied climatic conditions.',
+      'O₃-DDLidar ozone LiDAR integrates gas differential absorption detection principles with Mie scattering detection technology, enabling high precision detection of atmospheric ozone concentration profiles and aerosol optical information. It uses a high energy pulsed laser, large aperture receiving telescope, high stability receiving system, and high speed signal acquisition card, achieving ozone monitoring down to ppb level detection limits. The LiDAR is equipped with a cabin featuring a temperature and humidity control system, suited for atmospheric detection across varied climatic conditions.',
     features: [
-      'Integrates the gas differential absorption detection principle with Mie scattering detection technology for high-precision ozone concentration profile and aerosol optical information detection',
-      'High-energy pulse laser, large-aperture receiving telescope, high-stability receiving system, and high-speed signal acquisition card enable ozone monitoring down to ppb level',
+      'Integrates the gas differential absorption detection principle with Mie scattering detection technology for high precision ozone concentration profile and aerosol optical information detection',
+      'High energy pulse laser, large aperture receiving telescope, high stability receiving system, and high speed signal acquisition card enable ozone monitoring down to ppb level',
       'Cabin equipped with temperature and humidity control system, suited for atmospheric detection under varied climatic conditions',
     ],
     specifications: [
@@ -647,13 +613,13 @@ const raw = [
     productType: 'CO₂ Gas Flux LiDAR',
     category: CATEGORY.LIDARS,
     summary:
-      'The CO₂FLUX LiDAR combines the differential absorption principle with coherent heterodyne detection technology, enabling high-precision synchronous detection of CO₂ concentration profiles and wind fields within the boundary layer. Featuring a compact, low-power, high-accuracy design, it performs all-weather, continuous monitoring of wind profiles, CO₂ column concentrations, CO₂ concentration profiles, and signal-to-noise ratio data products.',
+      'The CO₂FLUX LiDAR combines the differential absorption principle with coherent heterodyne detection technology, enabling high precision synchronous detection of CO₂ concentration profiles and wind fields within the boundary layer. Featuring a compact, low power, high accuracy design, it performs all weather, continuous monitoring of wind profiles, CO₂ column concentrations, CO₂ concentration profiles, and signal-to-noise ratio data products.',
     features: [
-      'High-precision, simultaneous detection of wind fields and CO₂ concentration within the boundary layer, calculating CO₂ flux by combining the two',
-      'Three-dimensional monitoring of regional greenhouse gas emissions (CO₂ and methane), emission trend analysis, and peak target assessment to support pollution reduction and carbon emission decisions',
+      'High precision, simultaneous detection of wind fields and CO₂ concentration within the boundary layer, calculating CO₂ flux by combining the two',
+      'Three dimensional monitoring of regional greenhouse gas emissions (CO₂ and methane), emission trend analysis, and peak target assessment to support pollution reduction and carbon emission decisions',
       'Low power consumption, high precision, and user-friendly interface',
     ],
-    applications: ['Carbon flux distribution mapping in key areas', 'Emission source localization', 'Urban or regional carbon accounting'],
+    applications: [],
     specifications: [
       { label: 'Detection range', value: '≥3km' },
       { label: 'Data refresh time', value: '≤5min' },
