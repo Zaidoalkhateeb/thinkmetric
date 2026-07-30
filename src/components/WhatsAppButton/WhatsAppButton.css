@@ -29,7 +29,6 @@
 }
 
 .floating-contact__btn--pending {
-  background: var(--tm-silver);
   cursor: not-allowed;
 }
 

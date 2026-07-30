@@ -5,6 +5,7 @@
 
 .page-hero--light {
   background: linear-gradient(180deg, var(--tm-fog) 0%, var(--bg-page) 100%);
+  padding-block: var(--space-7) var(--space-6);
 }
 
 .page-hero__title {

@@ -30,7 +30,10 @@ export const location = {
 
 export const about = {
   paragraphs: [
-
+    'ThinkMetric is a provider of advanced environmental measurement, remote monitoring, and autonomous power solutions for the renewable energy and industrial sectors.',
+    'We supply a focused portfolio of high-performance technologies — wind LiDAR, boundary-layer and atmospheric LiDAR, meteorological sensing, and autonomous off-grid power systems built for demanding field conditions, supporting wind resource assessment, atmospheric research, industrial monitoring, and long-term measurement campaigns.',
+    'Every solution is chosen for accuracy, durability, and dependable operation in challenging environments, backed by technical expertise and responsive support.',
+    'Whether supporting a single campaign or a large-scale monitoring programme, we help clients make confident, data-driven decisions.',
   ],
   principles: [
     {
@@ -95,7 +98,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'remotePower',
-    heroImage: '/images/field-turbine-power.webp',
+    heroImage: '/images/power-solutions-hero.webp',
   },
   {
     slug: 'lidars',
@@ -104,9 +107,9 @@ export const categories = [
     shortLabel: 'Lidars',
     description:
       '',
-    applications: [
-    ],
+    applications: [],
     icon: 'windLidar',
+    heroImage: '/images/lidars-hero.webp',
   },
 ];
 

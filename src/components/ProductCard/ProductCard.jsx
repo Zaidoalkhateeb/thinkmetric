@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { categoryIcons } from '../IconMark/IconMark';
 import { categories } from '../../data/siteContent';
 import './ProductCard.css';
@@ -19,6 +20,9 @@ function ProductCard({ product }) {
               <span className="mono">Product visual placeholder</span>
             </div>
           )}
+          <span className="product-card__arrow" aria-hidden="true">
+            <ArrowUpRight size={16} />
+          </span>
         </div>
 
         <div className="product-card__body">

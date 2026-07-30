@@ -1,7 +1,6 @@
 import SEO from '../../components/SEO/SEO';
 import ProductCatalog from '../../components/ProductCatalog/ProductCatalog';
 import Reveal from '../../components/Reveal/Reveal';
-import { about } from '../../data/siteContent';
 import './Products.css';
 
 function Products() {
@@ -13,16 +12,7 @@ function Products() {
         path="/products"
       />
 
-      <section className="page-hero page-hero--light">
-        <div className="container">
-          <Reveal variant="up" delay={80}>
-            <h1 className="page-hero__title"></h1>
-          </Reveal>
-          <Reveal variant="up" delay={160}>
-            <p className="page-hero__lede">{about.paragraphs[1]}</p>
-          </Reveal>
-        </div>
-      </section>
+      <section className="page-hero page-hero--light" />
 
       <section className="section">
         <div className="container">

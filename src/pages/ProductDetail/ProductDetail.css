@@ -38,6 +38,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: 38% center;
   filter: drop-shadow(0 22px 20px rgba(14, 57, 42, 0.22));
 }
 
