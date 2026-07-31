@@ -18,6 +18,8 @@ function Header() {
   const [activeCategory, setActiveCategory] = useState(categories[0].slug);
   const location = useLocation();
   const closeTimer = useRef(null);
+  const menuItemRef = useRef(null);
+  const menuTriggerRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -45,6 +47,21 @@ function Header() {
   const scheduleClose = () => {
     closeTimer.current = setTimeout(() => setMegaOpen(false), 140);
   };
+  const closeMegaNow = () => {
+    clearTimeout(closeTimer.current);
+    setMegaOpen(false);
+  };
+  const onMenuItemBlur = (event) => {
+    if (!menuItemRef.current?.contains(event.relatedTarget)) {
+      closeMegaNow();
+    }
+  };
+  const onMenuItemKeyDown = (event) => {
+    if (event.key === 'Escape' && megaOpen) {
+      closeMegaNow();
+      menuTriggerRef.current?.focus();
+    }
+  };
 
   const isSolid = scrolled || mobileOpen;
   const isDarkText = isSolid || location.pathname !== '/';
@@ -71,11 +88,16 @@ function Header() {
 
           <div
             className="site-header__menu-item"
+            ref={menuItemRef}
             onMouseEnter={openMega}
             onMouseLeave={scheduleClose}
+            onFocus={openMega}
+            onBlur={onMenuItemBlur}
+            onKeyDown={onMenuItemKeyDown}
           >
             <Link
               to="/products"
+              ref={menuTriggerRef}
               className={`site-header__link ${megaOpen ? 'is-active' : ''}`}
               aria-expanded={megaOpen}
               aria-haspopup="true"

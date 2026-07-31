@@ -166,7 +166,10 @@ function ContactForm() {
         <span className="contact-form__success-check">
           <CheckCircle2 size={40} aria-hidden="true" />
         </span>
-        <h3>Inquiry Sent Successfully</h3>
+        {/* Corrected label: this heading previously read "Inquiry Sent
+            Successfully" even on the no-backend path below, where nothing
+            has actually been sent yet — only drafted. */}
+        <h3>{endpoint ? 'Inquiry Sent Successfully' : 'Inquiry Drafted'}</h3>
         <p>
           {endpoint
             ? "Thanks — we've received your message and will be in touch soon."

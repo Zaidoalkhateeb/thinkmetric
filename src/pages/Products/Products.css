@@ -22,8 +22,8 @@
 }
 
 .products-catalog__title {
-  text-align: center;
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  max-width: none;
-  margin-bottom: var(--space-5);
+  /* Now lives in the page hero, in the same position as every other page's
+     H1 — sized to match that pattern instead of its old inline position
+     above the catalog grid. */
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
 }

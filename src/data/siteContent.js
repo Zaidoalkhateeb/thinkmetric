@@ -143,4 +143,9 @@ export const atmosphericModes = [
 export const seoDefaults = {
   titleSuffix: ' | ThinkMetric',
   ogImage: '/images/og-image.jpg',
+  // Same string already used as the Home page's own description (and in
+  // index.html's static meta tag) — reused here as the fallback for any
+  // route that doesn't set its own, rather than authoring new copy.
+  description:
+    'ThinkMetric supplies wind LiDAR, atmospheric LiDAR, and autonomous remote power systems for wind resource assessment, atmospheric research, and industrial monitoring.',
 };

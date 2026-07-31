@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { siteUrl, seoDefaults } from '../../data/siteContent';
 
 function setMeta(name, content, attr = 'name') {
-  if (!content) return;
   let el = document.head.querySelector(`meta[${attr}="${name}"]`);
   if (!el) {
     el = document.createElement('meta');
@@ -30,17 +29,23 @@ function setLink(rel, href) {
 function SEO({ title, description, path = '', image, jsonLd }) {
   useEffect(() => {
     const fullTitle = title ? `${title}${seoDefaults.titleSuffix}` : 'ThinkMetric';
+    // Always resolve to a real string — this is a client-side router, so the
+    // <head> isn't reset between navigations. Falling back to the site's
+    // existing default description (the same one already used on Home)
+    // instead of skipping the update keeps a route with no description of
+    // its own from silently inheriting whatever the previous route left.
+    const fullDescription = description || seoDefaults.description;
     document.title = fullTitle;
 
-    setMeta('description', description);
+    setMeta('description', fullDescription);
     setMeta('og:title', fullTitle, 'property');
-    setMeta('og:description', description, 'property');
+    setMeta('og:description', fullDescription, 'property');
     setMeta('og:type', 'website', 'property');
     setMeta('og:url', `${siteUrl}${path}`, 'property');
     setMeta('og:image', `${siteUrl}${image || seoDefaults.ogImage}`, 'property');
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', fullTitle);
-    setMeta('twitter:description', description);
+    setMeta('twitter:description', fullDescription);
     setMeta('twitter:image', `${siteUrl}${image || seoDefaults.ogImage}`);
     setLink('canonical', `${siteUrl}${path}`);
 

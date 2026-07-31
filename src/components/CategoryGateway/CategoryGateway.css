@@ -10,7 +10,6 @@
   border-radius: var(--radius-md);
   transition: transform var(--dur-med) var(--ease-precise), box-shadow var(--dur-med) var(--ease-precise),
     border-color var(--dur-med) var(--ease-precise);
-  min-height: 280px;
   overflow: hidden;
 }
 
@@ -52,7 +51,11 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: var(--space-4);
+  /* Pushes the link to the card's bottom edge whether or not a description
+     is present, so cards stay bottom-aligned within a grid row without
+     needing a fixed minimum card height. */
+  margin-top: auto;
+  padding-top: var(--space-4);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--tm-forest);

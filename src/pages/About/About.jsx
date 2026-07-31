@@ -28,8 +28,7 @@ function About() {
           </Reveal>
           <Reveal variant="up" delay={80}>
             <h1 className="page-hero__title">
-              Reliable Soltuions  
- 
+              Reliable Solutions
               <br />
               Reliable Data
             </h1>
@@ -53,8 +52,6 @@ function About() {
             {about.paragraphs.slice(1).map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <p className="about-body__trust">
-            </p>
           </Reveal>
           <Reveal as="div" variant="right" delay={120} className="about-body__media">
             <picture>

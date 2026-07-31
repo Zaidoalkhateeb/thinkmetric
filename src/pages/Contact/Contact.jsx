@@ -15,7 +15,7 @@ const otherWaysToReachUs = [
     icon: Mail,
   },
   {
-    label: 'Sales  Enquiries',
+    label: 'Sales Enquiries',
     value: contact.salesEmail,
     href: `mailto:${contact.salesEmail}`,
     icon: Mail,

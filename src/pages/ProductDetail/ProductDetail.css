@@ -80,7 +80,7 @@
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 860px) {
   .product-detail__title {
     white-space: normal;
   }
@@ -91,8 +91,6 @@
   font-size: 1.05rem;
   line-height: 1.65;
   margin-bottom: var(--space-5);
-  text-align: justify;
-  text-align-last: left;
 }
 
 .product-detail__section-title {
@@ -118,8 +116,6 @@
 .product-detail__extras li {
   position: relative;
   line-height: 1.5;
-  text-align: justify;
-  text-align-last: left;
 }
 
 .product-detail__features li::before,
@@ -152,8 +148,6 @@
 .product-detail__specs-row dt {
   font-size: 0.85rem;
   color: var(--text-muted);
-  text-align: justify;
-  text-align-last: left;
 }
 
 .product-detail__specs-row dd {
@@ -161,8 +155,6 @@
   font-size: 0.9rem;
   color: var(--text-primary);
   font-weight: 600;
-  text-align: justify;
-  text-align-last: left;
 }
 
 .product-detail__applications {

@@ -13,13 +13,16 @@ function Products() {
         path="/products"
       />
 
-      <section className="page-hero page-hero--light" />
+      <section className="page-hero page-hero--light">
+        <div className="container">
+          <Reveal variant="up">
+            <h1 className="page-hero__title products-catalog__title">Products &amp; Services</h1>
+          </Reveal>
+        </div>
+      </section>
 
       <section className="section">
         <div className="container">
-          <Reveal variant="up">
-            <h2 className="home-section__title products-catalog__title">Products &amp; Services</h2>
-          </Reveal>
           <ProductCatalog />
         </div>
       </section>

@@ -25,7 +25,9 @@ function CustomSelect({
   const [query, setQuery] = useState('');
   const [activeIndex, setActiveIndex] = useState(-1);
   const rootRef = useRef(null);
+  const triggerRef = useRef(null);
   const searchRef = useRef(null);
+  const optionsRef = useRef(null);
 
   const selected = options.find((o) => o.value === value);
   const filtered =
@@ -44,19 +46,26 @@ function CustomSelect({
     return () => document.removeEventListener('mousedown', onDocClick);
   }, []);
 
+  // Always move focus into the open panel — the search input when there is
+  // one, otherwise the listbox itself — so arrow-key navigation works the
+  // same way for every instance of this component, not just searchable ones.
   useEffect(() => {
-    if (open && searchable) searchRef.current?.focus();
+    if (!open) return;
+    if (searchable) searchRef.current?.focus();
+    else optionsRef.current?.focus();
   }, [open, searchable]);
 
   const commit = (val) => {
     onChange({ target: { name, value: val } });
     setOpen(false);
     setQuery('');
+    triggerRef.current?.focus();
   };
 
   const close = () => {
     setOpen(false);
     setQuery('');
+    triggerRef.current?.focus();
   };
 
   const openList = () => {
@@ -102,6 +111,7 @@ function CustomSelect({
       <button
         type="button"
         id={id}
+        ref={triggerRef}
         className={`custom-select__trigger ${open ? 'is-open' : ''} ${error ? 'has-error' : ''}`}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -117,7 +127,7 @@ function CustomSelect({
       </button>
 
       {open && (
-        <div className="custom-select__list" role="listbox">
+        <div className="custom-select__list">
           {searchable && (
             <input
               ref={searchRef}
@@ -132,7 +142,14 @@ function CustomSelect({
               onKeyDown={onListKeyDown}
             />
           )}
-          <ul className="custom-select__options" tabIndex={-1} onKeyDown={onListKeyDown}>
+          <ul
+            className="custom-select__options"
+            role="listbox"
+            aria-label={label}
+            ref={optionsRef}
+            tabIndex={-1}
+            onKeyDown={onListKeyDown}
+          >
             {filtered.length === 0 && <li className="custom-select__empty">No matches found</li>}
             {filtered.map((opt, i) => (
               <li

@@ -26,7 +26,11 @@
 
 @media (max-width: 640px) {
   .category-cta-tab {
-    right: var(--space-3);
+    /* Moved to the opposite side from the floating contact stack
+       (WhatsAppButton.css), which is vertically centered on the right —
+       on short mobile-landscape viewports the two could otherwise overlap. */
+    left: var(--space-3);
+    right: auto;
     bottom: var(--space-3);
     font-size: 0.75rem;
     padding: 12px 16px;

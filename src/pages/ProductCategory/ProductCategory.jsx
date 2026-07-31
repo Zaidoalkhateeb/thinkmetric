@@ -45,15 +45,17 @@ function ProductCategory() {
           </nav>
 
           <h1 className="page-hero__title">{category.label}</h1>
-          <p className="page-hero__lede">{category.description}</p>
+          {category.description && <p className="page-hero__lede">{category.description}</p>}
 
-          <ul className="category-hero__tags">
-            {category.applications.map((app) => (
-              <li key={app} className="tag-pill">
-                {app}
-              </li>
-            ))}
-          </ul>
+          {category.applications.length > 0 && (
+            <ul className="category-hero__tags">
+              {category.applications.map((app) => (
+                <li key={app} className="tag-pill">
+                  {app}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
 
