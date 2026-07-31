@@ -82,7 +82,7 @@ export const processStages = [
   },
   {
     step: '04',
-    title: 'Use dependable data for confident decisions',
+    title: 'Dependable data for confident decisions',
     description:
       'Consistent, well-instrumented measurement supports resource assessment, research, and operational decision-making.',
   },

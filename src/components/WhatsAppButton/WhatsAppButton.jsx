@@ -29,15 +29,17 @@ function WhatsAppButton() {
       >
         <Mail size={24} aria-hidden="true" />
       </a>
-      <span
-        className="floating-contact__btn floating-contact__btn--pending"
-        aria-disabled="true"
-        title="LinkedIn — coming soon"
+      <a
+        href="https://www.linkedin.com/showcase/think-metric/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-contact__btn"
+        aria-label="ThinkMetric on LinkedIn"
       >
         <svg viewBox="0 0 448 512" width="22" height="22" fill="currentColor" aria-hidden="true">
           <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340C24.09 108 0 83.5 0 53.24a53.24 53.24 0 0 1 106.48 0C106.48 83.5 82.35 108 53.84 108zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.7 37.7-55.7 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.28 61.9 111.28 142.3z" />
         </svg>
-      </span>
+      </a>
     </div>
   );
 }

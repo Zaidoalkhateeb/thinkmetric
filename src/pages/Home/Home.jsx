@@ -4,7 +4,6 @@ import SEO from '../../components/SEO/SEO';
 import HeroMedia from '../../components/HeroMedia/HeroMedia';
 import CategoryGateway from '../../components/CategoryGateway/CategoryGateway';
 import ProcessSteps from '../../components/ProcessSteps/ProcessSteps';
-import ScanReveal from '../../components/ScanReveal/ScanReveal';
 import ApplicationsRibbon from '../../components/ApplicationsRibbon/ApplicationsRibbon';
 import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
 import Reveal from '../../components/Reveal/Reveal';
@@ -85,17 +84,6 @@ function Home() {
           <div className="home-process">
             <ProcessSteps />
           </div>
-        </div>
-      </section>
-
-      <section className="section section--tight">
-        <div className="container">
-          <Reveal variant="fade">
-            <span className="eyebrow">Technology Overview</span>
-          </Reveal>
-          <Reveal variant="scale" delay={80} className="home-scan-reveal">
-            <ScanReveal />
-          </Reveal>
         </div>
       </section>
 

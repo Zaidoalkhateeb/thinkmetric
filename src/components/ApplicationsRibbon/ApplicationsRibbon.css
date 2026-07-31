@@ -10,7 +10,7 @@
   display: flex;
   gap: var(--space-6);
   width: max-content;
-  animation: ribbon-scroll 26s linear infinite;
+  animation: ribbon-scroll 90s linear infinite;
 }
 
 .ribbon--paused .ribbon__track {

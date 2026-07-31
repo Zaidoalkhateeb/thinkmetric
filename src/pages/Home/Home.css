@@ -129,10 +129,6 @@
   margin-top: var(--space-5);
 }
 
-.home-scan-reveal {
-  margin-top: var(--space-5);
-}
-
 .home-about-preview__grid {
   display: grid;
   grid-template-columns: 0.85fr 1fr;
