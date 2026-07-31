@@ -21,7 +21,7 @@ function Products() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section products-catalog-section">
         <div className="container">
           <ProductCatalog />
         </div>
