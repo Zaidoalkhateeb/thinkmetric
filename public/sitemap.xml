@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Static sitemap covering the site's fixed routes and product detail pages.
-  Regenerate this file whenever a product is added to src/data/products.js
-  or a route is added to src/App.jsx. A small Node script can automate this:
-  read src/data/products.js and src/data/siteContent.js, then print a <url>
-  entry per route/product, redirecting output to public/sitemap.xml.
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.think-metric.co/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://www.think-metric.co/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.think-metric.co/products/lidars</loc><priority>0.8</priority></url>
-  <url><loc>https://www.think-metric.co/products/wind-measurement-met-mast</loc><priority>0.8</priority></url>
   <url><loc>https://www.think-metric.co/products/remote-power-supply-systems</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/lidars</loc><priority>0.8</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/tm-hd-10000c</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/tm-hd-6000c</loc><priority>0.6</priority></url>
+  <url><loc>https://www.think-metric.co/products/detail/tm-mfc-375a</loc><priority>0.6</priority></url>
   <url><loc>https://www.think-metric.co/products/detail/windhorizon-h400</loc><priority>0.6</priority></url>
   <url><loc>https://www.think-metric.co/products/detail/windmast-wp350</loc><priority>0.6</priority></url>
   <url><loc>https://www.think-metric.co/products/detail/windmast-350-mb</loc><priority>0.6</priority></url>

@@ -2,9 +2,6 @@
   position: relative;
   overflow: hidden;
   background: var(--bg-page);
-  min-height: 500px;
-  display: flex;
-  align-items: center;
 }
 
 .about-hero .container {
@@ -60,24 +57,6 @@
 
 .about-hero__cta {
   margin-top: var(--space-4);
-}
-
-.about-hero .page-hero__title {
-  font-size: clamp(2rem, 3.6vw, 3.2rem);
-}
-
-/* Sized larger than the title below it — an intentional, oversized lead-in
-   rather than the small tag used for eyebrows elsewhere on the site. */
-.about-hero .eyebrow {
-  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
-  font-weight: 700;
-  letter-spacing: 0;
-  gap: 12px;
-}
-
-.about-hero .eyebrow::before {
-  width: 10px;
-  height: 10px;
 }
 
 .about-body {

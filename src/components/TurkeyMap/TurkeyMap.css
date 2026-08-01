@@ -106,3 +106,53 @@
 .turkey-map__popup .leaflet-popup-tip {
   background: var(--tm-white);
 }
+
+.turkey-map__open {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 500;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--tm-forest);
+  color: var(--tm-white);
+  box-shadow: var(--shadow-md);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .turkey-map {
+    gap: var(--space-2);
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .turkey-map__surface {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    flex: none;
+  }
+
+  .turkey-map__popup .leaflet-popup-content {
+    margin: 6px 9px;
+  }
+
+  .turkey-map__popup strong {
+    font-size: 0.85rem;
+  }
+
+  .turkey-map__popup span {
+    font-size: 0.66rem;
+  }
+
+  .turkey-map__open {
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 0.72rem;
+  }
+}

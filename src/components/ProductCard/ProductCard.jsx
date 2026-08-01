@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { categoryIcons } from '../IconMark/IconMark';
+import { categoryIcons } from '../IconMark/categoryIcons';
 import { categories } from '../../data/siteContent';
 import './ProductCard.css';
 

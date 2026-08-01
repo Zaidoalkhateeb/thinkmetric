@@ -2,18 +2,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ArrowRight, Check, CheckCircle2 } from 'lucide-react';
 import CustomSelect from '../CustomSelect/CustomSelect';
-import { contact } from '../../data/siteContent';
 import { countries } from '../../data/countries';
+import {
+  initialContactForm,
+  inquiryTypes,
+  validateContactForm,
+} from '../../utils/contactForm';
 import './ContactForm.css';
 
 const countryOptions = countries.map((c) => ({ value: c, label: c }));
-
-const inquiryTypes = [
-  { value: 'sales', label: 'Sales' },
-  { value: 'general', label: 'General' },
-  { value: 'corporate', label: 'Corporate' },
-  { value: 'technical', label: 'Technical discussion' },
-];
 
 const categoryOptions = [
   'Environmental LiDAR',
@@ -21,24 +18,9 @@ const categoryOptions = [
   'Power Solutions',
 ];
 
-const initialForm = {
-  name: '',
-  email: '',
-  company: '',
-  country: '',
-  inquiryType: 'general',
-  interest: '',
-  message: '',
-  consent: false,
-};
-
-function routeEmail(inquiryType) {
-  return inquiryType === 'general' ? contact.generalEmail : contact.salesEmail;
-}
-
 function ContactForm() {
   const [searchParams] = useSearchParams();
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(initialContactForm);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -46,7 +28,7 @@ function ContactForm() {
   const [shake, setShake] = useState(false);
   const errorSummaryRef = useRef(null);
 
-  const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT;
+  const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT || '/api/contact.php';
 
   useEffect(() => {
     const type = searchParams.get('type');
@@ -67,44 +49,9 @@ function ContactForm() {
     setTouched((prev) => ({ ...prev, [event.target.name]: true }));
   };
 
-  const validate = () => {
-    const next = {};
-    if (!form.name.trim()) next.name = 'Enter your full name.';
-    if (!form.email.trim()) {
-      next.email = 'Enter your email.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      next.email = 'Enter a valid email address.';
-    }
-    if (!form.company.trim()) next.company = 'Enter your company.';
-    if (!form.country.trim()) next.country = 'Select your country.';
-    if (!form.message.trim()) next.message = 'Describe your project.';
-    if (!form.consent) next.consent = 'Please confirm you agree before submitting.';
-    return next;
-  };
-
-  const buildMailtoHref = () => {
-    const to = routeEmail(form.inquiryType);
-    const subject = encodeURIComponent(
-      `${inquiryTypes.find((t) => t.value === form.inquiryType)?.label || 'Inquiry'} — ${form.company || form.name}`
-    );
-    const bodyLines = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Company: ${form.company}`,
-      `Country: ${form.country}`,
-      `Inquiry type: ${inquiryTypes.find((t) => t.value === form.inquiryType)?.label}`,
-      `Category interest: ${form.interest || 'N/A'}`,
-      '',
-      'Project description:',
-      form.message,
-    ];
-    const body = encodeURIComponent(bodyLines.join('\n'));
-    return `mailto:${to}?subject=${subject}&body=${body}`;
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const validation = validate();
+    const validation = validateContactForm(form);
     setErrors(validation);
 
     if (Object.keys(validation).length > 0) {
@@ -117,34 +64,34 @@ function ContactForm() {
 
     setSubmitting(true);
 
-    if (endpoint) {
-      try {
-        const res = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form),
-        });
-        if (!res.ok) throw new Error('Request failed');
-        setSubmitted(true);
-      } catch {
-        setErrors({ submit: 'The form endpoint could not be reached. Use the email option below instead.' });
-      } finally {
-        setSubmitting(false);
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const payload = await res.json().catch(() => null);
+      if (!res.ok || payload?.ok !== true) {
+        throw new Error(payload?.message || 'The server could not send your inquiry.');
       }
-      return;
+      setSubmitted(true);
+    } catch (error) {
+      setErrors({
+        submit: error instanceof Error
+          ? `${error.message} Please try again.`
+          : 'Your inquiry could not be sent. Please try again.',
+      });
+    } finally {
+      setSubmitting(false);
     }
 
     // No backend configured — honest fallback: open a prefilled email draft.
     // A brief, deliberate delay keeps the loading state perceptible rather
     // than flashing instantly for what is otherwise a synchronous action.
-    await new Promise((resolve) => setTimeout(resolve, 550));
-    window.location.href = buildMailtoHref();
-    setSubmitting(false);
-    setSubmitted(true);
   };
 
   const resetForm = () => {
-    setForm(initialForm);
+    setForm(initialContactForm);
     setErrors({});
     setTouched({});
     setSubmitted(false);
@@ -169,11 +116,11 @@ function ContactForm() {
         {/* Corrected label: this heading previously read "Inquiry Sent
             Successfully" even on the no-backend path below, where nothing
             has actually been sent yet — only drafted. */}
-        <h3>{endpoint ? 'Inquiry Sent Successfully' : 'Inquiry Drafted'}</h3>
+        <h3>Inquiry Sent Successfully</h3>
         <p>
           {endpoint
             ? "Thanks — we've received your message and will be in touch soon."
-            : 'Your email client should now open with your inquiry pre-filled. If it did not, please email us directly below.'}
+            : "Thanks—we've received your message and will be in touch soon."}
         </p>
         <p className="contact-form__success-note">
           Thank you for contacting ThinkMetric. Our team will respond within one business day.
@@ -187,6 +134,18 @@ function ContactForm() {
 
   return (
     <form className={`contact-form ${shake ? 'contact-form--shake' : ''}`} onSubmit={handleSubmit} noValidate>
+      <div className="contact-form__honeypot" aria-hidden="true">
+        <label htmlFor="field-website">Leave this field empty</label>
+        <input
+          id="field-website"
+          name="website"
+          type="text"
+          value={form.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
       {errorList.length > 0 && (
         <div
           className="contact-form__error-summary"

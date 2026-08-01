@@ -7,16 +7,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  opacity: 1;
-  transition: opacity var(--dur-med) var(--ease-precise);
-}
-
-/* While actively scrolling, or once the footer (which repeats these same
-   contact details) has come into view, fade the button back so it doesn't
-   sit on top of the content passing underneath it. */
-.floating-contact.is-faded {
-  opacity: 0.28;
-  pointer-events: none;
 }
 
 .floating-contact__btn {
@@ -72,7 +62,7 @@
 @media (max-width: 640px) {
   .floating-contact {
     top: auto;
-    bottom: var(--space-3);
+    bottom: calc(var(--space-3) + env(safe-area-inset-bottom));
     right: var(--space-3);
     transform: none;
     flex-direction: column-reverse;

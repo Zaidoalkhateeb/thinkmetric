@@ -1,29 +1,5 @@
-.page-hero {
-  position: relative;
-  padding-block: calc(var(--space-8) + 60px) calc(var(--space-8) + 40px);
-}
-
-.page-hero--light {
-  background: linear-gradient(180deg, var(--tm-fog) 0%, var(--bg-page) 100%);
-  padding-block: var(--space-7) var(--space-4);
-}
-
 .products-catalog-section {
   padding-top: var(--space-5);
-}
-
-.page-hero__title {
-  margin-top: var(--space-3);
-  max-width: 20ch;
-}
-
-.page-hero__lede {
-  color: var(--text-muted);
-  max-width: 62ch;
-  margin-top: var(--space-4);
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.6;
 }
 
 .products-catalog__title {
@@ -34,4 +10,11 @@
   text-align: center;
   margin-inline: auto;
   margin-top: 140px;
+}
+
+@media (max-width: 640px) {
+  .products-catalog__title {
+    margin-top: var(--space-5);
+    text-align: left;
+  }
 }

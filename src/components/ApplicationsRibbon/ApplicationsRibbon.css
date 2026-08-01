@@ -13,10 +13,6 @@
   animation: ribbon-scroll 90s linear infinite;
 }
 
-.ribbon--paused .ribbon__track {
-  animation-play-state: paused;
-}
-
 .ribbon--static .ribbon__track {
   animation: none;
   flex-wrap: wrap;
@@ -59,34 +55,3 @@
   }
 }
 
-.ribbon__toggle {
-  position: absolute;
-  top: 50%;
-  right: var(--space-4);
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 1px solid var(--border-inverse);
-  background: rgba(8, 39, 29, 0.55);
-  color: var(--tm-mint);
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background 160ms ease, color 160ms ease;
-}
-
-.ribbon__toggle:hover,
-.ribbon__toggle:focus-visible {
-  background: var(--tm-forest-deep);
-  color: var(--tm-off-white);
-}
-
-@media (max-width: 640px) {
-  .ribbon__toggle {
-    right: var(--space-3);
-  }
-}

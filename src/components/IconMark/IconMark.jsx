@@ -81,9 +81,3 @@ export function CampaignIcon(props) {
     </svg>
   );
 }
-
-export const categoryIcons = {
-  windLidar: WindLidarIcon,
-  metMast: MetMastIcon,
-  remotePower: RemotePowerIcon,
-};

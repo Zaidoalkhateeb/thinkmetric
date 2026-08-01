@@ -22,12 +22,6 @@
   }
 }
 
-@media (max-width: 560px) {
-  .site-footer__inner {
-    grid-template-columns: 1fr;
-  }
-}
-
 .site-footer__logo {
   height: 22px;
   margin-bottom: var(--space-3);
@@ -76,4 +70,46 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+}
+
+@media (max-width: 560px) {
+  .site-footer {
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: var(--space-4);
+  }
+
+  .site-footer__col--company {
+    padding-left: 0;
+  }
+
+  .site-footer__tagline {
+    max-width: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.55;
+    text-align: left;
+  }
+
+  .site-footer__heading {
+    margin-bottom: var(--space-2);
+  }
+
+  .site-footer__list {
+    gap: 2px;
+  }
+
+  .site-footer__list a {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+  }
+
+  .site-footer__contact-list a {
+    overflow-wrap: anywhere;
+  }
 }

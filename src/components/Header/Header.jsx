@@ -26,13 +26,19 @@ function Header() {
   const closeTimer = useRef(null);
   const menuItemRef = useRef(null);
   const menuTriggerRef = useRef(null);
+  const mobileTriggerRef = useRef(null);
+  const mobilePanelRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
       const distanceFromBottom =
         document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
-      setNearBottom(distanceFromBottom < HEADER_CLEARANCE);
+      // A lazy route initially renders a short loading shell. At scrollY 0
+      // that shell can look "near the bottom" until the page chunk mounts,
+      // so never hide the primary navigation while the user is still at the
+      // top of the page.
+      setNearBottom(window.scrollY > HEADER_CLEARANCE && distanceFromBottom < HEADER_CLEARANCE);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -52,6 +58,44 @@ function Header() {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+
+    const panel = mobilePanelRef.current;
+    panel?.querySelector('a[href]')?.focus();
+
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        mobileTriggerRef.current?.focus();
+        return;
+      }
+      if (event.key !== 'Tab' || !panel) return;
+
+      const focusable = panel.querySelectorAll('a[href], button:not([disabled])');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
+
+    const onResize = () => {
+      if (window.innerWidth > 900) setMobileOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    window.addEventListener('resize', onResize);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('resize', onResize);
     };
   }, [mobileOpen]);
 
@@ -198,9 +242,11 @@ function Header() {
         <div className="site-header__actions">
           <button
             type="button"
+            ref={mobileTriggerRef}
             className="site-header__burger"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((v) => !v)}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -209,37 +255,54 @@ function Header() {
       </div>
       </header>
 
-      {mobileOpen && <MobileNav onNavigate={() => setMobileOpen(false)} />}
+      {mobileOpen && <MobileNav ref={mobilePanelRef} onNavigate={() => setMobileOpen(false)} />}
     </>
   );
 }
 
-function MobileNav({ onNavigate }) {
+function MobileNav({ onNavigate, ref }) {
   return (
-    <div className="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div
+      id="mobile-navigation"
+      ref={ref}
+      className="mobile-nav"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
       <div className="container mobile-nav__inner">
+        <p className="mobile-nav__eyebrow">Menu</p>
         <Link to="/" className="mobile-nav__link" onClick={onNavigate}>
-          Home
+          <span>Home</span>
+          <ArrowRight size={18} aria-hidden="true" />
         </Link>
 
-        <p className="mobile-nav__group-label">Products &amp; Services</p>
-        <div className="mobile-nav__sublist">
-          {categories.map((cat) => (
-            <Link key={cat.slug} to={`/products/${cat.slug}`} className="mobile-nav__sublink" onClick={onNavigate}>
-              {cat.label}
+        <section className="mobile-nav__products" aria-labelledby="mobile-products-label">
+          <p id="mobile-products-label" className="mobile-nav__group-label">Products &amp; Services</p>
+          <div className="mobile-nav__sublist">
+            <Link to="/products" className="mobile-nav__sublink mobile-nav__sublink--all" onClick={onNavigate}>
+              <span>View all products</span>
+              <ArrowRight size={16} aria-hidden="true" />
             </Link>
-          ))}
-          <Link to="/products" className="mobile-nav__sublink mobile-nav__sublink--all" onClick={onNavigate}>
-            View all products &amp; services
+            {categories.map((cat) => (
+              <Link key={cat.slug} to={`/products/${cat.slug}`} className="mobile-nav__sublink" onClick={onNavigate}>
+                <span>{cat.label}</span>
+                <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <div className="mobile-nav__secondary">
+          <Link to="/about" className="mobile-nav__link" onClick={onNavigate}>
+            <span>About Us</span>
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+          <Link to="/contact" className="mobile-nav__link" onClick={onNavigate}>
+            <span>Contact Us</span>
+            <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
-
-        <Link to="/about" className="mobile-nav__link" onClick={onNavigate}>
-          About Us
-        </Link>
-        <Link to="/contact" className="mobile-nav__link" onClick={onNavigate}>
-          Contact Us
-        </Link>
       </div>
     </div>
   );

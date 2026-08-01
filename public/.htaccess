@@ -1,0 +1,10 @@
+Options -MultiViews
+RewriteEngine On
+
+# Serve real assets and PHP endpoints directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# React Router history fallback.
+RewriteRule ^ index.html [L]

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Mail, MessageCircle, Phone, X } from 'lucide-react';
 import { contact } from '../../data/siteContent';
 import './WhatsAppButton.css';
@@ -8,39 +8,9 @@ const WHATSAPP_NUMBER = '905413403689';
 
 function WhatsAppButton() {
   const [open, setOpen] = useState(false);
-  const [scrolling, setScrolling] = useState(false);
-  const [nearFooter, setNearFooter] = useState(false);
-  const scrollTimer = useRef(null);
-
-  // Fade the button out while the page is actively moving so it never sits
-  // on top of the line of text the user is mid-scroll toward, and hide it
-  // entirely once the footer (which repeats the same contact details) is
-  // in view, so it doesn't cover its own duplicate content there.
-  useEffect(() => {
-    const footer = document.querySelector('.site-footer');
-
-    const onScroll = () => {
-      setScrolling(true);
-      clearTimeout(scrollTimer.current);
-      scrollTimer.current = setTimeout(() => setScrolling(false), 250);
-
-      if (footer) {
-        const footerTop = footer.getBoundingClientRect().top;
-        setNearFooter(footerTop < window.innerHeight);
-      }
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(scrollTimer.current);
-    };
-  }, []);
-
-  const isFaded = (scrolling || nearFooter) && !open;
 
   return (
-    <div className={`floating-contact ${open ? 'is-open' : ''} ${isFaded ? 'is-faded' : ''}`}>
+    <div className={`floating-contact ${open ? 'is-open' : ''}`}>
       <button
         type="button"
         className="floating-contact__toggle"

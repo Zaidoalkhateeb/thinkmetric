@@ -2,7 +2,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Reveal from '../../components/Reveal/Reveal';
-import { categoryIcons } from '../../components/IconMark/IconMark';
+import { categoryIcons } from '../../components/IconMark/categoryIcons';
 import { categories, siteUrl } from '../../data/siteContent';
 import { getProductBySlug } from '../../data/products';
 import './ProductDetail.css';

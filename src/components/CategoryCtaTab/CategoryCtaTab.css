@@ -86,3 +86,17 @@
 .category-cta-modal__close:hover {
   background: var(--border-strong);
 }
+
+@media (max-width: 640px) {
+  .category-cta-tab {
+    max-width: calc(100vw - 92px);
+  }
+
+  .category-cta-modal {
+    padding: var(--space-3);
+  }
+
+  .category-cta-modal__panel {
+    padding: var(--space-5) var(--space-3) var(--space-4);
+  }
+}

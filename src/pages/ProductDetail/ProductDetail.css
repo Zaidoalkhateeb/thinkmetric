@@ -19,9 +19,15 @@
 }
 
 @media (max-width: 860px) {
+  .product-detail {
+    padding-top: 104px;
+  }
+
   .product-detail__grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
+
 }
 
 .product-detail__media {
@@ -170,4 +176,17 @@
 
 .product-detail__applications .category-hero__tags {
   margin: 0;
+}
+
+@media (max-width: 560px) {
+  .product-detail__features li,
+  .product-detail__extras li,
+  .product-detail__specs-row dd {
+    text-align: left;
+  }
+
+  .product-detail__specs-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
 }

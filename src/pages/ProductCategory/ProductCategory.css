@@ -46,9 +46,14 @@
 }
 
 @media (max-width: 640px) {
+  .category-hero--photo {
+    min-height: 420px;
+  }
+
   .category-hero .page-hero__title {
     white-space: normal;
   }
+
 }
 
 .breadcrumbs {
@@ -138,4 +143,16 @@
 
 .category-back:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .breadcrumbs {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    font-size: 0.66rem;
+  }
+
+  .category-pending {
+    padding: var(--space-4);
+  }
 }

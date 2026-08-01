@@ -113,7 +113,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'windLidar',
-    heroImage: '/images/lidars-hero.webp',
+    heroImage: '/images/onshore-wind-energy.jpg',
   },
 ];
 

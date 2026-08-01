@@ -48,7 +48,7 @@ function HeroMedia() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           aria-hidden="true"
         >
           <source src="/media/thinkmetric-hero.webm" type="video/webm" />

@@ -1,29 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import { location } from '../../data/siteContent';
 import './TurkeyMap.css';
 
 const ISTANBUL_CENTER = [location.lat, location.lng];
 const ISTANBUL_ZOOM = 11;
-// Fraction of the container's width to shift the view east of the pin, so
-// more of Istanbul itself — not just Başakşehir — fills the frame. Done as
-// a pixel shift proportional to the actual rendered width (via panBy)
-// rather than a fixed degree offset, so the pin and its popup stay clear
-// of the left edge on narrow mobile cards, not just the wide desktop one.
 const VIEW_SHIFT_FRACTION = 0.22;
-
-function applyView(map, container) {
-  map.setView(ISTANBUL_CENTER, ISTANBUL_ZOOM, { animate: false });
-  const shiftX = container.clientWidth * VIEW_SHIFT_FRACTION;
-  map.panBy([shiftX, 0], { animate: false });
-}
-
-// CARTO's free Voyager basemap — real geography, roads and place labels,
-// no account or API key required (unlike Mapbox/Google).
 const TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
 
-function createMarkerIcon() {
+function applyView(map, container) {
+  const isNarrow = container.clientWidth < 480;
+  map.setView(ISTANBUL_CENTER, isNarrow ? 10 : ISTANBUL_ZOOM, { animate: false });
+  map.panBy([container.clientWidth * (isNarrow ? 0 : VIEW_SHIFT_FRACTION), 0], { animate: false });
+}
+
+function createMarkerIcon(L) {
   return L.divIcon({
     className: 'turkey-map__marker-icon',
     html: '<span class="turkey-map__pulse"></span><span class="turkey-map__pin"></span>',
@@ -37,7 +27,6 @@ function TurkeyMap() {
   const mapRef = useRef(null);
   const [inView, setInView] = useState(false);
 
-  // Lazy-load: don't construct the map until it has scrolled near the viewport.
   useEffect(() => {
     const node = containerRef.current;
     if (!node) return undefined;
@@ -58,55 +47,68 @@ function TurkeyMap() {
   useEffect(() => {
     if (!inView || !containerRef.current || mapRef.current) return undefined;
 
-    const map = L.map(containerRef.current, {
-      zoomControl: false,
-      attributionControl: false,
-      dragging: false,
-      scrollWheelZoom: false,
-      doubleClickZoom: false,
-      boxZoom: false,
-      keyboard: false,
-      touchZoom: false,
-      tap: false,
-    });
-    mapRef.current = map;
+    let disposed = false;
+    let cleanupMap;
 
-    L.tileLayer(TILE_URL, { subdomains: 'abcd', maxZoom: 19 }).addTo(map);
+    async function initialiseMap() {
+      const [{ default: L }] = await Promise.all([
+        import('leaflet'),
+        import('leaflet/dist/leaflet.css'),
+      ]);
+      if (disposed || !containerRef.current) return;
 
-    // Center and zoom on Istanbul itself so the real map tiles fill the
-    // whole frame — no stylized country overlay to leave gaps.
-    applyView(map, containerRef.current);
+      const map = L.map(containerRef.current, {
+        zoomControl: false,
+        attributionControl: false,
+        dragging: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        keyboard: false,
+        touchZoom: false,
+        tap: false,
+      });
+      mapRef.current = map;
 
-    const marker = L.marker(ISTANBUL_CENTER, { icon: createMarkerIcon() }).addTo(map);
-    marker.on('click', () => {
-      window.open(location.directionsUrl, '_blank', 'noopener,noreferrer');
-    });
-
-    const popup = L.popup({
-      closeButton: false,
-      closeOnClick: false,
-      autoClose: false,
-      className: 'turkey-map__popup',
-      offset: [0, -14],
-    })
-      .setLatLng(ISTANBUL_CENTER)
-      .setContent(`<strong>${location.city}</strong><span>${location.country}</span>`)
-      .addTo(map);
-
-    // The map's container can still be resizing (flex-stretch layout,
-    // Reveal fade-in) after Leaflet reads its initial size — keep it synced.
-    const resizeObserver = new ResizeObserver(() => {
-      map.invalidateSize();
+      L.tileLayer(TILE_URL, { subdomains: 'abcd', maxZoom: 19 }).addTo(map);
       applyView(map, containerRef.current);
-    });
-    resizeObserver.observe(containerRef.current);
+
+      const marker = L.marker(ISTANBUL_CENTER, { icon: createMarkerIcon(L) }).addTo(map);
+      marker.on('click', () => {
+        window.open(location.directionsUrl, '_blank', 'noopener,noreferrer');
+      });
+
+      const popup = L.popup({
+        closeButton: false,
+        closeOnClick: false,
+        autoClose: false,
+        className: 'turkey-map__popup',
+        offset: [0, -14],
+      })
+        .setLatLng(ISTANBUL_CENTER)
+        .setContent(`<strong>${location.city}</strong><span>${location.country}</span>`)
+        .addTo(map);
+
+      const resizeObserver = new ResizeObserver(() => {
+        map.invalidateSize();
+        applyView(map, containerRef.current);
+      });
+      resizeObserver.observe(containerRef.current);
+
+      cleanupMap = () => {
+        resizeObserver.disconnect();
+        popup.remove();
+        marker.remove();
+        map.remove();
+        mapRef.current = null;
+      };
+    }
+
+    initialiseMap();
 
     return () => {
-      resizeObserver.disconnect();
-      popup.remove();
-      marker.remove();
-      map.remove();
-      mapRef.current = null;
+      disposed = true;
+      cleanupMap?.();
     };
   }, [inView]);
 
@@ -114,6 +116,14 @@ function TurkeyMap() {
     <div className="turkey-map">
       <div className="turkey-map__surface">
         <div ref={containerRef} className="turkey-map__canvas" />
+        <a
+          className="turkey-map__open"
+          href={location.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open map
+        </a>
       </div>
     </div>
   );

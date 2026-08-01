@@ -15,7 +15,7 @@ function About() {
         path="/about"
       />
 
-      <section className="page-hero about-hero">
+      <section className="page-hero page-hero--statement about-hero">
         <picture className="about-hero__photo" aria-hidden="true">
           <source srcSet="/images/field-turbine-sunset.webp" type="image/webp" />
           <img src="/images/field-turbine-sunset.jpg" alt="" loading="eager" />
@@ -23,15 +23,15 @@ function About() {
         <div className="about-hero__tint" aria-hidden="true" />
         <div className="about-hero__scrim" aria-hidden="true" />
         <div className="container">
-          <Reveal variant="fade">
-            <span className="eyebrow">Who We Are</span>
+          <Reveal as="h1" variant="fade" className="page-hero__kicker">
+            Who We Are
           </Reveal>
           <Reveal variant="up" delay={80}>
-            <h1 className="page-hero__title">
+            <h2 className="page-hero__title">
               Reliable Solutions
               <br />
               Reliable Data
-            </h1>
+            </h2>
           </Reveal>
           <Reveal variant="up" delay={160}>
             <p className="page-hero__lede">{about.paragraphs[0]}</p>

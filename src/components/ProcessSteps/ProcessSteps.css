@@ -8,8 +8,9 @@
 @media (max-width: 900px) {
   .process-steps {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: var(--space-5);
   }
+
 }
 
 .process-steps__item {
@@ -69,5 +70,11 @@
   font-size: 0.9rem;
   line-height: 1.55;
   text-align: justify;
+}
+
+@media (max-width: 900px) {
+  .process-steps__desc {
+    text-align: left;
+  }
 }
 

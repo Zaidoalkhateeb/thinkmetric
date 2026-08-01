@@ -130,6 +130,16 @@
   .contact-cards {
     grid-template-columns: 1fr;
   }
+
+  .contact-grid {
+    gap: var(--space-6);
+  }
+
+  .contact-grid__map .eyebrow,
+  .contact-grid__map h2 {
+    margin-left: 0;
+  }
+
 }
 
 .contact-card {
@@ -187,4 +197,14 @@
   color: var(--text-primary);
   font-size: 0.98rem;
   margin-top: 2px;
+}
+
+@media (max-width: 560px) {
+  .contact-card {
+    padding: var(--space-3);
+  }
+
+  .contact-card__value {
+    overflow-wrap: anywhere;
+  }
 }
