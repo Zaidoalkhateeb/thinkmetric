@@ -66,11 +66,30 @@
   font-size: clamp(2rem, 3.6vw, 3.2rem);
 }
 
+/* Sized larger than the title below it — an intentional, oversized lead-in
+   rather than the small tag used for eyebrows elsewhere on the site. */
+.about-hero .eyebrow {
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  gap: 12px;
+}
+
+.about-hero .eyebrow::before {
+  width: 10px;
+  height: 10px;
+}
+
 .about-body {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: var(--space-6);
   align-items: center;
+}
+
+.about-body__text,
+.about-body__media {
+  min-width: 0;
 }
 
 @media (max-width: 860px) {
@@ -122,6 +141,10 @@
   gap: var(--space-4);
 }
 
+.about-principle {
+  min-width: 0;
+}
+
 @media (max-width: 860px) {
   .about-principles {
     grid-template-columns: 1fr;
@@ -148,5 +171,13 @@
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
+}
+
+/* Same reasoning as ProcessSteps: justify only once the column is wide
+   enough (below the 3-up desktop grid it creates huge word gaps). */
+@media (min-width: 861px) {
+  .about-principle p {
+    text-align: left;
+  }
 }
 

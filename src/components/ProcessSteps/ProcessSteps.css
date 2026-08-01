@@ -15,6 +15,7 @@
 .process-steps__item {
   position: relative;
   padding-top: var(--space-2);
+  min-width: 0;
 }
 
 .process-steps__marker {
@@ -53,8 +54,20 @@
   margin-bottom: var(--space-2);
 }
 
+/* Keep each title on a single line in the 4-up desktop grid — the longest
+   titles ("Select and configure the technology", "Dependable data for
+   confident decisions") don't fit at the base size within a ~290px column. */
+@media (min-width: 901px) {
+  .process-steps__title {
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+}
+
 .process-steps__desc {
   color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.55;
+  text-align: justify;
 }
+

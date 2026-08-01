@@ -79,6 +79,7 @@
 .contact-grid__map {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .contact-grid__form h2,

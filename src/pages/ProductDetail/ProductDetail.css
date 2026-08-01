@@ -9,6 +9,11 @@
   align-items: start;
 }
 
+.product-detail__media,
+.product-detail__body {
+  min-width: 0;
+}
+
 .category-back--top {
   margin-bottom: var(--space-4);
 }
@@ -116,6 +121,7 @@
 .product-detail__extras li {
   position: relative;
   line-height: 1.5;
+  text-align: justify;
 }
 
 .product-detail__features li::before,
@@ -155,6 +161,7 @@
   font-size: 0.9rem;
   color: var(--text-primary);
   font-weight: 600;
+  text-align: justify;
 }
 
 .product-detail__applications {
@@ -163,8 +170,4 @@
 
 .product-detail__applications .category-hero__tags {
   margin: 0;
-}
-
-.product-detail__pdf {
-  margin-bottom: var(--space-5);
 }

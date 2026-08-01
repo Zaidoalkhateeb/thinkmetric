@@ -2,7 +2,6 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Reveal from '../../components/Reveal/Reveal';
-import PdfAction from '../../components/PdfAction/PdfAction';
 import { categoryIcons } from '../../components/IconMark/IconMark';
 import { categories, siteUrl } from '../../data/siteContent';
 import { getProductBySlug } from '../../data/products';
@@ -104,13 +103,6 @@ function ProductDetail() {
                       <li key={e}>{e}</li>
                     ))}
                   </ul>
-                </div>
-              )}
-
-              {product.categorySlug !== 'remote-power-supply-systems' && (
-                <div className="product-detail__pdf">
-                  <h2 className="product-detail__section-title">Datasheet</h2>
-                  <PdfAction pdfUrl={product.pdfUrl} modelName={product.modelName} />
                 </div>
               )}
             </Reveal>

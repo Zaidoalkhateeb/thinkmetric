@@ -151,10 +151,6 @@ const raw = [
       'DBS / VAD observation modes',
     ],
     applications: [
-      'Wind Power Prediction',
-      'Wind Measurement Network in Complex Terrain',
-      'Integrated Meteorological Observation and Service Platform',
-      'Preliminary Survey of Onshore and Offshore Wind Resources',
     ],
     specifications: [
       { label: 'Wavelength', value: '1550nm, invisible and eye safe' },
@@ -444,11 +440,11 @@ const raw = [
     summary:
       'WindMast PBL(MA) is a pulsed coherent airborne wind LiDAR designed for use on airborne platforms, fully developed in compliance with IEC 61400-12-1:2017 standards. Its compact, lightweight structure offers smaller size, reduced weight, and enhanced adaptability to various working environments. Easy to mount and flexible enough for multiple platforms, it overcomes terrain limitations to detect wind field conditions across plains, mountainous areas, and oceans in a short time.',
     features: [
-      'Miniaturized, low power consumption, high precision pulsed coherent wind LiDAR',
       'Compact, lightweight structure adaptable to the working environment',
       'Easy to mount on various platforms, adaptable to different terrains',
       'Rapid wind field detection across plains, mountains, and oceans',
       'Suitable for environmental monitoring, wildfire detection, and other fields',
+      'Miniaturized, low power consumption, high precision pulsed coherent wind LiDAR'
     ],
     applications: [],
     specifications: [

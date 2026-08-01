@@ -40,7 +40,7 @@ function Home() {
           <Reveal as="h1" variant="up" className="home-hero__title">
             Measure the invisible,
             <br />
-            decide with confidence
+            <span className="home-hero__title-line2">decide with confidence</span>
           </Reveal>
           <Reveal as="p" variant="up" delay={90} className="home-hero__desc">
             Advanced measurement and autonomous power technologies for wind, atmospheric, industrial, and
@@ -95,7 +95,7 @@ function Home() {
         <div className="container home-location">
           <Reveal as="div" variant="left" className="home-location__body">
             <span className="eyebrow">Location</span>
-            <h2 className="home-section__title">Based in Istanbul, Türkiye</h2>
+            <h2 className="home-section__title"> Istanbul / Türkiye</h2>
             <p className="home-section__lede">
               Serving wind developers, researchers, and industrial operators from our home base at the
               crossroads of Europe and Asia.

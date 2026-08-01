@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Pause, Play } from 'lucide-react';
 import AtmosphericOverlay from '../AtmosphericOverlay/AtmosphericOverlay';
 import './HeroMedia.css';
 
@@ -10,7 +9,6 @@ import './HeroMedia.css';
  */
 function HeroMedia() {
   const [prefersReduced, setPrefersReduced] = useState(false);
-  const [paused, setPaused] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -24,15 +22,11 @@ function HeroMedia() {
   useEffect(() => {
     const video = videoRef.current;
     if (!video || prefersReduced) return;
-    if (paused) {
-      video.pause();
-      return;
-    }
     video.play().catch(() => {
       // Autoplay blocked — the poster frame remains visible, which is an
       // acceptable, non-broken fallback per the brief.
     });
-  }, [prefersReduced, paused]);
+  }, [prefersReduced]);
 
   return (
     <div className="hero-media">
@@ -63,18 +57,7 @@ function HeroMedia() {
       )}
 
       <div className="hero-media__gradient" />
-      {!prefersReduced && <AtmosphericOverlay paused={paused} />}
-      {!prefersReduced && (
-        <button
-          type="button"
-          className="hero-media__motion-toggle"
-          onClick={() => setPaused((p) => !p)}
-          aria-pressed={paused}
-          aria-label={paused ? 'Play background video' : 'Pause background video'}
-        >
-          {paused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
-        </button>
-      )}
+      {!prefersReduced && <AtmosphericOverlay />}
     </div>
   );
 }

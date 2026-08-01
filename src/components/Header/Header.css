@@ -6,12 +6,22 @@
   z-index: 100;
   background: transparent;
   transition: background var(--dur-med) var(--ease-precise), box-shadow var(--dur-med) var(--ease-precise),
-    border-color var(--dur-med) var(--ease-precise);
+    border-color var(--dur-med) var(--ease-precise), transform var(--dur-med) var(--ease-precise);
   border-bottom: 1px solid transparent;
+}
+
+/* Slides fully out of view once scrolling nears the true bottom of the
+   page, so it never paints over the footer's top content — on short
+   mobile pages the footer's height can match or exceed the viewport,
+   which otherwise leaves its logo sitting directly under the fixed header. */
+.site-header--hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
 }
 
 .site-header--solid {
   background: rgba(245, 246, 242, 0.92);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: var(--shadow-sm);

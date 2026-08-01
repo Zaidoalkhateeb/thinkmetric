@@ -9,8 +9,7 @@
 .home-hero__inner {
   position: relative;
   z-index: 2;
-  padding-bottom: var(--space-8);
-  max-width: 760px;
+  padding-bottom: 170px;
 }
 
 .home-hero__title {
@@ -18,10 +17,16 @@
   margin-bottom: var(--space-4);
 }
 
+@media (min-width: 700px) {
+  .home-hero__title-line2 {
+    white-space: nowrap;
+  }
+}
+
 .home-hero__desc {
   color: var(--tm-fog);
   font-size: 1.1rem;
-  max-width: 46ch;
+  max-width: 58ch;
   margin-bottom: var(--space-5);
 }
 
@@ -176,6 +181,11 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: var(--space-6);
   align-items: center;
+}
+
+.home-location__body,
+.home-location__map {
+  min-width: 0;
 }
 
 @media (max-width: 860px) {

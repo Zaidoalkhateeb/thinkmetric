@@ -27,33 +27,3 @@
   );
 }
 
-.hero-media__motion-toggle {
-  position: absolute;
-  bottom: var(--space-4);
-  right: var(--space-4);
-  width: 38px;
-  height: 38px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(8, 39, 29, 0.55);
-  border: 1px solid var(--border-inverse);
-  color: var(--tm-off-white);
-  border-radius: 50%;
-  backdrop-filter: blur(6px);
-  cursor: pointer;
-  z-index: 3;
-  transition: background 160ms ease;
-}
-
-.hero-media__motion-toggle:hover,
-.hero-media__motion-toggle:focus-visible {
-  background: rgba(8, 39, 29, 0.8);
-}
-
-@media (max-width: 640px) {
-  .hero-media__motion-toggle {
-    bottom: var(--space-3);
-    right: var(--space-3);
-  }
-}

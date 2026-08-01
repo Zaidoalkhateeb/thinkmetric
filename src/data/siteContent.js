@@ -17,15 +17,19 @@ export const contact = {
   phoneHref: 'tel:+905413403689',
 };
 
+const fullAddress =
+  'Kayabaşı Mah. Gazi Yaşargil Cad. Başakşehir Evleri 1. Etap 4. Ksm A2 Blok No: 14 H İç Kapı No: 3, Başakşehir / İstanbul';
+
 export const location = {
-  city: 'Istanbul',
+  city: 'Başakşehir',
   country: 'Türkiye',
-  label: 'Istanbul, Türkiye',
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Istanbul%2C%20T%C3%BCrkiye',
-  directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Istanbul%2C%20T%C3%BCrkiye',
+  label: 'İstanbul / Türkiye',
+  fullAddress,
+  mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`,
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}`,
   // Approximate coordinates used only for the stylized regional map marker.
-  lat: 41.0082,
-  lng: 28.9784,
+  lat: 41.0958,
+  lng: 28.8006,
 };
 
 export const about = {
@@ -66,7 +70,7 @@ export const processStages = [
     step: '01',
     title: 'Define the measurement objective',
     description:
-      'Every campaign starts with a clear question — wind resource, turbine performance, boundary-layer behaviour, or air quality.',
+      'Every campaign starts with a clear question about wind resource, turbine performance, boundary-layer behaviour, or air quality.',
   },
   {
     step: '02',
@@ -84,7 +88,7 @@ export const processStages = [
     step: '04',
     title: 'Dependable data for confident decisions',
     description:
-      'Consistent, well-instrumented measurement supports resource assessment, research, and operational decision-making.',
+      'Consistent measurement, delivered through reliable instrumentation, supports resource assessment, research, and operational decisions.',
   },
 ];
 
@@ -98,7 +102,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'remotePower',
-    heroImage: '/images/power-solutions-hero.webp',
+    heroImage: '/images/power-solutions-hero.jpg',
   },
   {
     slug: 'lidars',

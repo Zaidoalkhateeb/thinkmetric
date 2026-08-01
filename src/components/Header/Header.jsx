@@ -11,8 +11,14 @@ const megaMenuImages = {
 };
 const defaultMegaMenuImage = '/images/field-turbine-hills.webp';
 
+// Max rendered height of the header bar (the unscrolled 84px state) — used
+// as the clearance threshold below so the header slides away before it can
+// ever paint over the footer at the bottom of short mobile pages.
+const HEADER_CLEARANCE = 84;
+
 function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [nearBottom, setNearBottom] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(categories[0].slug);
@@ -22,10 +28,19 @@ function Header() {
   const menuTriggerRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const distanceFromBottom =
+        document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
+      setNearBottom(distanceFromBottom < HEADER_CLEARANCE);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -65,13 +80,15 @@ function Header() {
 
   const isSolid = scrolled || mobileOpen;
   const isDarkText = isSolid || location.pathname !== '/';
+  const isHidden = nearBottom && !mobileOpen && !megaOpen;
 
   return (
-    <header
-      className={`site-header ${isSolid ? 'site-header--solid' : ''} ${
-        isDarkText ? 'site-header--dark-text' : ''
-      }`}
-    >
+    <>
+      <header
+        className={`site-header ${isSolid ? 'site-header--solid' : ''} ${
+          isDarkText ? 'site-header--dark-text' : ''
+        } ${isHidden ? 'site-header--hidden' : ''}`}
+      >
       <div className="container site-header__inner">
         <Link to="/" className="site-header__brand" aria-label="ThinkMetric home">
           <img
@@ -190,9 +207,10 @@ function Header() {
           </button>
         </div>
       </div>
+      </header>
 
       {mobileOpen && <MobileNav onNavigate={() => setMobileOpen(false)} />}
-    </header>
+    </>
   );
 }
 

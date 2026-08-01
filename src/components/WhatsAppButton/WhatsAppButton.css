@@ -7,9 +7,20 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  opacity: 1;
+  transition: opacity var(--dur-med) var(--ease-precise);
+}
+
+/* While actively scrolling, or once the footer (which repeats these same
+   contact details) has come into view, fade the button back so it doesn't
+   sit on top of the content passing underneath it. */
+.floating-contact.is-faded {
+  opacity: 0.28;
+  pointer-events: none;
 }
 
 .floating-contact__btn {
+  position: relative;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -22,10 +33,40 @@
   transition: transform var(--dur-med) var(--ease-precise), box-shadow var(--dur-med) var(--ease-precise);
 }
 
+.floating-contact__tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: var(--tm-forest-deep);
+  color: var(--tm-white);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+@media (hover: hover) {
+  .floating-contact__btn:hover .floating-contact__tip,
+  .floating-contact__btn:focus-visible .floating-contact__tip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
 .floating-contact__btn:hover,
 .floating-contact__btn:focus-visible {
   transform: translateY(-3px) scale(1.05);
   box-shadow: var(--shadow-lg);
+}
+
+.floating-contact__toggle {
+  display: none;
 }
 
 @media (max-width: 640px) {
@@ -34,10 +75,43 @@
     bottom: var(--space-3);
     right: var(--space-3);
     transform: none;
+    flex-direction: column-reverse;
     gap: var(--space-2);
   }
+
+  .floating-contact__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--tm-forest);
+    color: var(--tm-white);
+    border: none;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+  }
+
   .floating-contact__btn {
     width: 50px;
     height: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.9);
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
+  }
+
+  .floating-contact.is-open .floating-contact__btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 0s;
+  }
+
+  .floating-contact__tip {
+    display: none;
   }
 }

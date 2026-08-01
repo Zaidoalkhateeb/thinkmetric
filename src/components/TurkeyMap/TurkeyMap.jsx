@@ -6,6 +6,18 @@ import './TurkeyMap.css';
 
 const ISTANBUL_CENTER = [location.lat, location.lng];
 const ISTANBUL_ZOOM = 11;
+// Fraction of the container's width to shift the view east of the pin, so
+// more of Istanbul itself — not just Başakşehir — fills the frame. Done as
+// a pixel shift proportional to the actual rendered width (via panBy)
+// rather than a fixed degree offset, so the pin and its popup stay clear
+// of the left edge on narrow mobile cards, not just the wide desktop one.
+const VIEW_SHIFT_FRACTION = 0.22;
+
+function applyView(map, container) {
+  map.setView(ISTANBUL_CENTER, ISTANBUL_ZOOM, { animate: false });
+  const shiftX = container.clientWidth * VIEW_SHIFT_FRACTION;
+  map.panBy([shiftX, 0], { animate: false });
+}
 
 // CARTO's free Voyager basemap — real geography, roads and place labels,
 // no account or API key required (unlike Mapbox/Google).
@@ -63,7 +75,7 @@ function TurkeyMap() {
 
     // Center and zoom on Istanbul itself so the real map tiles fill the
     // whole frame — no stylized country overlay to leave gaps.
-    map.setView(ISTANBUL_CENTER, ISTANBUL_ZOOM);
+    applyView(map, containerRef.current);
 
     const marker = L.marker(ISTANBUL_CENTER, { icon: createMarkerIcon() }).addTo(map);
     marker.on('click', () => {
@@ -78,14 +90,14 @@ function TurkeyMap() {
       offset: [0, -14],
     })
       .setLatLng(ISTANBUL_CENTER)
-      .setContent('<strong>Istanbul</strong><span>Türkiye</span>')
+      .setContent(`<strong>${location.city}</strong><span>${location.country}</span>`)
       .addTo(map);
 
     // The map's container can still be resizing (flex-stretch layout,
     // Reveal fade-in) after Leaflet reads its initial size — keep it synced.
     const resizeObserver = new ResizeObserver(() => {
       map.invalidateSize();
-      map.setView(ISTANBUL_CENTER, ISTANBUL_ZOOM, { animate: false });
+      applyView(map, containerRef.current);
     });
     resizeObserver.observe(containerRef.current);
 
