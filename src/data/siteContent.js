@@ -6,8 +6,6 @@ export const siteUrl = 'https://www.think-metric.co';
 
 export const brand = {
   name: 'ThinkMetric',
-  displayWordmark: 'THINKMETRIC',
-  tagline: 'Measure the invisible. Decide with confidence.',
 };
 
 export const contact = {
@@ -58,13 +56,6 @@ export const about = {
   ],
 };
 
-export const applications = [
-  'Wind resource assessment',
-  'Atmospheric research',
-  'Industrial monitoring',
-  'Long-term remote measurement campaigns',
-];
-
 export const processStages = [
   {
     step: '01',
@@ -114,33 +105,6 @@ export const categories = [
     applications: [],
     icon: 'windLidar',
     heroImage: '/images/onshore-wind-energy.jpg',
-  },
-];
-
-export const atmosphericModes = [
-  {
-    id: 'wind',
-    label: 'Wind Wave',
-    description:
-      'Horizontal wind flow measured at multiple heights, revealing shear and turbulence across a rotor swept area.',
-  },
-  {
-    id: 'boundary-layer',
-    label: 'Lidar',
-    description:
-      'The atmospheric layer nearest the surface, where wind behaviour is shaped by terrain, heat, and turbulence.',
-  },
-  {
-    id: 'atmosphere',
-    label: 'Met Mast',
-    description:
-      'Temperature, humidity, and aerosol structure through the atmospheric column, sensed remotely without physical contact.',
-  },
-  {
-    id: 'remote-power',
-    label: 'Remote Power',
-    description:
-      'Autonomous power systems that keep measurement equipment operating independently of grid infrastructure.',
   },
 ];
 
