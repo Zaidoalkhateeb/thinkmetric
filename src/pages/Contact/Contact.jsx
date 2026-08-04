@@ -46,21 +46,14 @@ function Contact() {
 
       <section className="page-hero page-hero--statement contact-hero">
         <picture className="contact-hero__photo" aria-hidden="true">
-          <source srcSet="/media/thinkmetric-hero-poster.webp" type="image/webp" />
-          <img src="/media/thinkmetric-hero-poster.jpg" alt="" loading="eager" />
+          <source srcSet="/media/thinkmetric-hero-poster-clean.webp" type="image/webp" />
+          <img src="/media/thinkmetric-hero-poster-clean.jpg" alt="" loading="eager" />
         </picture>
         <div className="contact-hero__tint" aria-hidden="true" />
         <div className="contact-hero__bg" aria-hidden="true" />
         <div className="container">
           <Reveal as="h1" variant="fade" className="page-hero__kicker">
             Get In Touch
-          </Reveal>
-          <Reveal variant="up" delay={80}>
-            <h2 className="page-hero__title">
-              Connect with
-              <br />
-              ThinkMetric
-            </h2>
           </Reveal>
           <Reveal variant="up" delay={160}>
             <p className="page-hero__lede">

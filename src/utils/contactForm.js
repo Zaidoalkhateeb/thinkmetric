@@ -29,7 +29,6 @@ export function validateContactForm(form) {
   }
   if (!form.company.trim()) errors.company = 'Enter your company.';
   if (!form.country.trim()) errors.country = 'Select your country.';
-  if (!form.message.trim()) errors.message = 'Describe your project.';
   if (!form.consent) errors.consent = 'Please confirm you agree before submitting.';
   return errors;
 }
@@ -48,7 +47,7 @@ export function buildContactMailto(form) {
       `Category interest: ${form.interest || 'N/A'}`,
       '',
       'Project description:',
-      form.message,
+      form.message || 'Not provided',
     ].join('\n')
   );
   return `mailto:${to}?subject=${subject}&body=${body}`;

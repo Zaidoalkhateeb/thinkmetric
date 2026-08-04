@@ -77,6 +77,21 @@ p {
   text-align: justify;
 }
 
+/* Desktop-only hardening: makes the justify behavior explicit and
+   guarantees the last line is never stretched, without touching the
+   mobile-specific overrides already tuned per component. */
+@media (min-width: 641px) {
+  p {
+    text-align-last: left;
+    text-justify: inter-word;
+    hyphens: none;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+  }
+}
+
 h1 {
   font-size: clamp(2.4rem, 5vw, 4.4rem);
   font-weight: 700;
@@ -130,7 +145,7 @@ select:focus-visible,
 
 @media (max-width: 640px) {
   .container {
-    padding-inline: var(--space-3);
+    padding-inline: 12px;
   }
 
   .btn {
@@ -236,13 +251,49 @@ select:focus-visible,
   font-size: clamp(1rem, 1.15vw, 1.15rem);
   font-weight: 500;
   line-height: 1.7;
-  text-align: left;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: none;
+  word-break: normal;
 }
 
 @media (max-width: 640px) {
+  .page-hero {
+    padding-block: calc(64px + var(--space-5) + env(safe-area-inset-top)) var(--space-6);
+  }
+
+  .page-hero--light {
+    padding-block: calc(64px + var(--space-4) + env(safe-area-inset-top)) var(--space-5);
+  }
+
+  .page-hero__title {
+    max-width: 100%;
+    font-size: clamp(2rem, 10vw, 2.75rem);
+    line-height: 1.08;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .page-hero__lede {
+    width: 100%;
+    max-width: none;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    font-size: 0.9rem;
+  }
+
   .page-hero--statement {
-    min-height: 100svh;
-    padding-block: 120px 88px;
+    min-height: min(82svh, 700px);
+    align-items: flex-end;
+    padding-block: calc(64px + var(--space-5) + env(safe-area-inset-top)) calc(var(--space-6) + env(safe-area-inset-bottom));
   }
 
   .page-hero--statement .page-hero__kicker {
@@ -258,8 +309,17 @@ select:focus-visible,
   }
 
   .page-hero--statement .page-hero__lede {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
     line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
   }
 }
 
@@ -268,8 +328,38 @@ select:focus-visible,
 }
 
 @media (max-width: 780px) {
-  p {
-    text-align: left;
+  p,
+  .article-text,
+  .description-text,
+  .content-text {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  [dir='rtl'],
+  html[lang='ar'] p {
+    direction: rtl;
+    text-align: justify;
+    text-align-last: right;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-height: 1.8;
+  }
+
+  .text-container {
+    width: 100%;
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .section {

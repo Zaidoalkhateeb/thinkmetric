@@ -38,8 +38,7 @@ function Home() {
         <HeroMedia />
         <div className="container home-hero__inner">
           <Reveal as="h1" variant="up" className="home-hero__title">
-            Measure the invisible,
-            <br />
+            <span className="home-hero__title-line1">Measure the invisible,</span>
             <span className="home-hero__title-line2">decide with confidence</span>
           </Reveal>
           <Reveal as="p" variant="up" delay={90} className="home-hero__desc">

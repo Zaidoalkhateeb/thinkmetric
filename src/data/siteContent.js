@@ -21,7 +21,7 @@ const fullAddress =
 export const location = {
   city: 'Başakşehir',
   country: 'Türkiye',
-  label: 'İstanbul / Türkiye',
+  label: 'Istanbul / Türkiye',
   fullAddress,
   mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`,
   directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}`,
@@ -41,10 +41,10 @@ export const about = {
     {
       title: 'Precision in selection',
       description:
-        'Every technology in our portfolio is chosen for accuracy and fit-for-purpose performance, not added to fill a catalog.',
+        'Every technology in our portfolio is chosen for accuracy and fit for purpose performance, not added to fill a catalog.',
     },
     {
-      title: 'Trusted In the field',
+      title: 'Trusted in the field',
       description:
         'From exposed ridgelines to remote uplands, our equipment is selected to operate reliably where onshore conditions are unforgiving.',
     },
@@ -93,7 +93,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'remotePower',
-    heroImage: '/images/power-solutions-hero.jpg',
+    heroImage: '/images/power-solutions-hero-4k.webp',
   },
   {
     slug: 'lidars',
@@ -104,7 +104,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'windLidar',
-    heroImage: '/images/onshore-wind-energy.jpg',
+    heroImage: '/images/power-solutions-hero-4k.webp',
   },
 ];
 

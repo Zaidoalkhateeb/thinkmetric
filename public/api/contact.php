@@ -108,7 +108,7 @@ $message = text_value($data, 'message', 5000);
 $consent = isset($data['consent']) && $data['consent'] === true;
 
 if (
-    $name === '' || $company === '' || $country === '' || $message === '' || !$consent ||
+    $name === '' || $company === '' || $country === '' || !$consent ||
     !filter_var($email, FILTER_VALIDATE_EMAIL)
 ) {
     respond(422, ['ok' => false, 'message' => 'Please complete all required fields correctly.']);
@@ -131,7 +131,7 @@ $body = implode("\n", [
     'Category interest: ' . ($interest !== '' ? $interest : 'N/A'),
     '',
     'Project description:',
-    $message,
+    $message !== '' ? $message : 'Not provided',
     '',
     'Consent to contact: Yes',
     'Submitted: ' . gmdate('Y-m-d H:i:s') . ' UTC',

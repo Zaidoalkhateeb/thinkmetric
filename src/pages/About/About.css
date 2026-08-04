@@ -9,6 +9,10 @@
   z-index: 2;
 }
 
+.page-hero--statement.about-hero .page-hero__kicker {
+  font-size: clamp(2.25rem, 4.2vw, 3.6rem);
+}
+
 .about-hero__photo {
   position: absolute;
   inset: 0;
@@ -20,10 +24,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 50%;
-  /* Light touch only — this photo's warm sunset tones are the point, so we
-     keep it close to true color rather than flattening it like the other
-     hero treatments. */
-  filter: saturate(0.95) brightness(1.03);
+  filter: grayscale(1) brightness(1.2) contrast(0.95);
 }
 
 .about-hero__tint {
@@ -51,7 +52,12 @@
 
 @media (max-width: 700px) {
   .about-hero__scrim {
-    background: rgba(232, 238, 235, 0.75);
+    background: linear-gradient(
+      180deg,
+      rgba(232, 238, 235, 0.38) 0%,
+      rgba(232, 238, 235, 0.58) 46%,
+      rgba(232, 238, 235, 0.92) 100%
+    );
   }
 }
 
@@ -93,6 +99,19 @@
   max-width: 55ch;
 }
 
+.about-hero .page-hero__lede,
+.about-body__text p,
+.about-principle p {
+  width: 100%;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  -webkit-hyphens: none;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 .about-body__media img {
   border-radius: var(--radius-lg);
   width: 100%;
@@ -105,6 +124,12 @@
 
 .about-principles__title {
   color: var(--text-primary);
+  font-size: clamp(1.75rem, 3vw, 2.55rem);
+  margin-top: var(--space-3);
+}
+
+.about-principles-section {
+  padding-top: var(--space-7);
 }
 
 @media (min-width: 860px) {
@@ -117,11 +142,13 @@
 .about-principles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
   gap: var(--space-4);
 }
 
 .about-principle {
   min-width: 0;
+  height: 100%;
 }
 
 @media (max-width: 860px) {
@@ -152,11 +179,100 @@
   line-height: 1.6;
 }
 
-/* Same reasoning as ProcessSteps: justify only once the column is wide
-   enough (below the 3-up desktop grid it creates huge word gaps). */
-@media (min-width: 861px) {
+.about-body__text h2,
+.about-principles__title,
+.about-principle__number,
+.about-principle h3 {
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .page-hero--statement.about-hero {
+    display: flex;
+    min-height: min(82svh, 700px);
+    align-items: flex-end;
+    padding-block: calc(64px + var(--space-5) + env(safe-area-inset-top)) calc(var(--space-6) + env(safe-area-inset-bottom));
+  }
+
+  .about-hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-hero__photo img {
+    object-position: 60% center;
+  }
+
+  .about-hero__tint {
+    display: none;
+  }
+
+  .about-hero__scrim {
+    display: block;
+    background: linear-gradient(
+      180deg,
+      rgba(232, 238, 235, 0.4) 0%,
+      rgba(232, 238, 235, 0.12) 22%,
+      rgba(232, 238, 235, 0.24) 44%,
+      rgba(232, 238, 235, 0.6) 78%,
+      var(--bg-page) 100%
+    );
+  }
+
+  .about-hero .container {
+    margin-top: 0;
+  }
+
+  .about-hero .page-hero__lede {
+    width: 100%;
+    max-width: none;
+    margin-top: var(--space-3);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    text-wrap: pretty;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+  }
+
+  .about-body__text p,
   .about-principle p {
-    text-align: left;
+    width: 100%;
+    max-width: none;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
+    font-size: 0.85rem;
+  }
+
+  .about-hero__cta {
+    margin-top: var(--space-4);
+    padding: 12px 18px;
+    font-size: 0.86rem;
+  }
+
+  .about-principles-section {
+    padding-top: var(--space-6);
+  }
+
+  .page-hero--statement.about-hero .page-hero__kicker {
+    font-size: clamp(1.65rem, 7.2vw, 2rem);
+    line-height: 1.05;
   }
 }
 

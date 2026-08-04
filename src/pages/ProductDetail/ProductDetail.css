@@ -14,6 +14,17 @@
   min-width: 0;
 }
 
+/* At these widths the container nearly fills the viewport, so the fixed
+   floating-contact buttons (WhatsAppButton.css, pinned to the viewport's
+   right edge) sit on top of the grid's right column with no natural
+   margin to clear them. Reserve room for them here; above ~1520px the
+   container's own centering margin already provides enough clearance. */
+@media (min-width: 861px) and (max-width: 1520px) {
+  .product-detail__grid {
+    padding-right: 88px;
+  }
+}
+
 .category-back--top {
   margin-bottom: var(--space-4);
 }
@@ -102,6 +113,13 @@
   font-size: 1.05rem;
   line-height: 1.65;
   margin-bottom: var(--space-5);
+}
+
+@media (max-width: 860px) {
+  .product-detail__summary {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
 }
 
 .product-detail__section-title {

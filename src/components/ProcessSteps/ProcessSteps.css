@@ -74,7 +74,18 @@
 
 @media (max-width: 900px) {
   .process-steps__desc {
-    text-align: left;
+    width: 100%;
+    font-size: 0.85rem;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
   }
 }
 

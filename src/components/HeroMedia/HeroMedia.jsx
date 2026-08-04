@@ -32,9 +32,9 @@ function HeroMedia() {
     <div className="hero-media">
       {prefersReduced ? (
         <picture>
-          <source srcSet="/media/thinkmetric-hero-poster.webp" type="image/webp" />
+          <source srcSet="/media/thinkmetric-hero-poster-clean.webp" type="image/webp" />
           <img
-            src="/media/thinkmetric-hero-poster.jpg"
+            src="/media/thinkmetric-hero-poster-clean.jpg"
             alt="Wind turbine rising through low atmospheric fog on open terrain"
             className="hero-media__poster"
           />
@@ -43,7 +43,7 @@ function HeroMedia() {
         <video
           ref={videoRef}
           className="hero-media__video"
-          poster="/media/thinkmetric-hero-poster.jpg"
+          poster="/media/thinkmetric-hero-poster-clean.jpg"
           autoPlay
           muted
           loop
@@ -51,8 +51,8 @@ function HeroMedia() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="/media/thinkmetric-hero.webm" type="video/webm" />
-          <source src="/media/thinkmetric-hero.mp4" type="video/mp4" />
+          <source src="/media/thinkmetric-hero-clean.webm" type="video/webm" />
+          <source src="/media/thinkmetric-hero-clean.mp4" type="video/mp4" />
         </video>
       )}
 

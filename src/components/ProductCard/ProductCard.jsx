@@ -4,16 +4,22 @@ import { categoryIcons } from '../IconMark/categoryIcons';
 import { categories } from '../../data/siteContent';
 import './ProductCard.css';
 
+const raisedImageProducts = new Set(['tm-mfc-375a', 'tm-hd-6000c', 'tm-hd-10000c']);
+
 function ProductCard({ product }) {
   const category = categories.find((c) => c.slug === product.categorySlug);
   const Icon = category ? categoryIcons[category.icon] : null;
 
   return (
-    <article className="product-card">
+    <article className={`product-card ${raisedImageProducts.has(product.slug) ? 'product-card--raised-image' : ''}`}>
       <Link to={`/products/detail/${product.slug}`} className="product-card__link">
         <div className="product-card__media">
           {product.image ? (
-            <img src={product.image} alt={product.modelName} loading="lazy" />
+            <img
+              src={product.image}
+              alt={product.modelName}
+              loading="lazy"
+            />
           ) : (
             <div className="product-card__placeholder" aria-hidden="true">
               {Icon && <Icon />}

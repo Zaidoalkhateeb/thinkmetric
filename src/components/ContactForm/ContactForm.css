@@ -170,6 +170,38 @@
   margin-top: 4px;
 }
 
+@media (max-width: 780px) {
+  .contact-form__consent {
+    position: relative;
+    display: block;
+  }
+
+  .contact-form__consent input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 4px 0 0;
+  }
+
+  .contact-form__consent span {
+    display: block;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    text-indent: 28px;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
+  }
+}
+
 .contact-form__error-summary {
   border: 1.5px solid #b3452f;
   background: #fbeeeb;

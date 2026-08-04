@@ -92,7 +92,7 @@ const raw = [
     applications: REMOTE_POWER_APPLICATIONS,
     optionalExtras: REMOTE_POWER_OPTIONAL_EXTRAS,
     contentStatus: 'documented',
-    image: '/images/products/tm-mfc-375a.webp',
+    image: '/images/products/tm-hd-6000c.webp',
   },
 
   // ---- Wind Measurement — LiDAR ----

@@ -12,6 +12,7 @@
 .site-footer__inner {
   display: grid;
   grid-template-columns: 1.3fr 0.9fr 0.9fr 1fr;
+  align-items: start;
   gap: var(--space-5);
   padding-bottom: var(--space-7);
 }
@@ -28,11 +29,15 @@
 }
 
 .site-footer__tagline {
-  color: var(--tm-mint);
+  color: var(--tm-off-white);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.6;
-  max-width: 320px;
+  max-width: 390px;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: none;
+  text-wrap: pretty;
 }
 
 .site-footer__heading {
@@ -42,10 +47,6 @@
   text-transform: uppercase;
   color: var(--tm-silver);
   margin-bottom: var(--space-3);
-}
-
-.site-footer__col--company {
-  padding-left: var(--space-4);
 }
 
 .site-footer__list {
@@ -83,16 +84,20 @@
     padding-bottom: var(--space-4);
   }
 
-  .site-footer__col--company {
-    padding-left: 0;
-  }
-
   .site-footer__tagline {
     max-width: none;
     font-size: 0.88rem;
     font-weight: 600;
-    line-height: 1.55;
-    text-align: left;
+    line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
   }
 
   .site-footer__heading {

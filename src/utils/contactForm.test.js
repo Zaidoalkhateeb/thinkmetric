@@ -12,9 +12,20 @@ describe('contact form rules', () => {
       email: 'Enter your email.',
       company: 'Enter your company.',
       country: 'Select your country.',
-      message: 'Describe your project.',
       consent: 'Please confirm you agree before submitting.',
     });
+  });
+
+  it('accepts an inquiry without a project description', () => {
+    const form = {
+      ...initialContactForm,
+      name: 'Ada Lovelace',
+      email: 'ada@example.com',
+      company: 'Analytical Engines',
+      country: 'United Kingdom',
+      consent: true,
+    };
+    expect(validateContactForm(form)).toEqual({});
   });
 
   it('accepts a complete valid inquiry', () => {

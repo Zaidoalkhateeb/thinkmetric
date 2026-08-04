@@ -7,6 +7,11 @@
 .contact-hero .container {
   position: relative;
   z-index: 3;
+  transform: translateY(clamp(24px, 4vh, 48px));
+}
+
+.page-hero--statement.contact-hero .page-hero__kicker {
+  font-size: clamp(2.25rem, 4.2vw, 3.6rem);
 }
 
 .contact-hero__photo {
@@ -20,8 +25,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center 55%;
-  /* Desaturate so the photo's natural blue-grey cast doesn't clash with the
-     site's warm off-white palette — it should read as one tone, not two. */
   filter: grayscale(1) brightness(1.2) contrast(0.95);
 }
 
@@ -123,6 +126,71 @@
 @media (max-width: 900px) {
   .contact-cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero--statement.contact-hero {
+    display: flex;
+    min-height: min(82svh, 700px);
+    align-items: flex-end;
+    padding-block: calc(64px + var(--space-5) + env(safe-area-inset-top)) calc(var(--space-6) + env(safe-area-inset-bottom));
+  }
+
+  .contact-hero .container {
+    transform: none;
+    margin-top: 0;
+  }
+
+  .contact-hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-hero__photo img {
+    object-position: 60% center;
+  }
+
+  .contact-hero__tint {
+    display: block;
+    background: linear-gradient(
+      180deg,
+      rgba(232, 238, 235, 0.4) 0%,
+      rgba(232, 238, 235, 0.12) 22%,
+      rgba(232, 238, 235, 0.24) 44%,
+      rgba(232, 238, 235, 0.6) 78%,
+      var(--bg-page) 100%
+    );
+  }
+
+  .contact-hero__bg {
+    display: block;
+    opacity: 0.42;
+  }
+
+  .contact-hero .page-hero__lede {
+    width: 100%;
+    max-width: none;
+    margin-top: var(--space-3);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-align-last: left;
+    text-wrap: pretty;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+  }
+
+  .page-hero--statement.contact-hero .page-hero__kicker {
+    font-size: clamp(1.65rem, 7.2vw, 2rem);
+    line-height: 1.05;
   }
 }
 

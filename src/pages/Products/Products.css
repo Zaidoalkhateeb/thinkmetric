@@ -14,7 +14,7 @@
 
 @media (max-width: 640px) {
   .products-catalog__title {
-    margin-top: var(--space-5);
+    margin-top: 0;
     text-align: left;
   }
 }

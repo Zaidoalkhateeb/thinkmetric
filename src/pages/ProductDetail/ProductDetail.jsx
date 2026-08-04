@@ -43,7 +43,10 @@ function ProductDetail() {
           <div className="product-detail__grid">
             <Reveal as="div" variant="left" className="product-detail__media">
               {product.image ? (
-                <img src={product.image} alt={product.modelName} />
+                <img
+                  src={product.image}
+                  alt={product.modelName}
+                />
               ) : (
                 <div className="product-detail__placeholder" aria-hidden="true">
                   {Icon && <Icon />}

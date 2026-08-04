@@ -30,6 +30,13 @@
   transform: none;
 }
 
+@media (max-width: 780px) {
+  .reveal--left,
+  .reveal--right {
+    transform: translateY(18px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;

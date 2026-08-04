@@ -60,3 +60,25 @@
   font-size: 0.8rem;
   color: var(--tm-forest);
 }
+
+@media (max-width: 780px) {
+  .cat-gateway {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cat-gateway__desc {
+    width: 100%;
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    font-size: 0.85rem;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-break: normal;
+    word-spacing: normal;
+    letter-spacing: normal;
+    line-height: 1.6;
+  }
+}

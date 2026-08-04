@@ -55,7 +55,7 @@ function ContactForm() {
     setErrors(validation);
 
     if (Object.keys(validation).length > 0) {
-      setTouched({ name: true, email: true, company: true, country: true, message: true, consent: true });
+      setTouched({ name: true, email: true, company: true, country: true, consent: true });
       setShake(true);
       setTimeout(() => setShake(false), 420);
       requestAnimationFrame(() => errorSummaryRef.current?.focus());
@@ -256,7 +256,6 @@ function ContactForm() {
         onBlur={handleBlur}
         touched={touched.message}
         error={errors.message}
-        required
       />
 
       <label className="contact-form__consent" htmlFor="field-consent">

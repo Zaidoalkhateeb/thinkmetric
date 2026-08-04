@@ -27,3 +27,20 @@
   );
 }
 
+@media (max-width: 640px) {
+  .hero-media__video,
+  .hero-media__poster {
+    object-position: 62% 42%;
+  }
+
+  .hero-media__gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 39, 29, 0.58) 0%,
+      rgba(8, 39, 29, 0.24) 32%,
+      rgba(8, 39, 29, 0.58) 66%,
+      rgba(8, 39, 29, 0.94) 100%
+    );
+  }
+}
+
