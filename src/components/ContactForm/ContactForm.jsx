@@ -113,15 +113,8 @@ function ContactForm() {
         <span className="contact-form__success-check">
           <CheckCircle2 size={40} aria-hidden="true" />
         </span>
-        {/* Corrected label: this heading previously read "Inquiry Sent
-            Successfully" even on the no-backend path below, where nothing
-            has actually been sent yet — only drafted. */}
         <h3>Inquiry Sent Successfully</h3>
-        <p>
-          {endpoint
-            ? "Thanks — we've received your message and will be in touch soon."
-            : "Thanks—we've received your message and will be in touch soon."}
-        </p>
+        <p>Thanks, we&apos;ve received your message and will be in touch soon.</p>
         <p className="contact-form__success-note">
           Thank you for contacting ThinkMetric. Our team will respond within one business day.
         </p>
