@@ -151,8 +151,8 @@
   }
 
   .turkey-map__open {
-    min-height: 36px;
-    padding: 7px 10px;
+    min-height: 44px;
+    padding: 9px 12px;
     font-size: 0.72rem;
   }
 }

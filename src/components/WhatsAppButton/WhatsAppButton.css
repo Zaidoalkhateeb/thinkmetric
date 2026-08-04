@@ -60,6 +60,13 @@
 }
 
 @media (max-width: 640px) {
+  /* Keep the country list unobstructed while it is being used. */
+  body:has(.custom-select__trigger.is-open) .floating-contact {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   .floating-contact {
     top: auto;
     bottom: calc(var(--space-3) + env(safe-area-inset-bottom));

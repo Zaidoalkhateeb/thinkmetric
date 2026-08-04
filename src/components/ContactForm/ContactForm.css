@@ -180,6 +180,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 18px;
+    height: 18px;
     margin: 4px 0 0;
   }
 

@@ -34,6 +34,10 @@
     padding-top: 104px;
   }
 
+  .category-back--top {
+    min-height: 44px;
+  }
+
   .product-detail__grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);

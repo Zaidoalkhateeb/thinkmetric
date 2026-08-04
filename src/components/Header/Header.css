@@ -300,6 +300,10 @@
     height: 21px;
   }
 
+  .site-header__brand {
+    min-height: 44px;
+  }
+
   .site-header__nav {
     display: none;
   }
@@ -499,6 +503,13 @@
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+@media (max-width: 679px) {
+  .mobile-nav__view-all {
+    min-height: 44px;
+    margin-bottom: 4px;
+  }
 }
 
 .mobile-nav__cta {

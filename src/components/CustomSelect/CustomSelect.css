@@ -131,6 +131,21 @@
   transition: background var(--dur-fast) var(--ease-precise);
 }
 
+@media (max-width: 640px) {
+  .custom-select__list {
+    z-index: 90;
+  }
+
+  .custom-select__trigger,
+  .custom-select__option {
+    min-height: 48px;
+  }
+
+  .custom-select__options {
+    max-height: min(42svh, 260px);
+  }
+}
+
 .custom-select__option.is-active {
   background: var(--tm-fog);
 }

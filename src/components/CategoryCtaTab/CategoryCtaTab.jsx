@@ -49,8 +49,15 @@ function CategoryCtaTab({ categoryLabel }) {
 
   return (
     <>
-      <button type="button" ref={triggerRef} className="category-cta-tab" onClick={() => setOpen(true)}>
-        Choosing the right solution
+      <button
+        type="button"
+        ref={triggerRef}
+        className="category-cta-tab"
+        aria-label="Choosing the right solution"
+        onClick={() => setOpen(true)}
+      >
+        <span className="category-cta-tab__desktop-label">Choosing the right solution</span>
+        <span className="category-cta-tab__mobile-label" aria-hidden="true">Need help?</span>
       </button>
 
       {open && (

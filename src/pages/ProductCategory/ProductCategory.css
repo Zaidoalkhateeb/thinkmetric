@@ -220,6 +220,10 @@
     margin-bottom: var(--space-3);
   }
 
+  .breadcrumbs a {
+    min-height: 44px;
+  }
+
   .category-pending {
     padding: var(--space-4);
   }
