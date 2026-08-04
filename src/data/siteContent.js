@@ -33,9 +33,9 @@ export const location = {
 export const about = {
   paragraphs: [
     'ThinkMetric is a provider of advanced environmental measurement, remote monitoring, and autonomous power solutions for the renewable energy and industrial sectors.',
-    'We supply a focused portfolio of high-performance technologies — wind LiDAR, boundary-layer and atmospheric LiDAR, meteorological sensing, and autonomous off-grid power systems built for demanding field conditions, supporting wind resource assessment, atmospheric research, industrial monitoring, and long-term measurement campaigns.',
+    'We supply a focused portfolio of high performance technologies  wind LiDAR, boundary layer and atmospheric LiDAR, meteorological sensing, and autonomous off grid power systems built for demanding field conditions, supporting wind resource assessment, atmospheric research, industrial monitoring, and long term measurement campaigns.',
     'Every solution is chosen for accuracy, durability, and dependable operation in challenging environments, backed by technical expertise and responsive support.',
-    'Whether supporting a single campaign or a large-scale monitoring programme, we help clients make confident, data-driven decisions.',
+    'Whether supporting a single campaign or a large scale monitoring programme, we help clients make confident, data driven decisions.',
   ],
   principles: [
     {
@@ -61,7 +61,7 @@ export const processStages = [
     step: '01',
     title: 'Define the measurement objective',
     description:
-      'Every campaign starts with a clear question about wind resource, turbine performance, boundary-layer behaviour, or air quality.',
+      'Every campaign starts with a clear question about wind resource, turbine performance, boundary layer behaviour, or air quality.',
   },
   {
     step: '02',
@@ -104,7 +104,7 @@ export const categories = [
       '',
     applications: [],
     icon: 'windLidar',
-    heroImage: '/images/power-solutions-hero-4k.webp',
+    heroImage: '/images/lidars-wind-farm-hero-wide.webp',
   },
 ];
 

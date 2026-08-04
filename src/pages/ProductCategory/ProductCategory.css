@@ -54,31 +54,49 @@
 
 @media (max-width: 640px) {
   .category-hero--photo {
-    min-height: clamp(320px, 48svh, 400px);
+    min-height: clamp(360px, 48svh, 430px);
     align-items: flex-end;
-    padding-bottom: var(--space-5);
+    padding: 64px 0 var(--space-5);
   }
 
   .category-hero__photo img {
-    object-position: 56% center;
+    object-position: 53% center;
+    transform: scale(1.01);
+  }
+
+  .category-hero[data-category='lidars'] .category-hero__photo img {
+    object-position: center 45%;
+    transform: none;
   }
 
   .category-hero__tint {
     background:
       linear-gradient(
         180deg,
-        rgba(232, 238, 235, 0.24) 0%,
-        rgba(232, 238, 235, 0.4) 42%,
-        rgba(245, 246, 242, 0.96) 100%
+        rgba(235, 241, 238, 0.12) 0%,
+        rgba(235, 241, 238, 0.08) 40%,
+        rgba(245, 246, 242, 0.74) 73%,
+        rgba(245, 246, 242, 0.98) 100%
       ),
-      linear-gradient(90deg, rgba(232, 238, 235, 0.72), rgba(232, 238, 235, 0.18));
+      linear-gradient(
+        90deg,
+        rgba(226, 236, 231, 0.42) 0%,
+        rgba(226, 236, 231, 0.08) 58%,
+        rgba(226, 236, 231, 0.02) 100%
+      );
+  }
+
+  .category-hero .container {
+    width: 100%;
   }
 
   .category-hero .page-hero__title {
     white-space: normal;
-    margin-top: var(--space-3);
+    margin-top: 12px;
+    font-size: clamp(2rem, 9vw, 2.45rem);
+    line-height: 1;
+    letter-spacing: -0.035em;
   }
-
 }
 
 .breadcrumbs {

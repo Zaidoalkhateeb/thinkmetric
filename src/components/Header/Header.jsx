@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, MessageCircle, Radar, Zap } from 'lucide-react';
 import { categories } from '../../data/siteContent';
 import { getProductsByCategory } from '../../data/products';
 import './Header.css';
@@ -65,7 +65,7 @@ function Header() {
     if (!mobileOpen) return undefined;
 
     const panel = mobilePanelRef.current;
-    panel?.querySelector('a[href]')?.focus();
+    panel?.focus({ preventScroll: true });
 
     const onKeyDown = (event) => {
       if (event.key === 'Escape') {
@@ -78,7 +78,7 @@ function Header() {
       const focusable = panel.querySelectorAll('a[href], button:not([disabled])');
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
+      if (event.shiftKey && (document.activeElement === first || document.activeElement === panel)) {
         event.preventDefault();
         last?.focus();
       } else if (!event.shiftKey && document.activeElement === last) {
@@ -131,12 +131,12 @@ function Header() {
       <header
         className={`site-header ${isSolid ? 'site-header--solid' : ''} ${
           isDarkText ? 'site-header--dark-text' : ''
-        } ${isHidden ? 'site-header--hidden' : ''}`}
+        } ${mobileOpen ? 'site-header--menu-open' : ''} ${isHidden ? 'site-header--hidden' : ''}`}
       >
       <div className="container site-header__inner">
         <Link to="/" className="site-header__brand" aria-label="ThinkMetric home">
           <img
-            src={isDarkText ? '/brand/logo-primary.png' : '/brand/logo-light.png'}
+            src={mobileOpen || !isDarkText ? '/brand/logo-light.png' : '/brand/logo-primary.png'}
             alt="ThinkMetric"
             className="site-header__logo"
           />
@@ -266,43 +266,62 @@ function MobileNav({ onNavigate, ref }) {
       id="mobile-navigation"
       ref={ref}
       className="mobile-nav"
+      tabIndex={-1}
       role="dialog"
       aria-modal="true"
       aria-label="Mobile navigation"
     >
       <div className="container mobile-nav__inner">
-        <p className="mobile-nav__eyebrow">Menu</p>
-        <Link to="/" className="mobile-nav__link" onClick={onNavigate}>
-          <span>Home</span>
-          <ArrowRight size={18} aria-hidden="true" />
-        </Link>
-
-        <section className="mobile-nav__products" aria-labelledby="mobile-products-label">
-          <p id="mobile-products-label" className="mobile-nav__group-label">Products &amp; Services</p>
-          <div className="mobile-nav__sublist">
-            <Link to="/products" className="mobile-nav__sublink mobile-nav__sublink--all" onClick={onNavigate}>
-              <span>View all products</span>
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-            {categories.map((cat) => (
-              <Link key={cat.slug} to={`/products/${cat.slug}`} className="mobile-nav__sublink" onClick={onNavigate}>
-                <span>{cat.label}</span>
-                <ArrowRight size={16} aria-hidden="true" />
+        <div className="mobile-nav__layout">
+          <section className="mobile-nav__primary" aria-labelledby="mobile-menu-label">
+            <p id="mobile-menu-label" className="mobile-nav__eyebrow">Menu</p>
+            <nav className="mobile-nav__main-links" aria-label="Mobile primary navigation">
+              <Link to="/" className="mobile-nav__link" onClick={onNavigate}>
+                <span className="mobile-nav__link-label">Home</span>
               </Link>
-            ))}
-          </div>
-        </section>
+            </nav>
+          </section>
 
-        <div className="mobile-nav__secondary">
-          <Link to="/about" className="mobile-nav__link" onClick={onNavigate}>
-            <span>About Us</span>
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
-          <Link to="/contact" className="mobile-nav__link" onClick={onNavigate}>
-            <span>Contact Us</span>
-            <ArrowRight size={18} aria-hidden="true" />
-          </Link>
+          <section className="mobile-nav__products" aria-labelledby="mobile-products-label">
+            <p id="mobile-products-label" className="mobile-nav__eyebrow">Products</p>
+            <Link to="/products" className="mobile-nav__view-all" onClick={onNavigate}>
+              View all products
+            </Link>
+            <div className="mobile-nav__product-list">
+              <Link to="/products/remote-power-supply-systems" className="mobile-nav__product-card" onClick={onNavigate}>
+                <span className="mobile-nav__product-icon" aria-hidden="true"><Zap size={24} /></span>
+                <span className="mobile-nav__product-copy">
+                  <strong>Power Solutions</strong>
+                </span>
+              </Link>
+              <Link to="/products/lidars" className="mobile-nav__product-card" onClick={onNavigate}>
+                <span className="mobile-nav__product-icon" aria-hidden="true"><Radar size={24} /></span>
+                <span className="mobile-nav__product-copy">
+                  <strong>Lidars</strong>
+                </span>
+              </Link>
+            </div>
+          </section>
+
+          <section className="mobile-nav__secondary">
+            <nav className="mobile-nav__main-links" aria-label="Mobile secondary navigation">
+              <Link to="/about" className="mobile-nav__link" onClick={onNavigate}>
+                <span className="mobile-nav__link-label">About Us</span>
+              </Link>
+            </nav>
+          </section>
         </div>
+
+        <aside className="mobile-nav__cta" aria-label="Contact ThinkMetric">
+          <span className="mobile-nav__cta-icon" aria-hidden="true"><MessageCircle size={23} /></span>
+          <span className="mobile-nav__cta-copy">
+            <strong>Have a project in mind?</strong>
+            <small>Let&apos;s build the future together.</small>
+          </span>
+          <Link to="/contact" className="mobile-nav__cta-link" onClick={onNavigate}>
+            Contact us
+          </Link>
+        </aside>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { Component, lazy, Suspense, useEffect } from 'react';
+import { Component, lazy, Suspense, useLayoutEffect } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ScrollFlow from './components/ScrollFlow/ScrollFlow';
@@ -15,8 +15,11 @@ const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [pathname]);
   return null;
 }

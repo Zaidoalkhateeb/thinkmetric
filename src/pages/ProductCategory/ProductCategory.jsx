@@ -24,7 +24,10 @@ function ProductCategory() {
         path={`/products/${category.slug}`}
       />
 
-      <section className={`page-hero category-hero ${category.heroImage ? 'category-hero--photo' : ''}`}>
+      <section
+        className={`page-hero category-hero ${category.heroImage ? 'category-hero--photo' : ''}`}
+        data-category={category.slug}
+      >
         {category.heroImage && (
           <>
             <div className="category-hero__photo" aria-hidden="true">
