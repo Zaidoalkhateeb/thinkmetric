@@ -31,6 +31,8 @@ function ProductDetail() {
         title={`${product.modelName} — ${product.productType}`}
         description={product.summary}
         path={`/products/detail/${product.slug}`}
+        image={product.image}
+        imageAlt={`${product.modelName} ${product.productType}`}
         jsonLd={jsonLd}
       />
 

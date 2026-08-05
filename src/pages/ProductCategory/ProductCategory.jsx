@@ -19,8 +19,8 @@ function ProductCategory() {
   return (
     <>
       <SEO
-        title={category.label}
-        description={category.description}
+        title={category.seoTitle || category.label}
+        description={category.seoDescription || category.description}
         path={`/products/${category.slug}`}
       />
 

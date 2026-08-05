@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
+import { pageSeo } from '../../data/siteContent';
 import './NotFound.css';
 
 function NotFound() {
   return (
     <>
-      <SEO title="Page Not Found" description="The page you're looking for could not be found." path="/404" />
+      <SEO {...pageSeo.notFound} noIndex />
       <section className="not-found">
         <div className="container not-found__inner">
           <svg viewBox="0 0 200 120" className="not-found__illus" role="img" aria-label="Signal lost illustration">

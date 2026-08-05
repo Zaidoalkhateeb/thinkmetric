@@ -2,52 +2,62 @@ import { useEffect } from 'react';
 import { siteUrl, seoDefaults } from '../../data/siteContent';
 
 function setMeta(name, content, attr = 'name') {
-  let el = document.head.querySelector(`meta[${attr}="${name}"]`);
-  if (!el) {
-    el = document.createElement('meta');
-    el.setAttribute(attr, name);
-    document.head.appendChild(el);
+  let element = document.head.querySelector(`meta[${attr}="${name}"]`);
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attr, name);
+    document.head.appendChild(element);
   }
-  el.setAttribute('content', content);
+  element.setAttribute('content', content);
 }
 
 function setLink(rel, href) {
-  let el = document.head.querySelector(`link[rel="${rel}"]`);
-  if (!el) {
-    el = document.createElement('link');
-    el.setAttribute('rel', rel);
-    document.head.appendChild(el);
+  let element = document.head.querySelector(`link[rel="${rel}"]`);
+  if (!element) {
+    element = document.createElement('link');
+    element.setAttribute('rel', rel);
+    document.head.appendChild(element);
   }
-  el.setAttribute('href', href);
+  element.setAttribute('href', href);
 }
 
-/**
- * Lightweight per-page SEO manager. Sets document title, meta description,
- * canonical URL, and Open Graph / Twitter tags without adding a routing
- * dependency like react-helmet.
- */
-function SEO({ title, description, path = '', image, jsonLd }) {
-  useEffect(() => {
-    const fullTitle = title ? `${title}${seoDefaults.titleSuffix}` : 'ThinkMetric';
-    // Always resolve to a real string — this is a client-side router, so the
-    // <head> isn't reset between navigations. Falling back to the site's
-    // existing default description (the same one already used on Home)
-    // instead of skipping the update keeps a route with no description of
-    // its own from silently inheriting whatever the previous route left.
-    const fullDescription = description || seoDefaults.description;
-    document.title = fullTitle;
+function absoluteUrl(value) {
+  if (!value) return siteUrl;
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${siteUrl}${value.startsWith('/') ? value : `/${value}`}`;
+}
 
+/** Keeps route-specific search and social metadata in sync after navigation. */
+function SEO({ title, description, path = '/', image, imageAlt, jsonLd, noIndex = false }) {
+  useEffect(() => {
+    const pageTitle = title || seoDefaults.defaultTitle;
+    const fullTitle = pageTitle.endsWith(seoDefaults.titleSuffix)
+      ? pageTitle
+      : `${pageTitle}${seoDefaults.titleSuffix}`;
+    const fullDescription = description || seoDefaults.description;
+    const canonicalUrl = absoluteUrl(path);
+    const socialImage = absoluteUrl(image || seoDefaults.ogImage);
+    const socialImageAlt = imageAlt || fullTitle;
+
+    document.title = fullTitle;
     setMeta('description', fullDescription);
+    setMeta('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
+
     setMeta('og:title', fullTitle, 'property');
     setMeta('og:description', fullDescription, 'property');
     setMeta('og:type', 'website', 'property');
-    setMeta('og:url', `${siteUrl}${path}`, 'property');
-    setMeta('og:image', `${siteUrl}${image || seoDefaults.ogImage}`, 'property');
+    setMeta('og:site_name', 'ThinkMetric', 'property');
+    setMeta('og:locale', 'en_US', 'property');
+    setMeta('og:url', canonicalUrl, 'property');
+    setMeta('og:image', socialImage, 'property');
+    setMeta('og:image:alt', socialImageAlt, 'property');
+
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', fullTitle);
     setMeta('twitter:description', fullDescription);
-    setMeta('twitter:image', `${siteUrl}${image || seoDefaults.ogImage}`);
-    setLink('canonical', `${siteUrl}${path}`);
+    setMeta('twitter:image', socialImage);
+    setMeta('twitter:image:alt', socialImageAlt);
+    setLink('canonical', canonicalUrl);
 
     let script = document.getElementById('page-jsonld');
     if (jsonLd) {
@@ -62,11 +72,8 @@ function SEO({ title, description, path = '', image, jsonLd }) {
       script.remove();
     }
 
-    return () => {
-      const s = document.getElementById('page-jsonld');
-      if (s) s.remove();
-    };
-  }, [title, description, path, image, jsonLd]);
+    return () => document.getElementById('page-jsonld')?.remove();
+  }, [title, description, path, image, imageAlt, jsonLd, noIndex]);
 
   return null;
 }

@@ -7,7 +7,7 @@ import ProcessSteps from '../../components/ProcessSteps/ProcessSteps';
 import ApplicationsRibbon from '../../components/ApplicationsRibbon/ApplicationsRibbon';
 import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
 import Reveal from '../../components/Reveal/Reveal';
-import { brand, contact, location, categories, siteUrl } from '../../data/siteContent';
+import { brand, contact, location, categories, pageSeo, siteUrl } from '../../data/siteContent';
 import './Home.css';
 
 function Home() {
@@ -27,12 +27,7 @@ function Home() {
 
   return (
     <>
-      <SEO
-        title="Wind LiDAR, Atmospheric &amp; Remote Power Measurement"
-        description="ThinkMetric supplies wind LiDAR, atmospheric LiDAR, and autonomous remote power systems for wind resource assessment, atmospheric research, and industrial monitoring."
-        path="/"
-        jsonLd={jsonLd}
-      />
+      <SEO {...pageSeo.home} jsonLd={jsonLd} />
 
       <section className="home-hero">
         <HeroMedia />

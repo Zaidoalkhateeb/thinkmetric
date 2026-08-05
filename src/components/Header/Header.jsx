@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, ArrowRight, MessageCircle, Radar, Zap } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Radar, Zap } from 'lucide-react';
 import { categories } from '../../data/siteContent';
 import { getProductsByCategory } from '../../data/products';
 import './Header.css';
@@ -261,6 +261,8 @@ function Header() {
 }
 
 function MobileNav({ onNavigate, ref }) {
+  const [productsOpen, setProductsOpen] = useState(false);
+
   return (
     <div
       id="mobile-navigation"
@@ -284,23 +286,37 @@ function MobileNav({ onNavigate, ref }) {
 
           <section className="mobile-nav__products" aria-labelledby="mobile-products-label">
             <p id="mobile-products-label" className="mobile-nav__eyebrow">Products</p>
-            <Link to="/products" className="mobile-nav__view-all" onClick={onNavigate}>
-              View all products
-            </Link>
-            <div className="mobile-nav__product-list">
-              <Link to="/products/remote-power-supply-systems" className="mobile-nav__product-card" onClick={onNavigate}>
-                <span className="mobile-nav__product-icon" aria-hidden="true"><Zap size={24} /></span>
-                <span className="mobile-nav__product-copy">
-                  <strong>Power Solutions</strong>
-                </span>
+            <div className="mobile-nav__products-bar">
+              <Link to="/products" className="mobile-nav__view-all" onClick={onNavigate}>
+                View All Products
               </Link>
-              <Link to="/products/lidars" className="mobile-nav__product-card" onClick={onNavigate}>
-                <span className="mobile-nav__product-icon" aria-hidden="true"><Radar size={24} /></span>
-                <span className="mobile-nav__product-copy">
-                  <strong>Lidars</strong>
-                </span>
-              </Link>
+              <button
+                type="button"
+                className={`mobile-nav__products-toggle ${productsOpen ? 'is-open' : ''}`}
+                aria-expanded={productsOpen}
+                aria-controls="mobile-product-categories"
+                aria-label={productsOpen ? 'Hide product categories' : 'Show product categories'}
+                onClick={() => setProductsOpen((open) => !open)}
+              >
+                <ChevronDown size={22} aria-hidden="true" />
+              </button>
             </div>
+            {productsOpen && (
+              <div id="mobile-product-categories" className="mobile-nav__product-list">
+                <Link to="/products/remote-power-supply-systems" className="mobile-nav__product-card" onClick={onNavigate}>
+                  <span className="mobile-nav__product-icon" aria-hidden="true"><Zap size={24} /></span>
+                  <span className="mobile-nav__product-copy">
+                    <strong>Power Solutions</strong>
+                  </span>
+                </Link>
+                <Link to="/products/lidars" className="mobile-nav__product-card" onClick={onNavigate}>
+                  <span className="mobile-nav__product-icon" aria-hidden="true"><Radar size={24} /></span>
+                  <span className="mobile-nav__product-copy">
+                    <strong>Lidars</strong>
+                  </span>
+                </Link>
+              </div>
+            )}
           </section>
 
           <section className="mobile-nav__secondary">
@@ -308,20 +324,12 @@ function MobileNav({ onNavigate, ref }) {
               <Link to="/about" className="mobile-nav__link" onClick={onNavigate}>
                 <span className="mobile-nav__link-label">About Us</span>
               </Link>
+              <Link to="/contact" className="mobile-nav__link" onClick={onNavigate}>
+                <span className="mobile-nav__link-label">Contact Us</span>
+              </Link>
             </nav>
           </section>
         </div>
-
-        <aside className="mobile-nav__cta" aria-label="Contact ThinkMetric">
-          <span className="mobile-nav__cta-icon" aria-hidden="true"><MessageCircle size={23} /></span>
-          <span className="mobile-nav__cta-copy">
-            <strong>Have a project in mind?</strong>
-            <small>Let&apos;s build the future together.</small>
-          </span>
-          <Link to="/contact" className="mobile-nav__cta-link" onClick={onNavigate}>
-            Contact us
-          </Link>
-        </aside>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import TurkeyMap from '../../components/TurkeyMap/TurkeyMap';
 import Reveal from '../../components/Reveal/Reveal';
 import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator';
-import { contact, location } from '../../data/siteContent';
+import { contact, location, pageSeo } from '../../data/siteContent';
 import './Contact.css';
 
 const otherWaysToReachUs = [
@@ -38,11 +38,7 @@ const otherWaysToReachUs = [
 function Contact() {
   return (
     <>
-      <SEO
-        title="Contact ThinkMetric"
-        description="Get in touch with ThinkMetric's technical and sales team, based in Istanbul, Türkiye."
-        path="/contact"
-      />
+      <SEO {...pageSeo.contact} />
 
       <section className="page-hero page-hero--statement contact-hero">
         <picture className="contact-hero__photo" aria-hidden="true">

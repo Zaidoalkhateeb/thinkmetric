@@ -3,17 +3,13 @@ import { ArrowRight } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Reveal from '../../components/Reveal/Reveal';
 import ScrollIndicator from '../../components/ScrollIndicator/ScrollIndicator';
-import { about } from '../../data/siteContent';
+import { about, pageSeo } from '../../data/siteContent';
 import './About.css';
 
 function About() {
   return (
     <>
-      <SEO
-        title="About ThinkMetric"
-        description="ThinkMetric supplies environmental measurement, remote monitoring, and autonomous power solutions for the renewable energy and industrial sectors."
-        path="/about"
-      />
+      <SEO {...pageSeo.about} />
 
       <section className="page-hero page-hero--statement about-hero">
         <picture className="about-hero__photo" aria-hidden="true">

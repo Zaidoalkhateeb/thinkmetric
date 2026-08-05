@@ -89,8 +89,10 @@ export const categories = [
     number: '01',
     label: 'Power Solutions',
     shortLabel: 'Power Solutions',
-    description:
-      '',
+    seoTitle: 'Remote Power Supply Systems',
+    seoDescription:
+      'Explore autonomous remote power supply systems for meteorological, monitoring, telecommunications, and industrial sites.',
+    description: '',
     applications: [],
     icon: 'remotePower',
     heroImage: '/images/power-solutions-hero-4k.webp',
@@ -100,8 +102,10 @@ export const categories = [
     number: '02',
     label: 'Lidars',
     shortLabel: 'Lidars',
-    description:
-      '',
+    seoTitle: 'Wind & Atmospheric LiDAR Systems',
+    seoDescription:
+      'Explore wind and atmospheric LiDAR systems for resource assessment, turbine monitoring, boundary-layer research, and remote sensing.',
+    description: '',
     applications: [],
     icon: 'windLidar',
     heroImage: '/images/lidars-wind-farm-hero-wide.webp',
@@ -110,10 +114,44 @@ export const categories = [
 
 export const seoDefaults = {
   titleSuffix: ' | ThinkMetric',
+  defaultTitle: 'Wind LiDAR & Remote Power Solutions',
   ogImage: '/images/og-image.jpg',
   // Same string already used as the Home page's own description (and in
   // index.html's static meta tag) — reused here as the fallback for any
   // route that doesn't set its own, rather than authoring new copy.
   description:
     'ThinkMetric supplies wind LiDAR, atmospheric LiDAR, and autonomous remote power systems for wind resource assessment, atmospheric research, and industrial monitoring.',
+};
+
+// Static page metadata lives here so titles and descriptions stay consistent
+// across browser tabs, search results, and social previews.
+export const pageSeo = {
+  home: {
+    title: seoDefaults.defaultTitle,
+    description: seoDefaults.description,
+    path: '/',
+  },
+  products: {
+    title: 'Products & Services',
+    description:
+      "Explore ThinkMetric's wind LiDAR, atmospheric LiDAR, and autonomous remote power systems for demanding field applications.",
+    path: '/products',
+  },
+  about: {
+    title: 'About Us',
+    description:
+      'Learn how ThinkMetric supports renewable energy, atmospheric research, and industrial projects with dependable measurement and remote power technologies.',
+    path: '/about',
+  },
+  contact: {
+    title: 'Contact Us',
+    description:
+      "Contact ThinkMetric's technical and sales team for help with wind LiDAR, atmospheric measurement, and remote power projects.",
+    path: '/contact',
+  },
+  notFound: {
+    title: 'Page Not Found',
+    description: "The page you're looking for could not be found.",
+    path: '/404',
+  },
 };

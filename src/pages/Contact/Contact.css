@@ -7,7 +7,6 @@
 .contact-hero .container {
   position: relative;
   z-index: 3;
-  transform: translateY(clamp(24px, 4vh, 48px));
 }
 
 .page-hero--statement.contact-hero .page-hero__kicker {
