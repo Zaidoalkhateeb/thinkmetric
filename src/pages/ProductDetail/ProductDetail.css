@@ -49,7 +49,9 @@
 .product-detail__media-column {
   position: sticky;
   top: 100px;
+  align-self: start;
   width: 100%;
+  height: fit-content;
 }
 
 .product-detail__media {
