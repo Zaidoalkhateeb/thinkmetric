@@ -284,11 +284,10 @@ function MobileNav({ onNavigate, ref }) {
             </nav>
           </section>
 
-          <section className="mobile-nav__products" aria-labelledby="mobile-products-label">
-            <p id="mobile-products-label" className="mobile-nav__eyebrow">Products</p>
+          <section className="mobile-nav__products" aria-label="Products and services">
             <div className="mobile-nav__products-bar">
               <Link to="/products" className="mobile-nav__view-all" onClick={onNavigate}>
-                View All Products
+                Products &amp; Services
               </Link>
               <button
                 type="button"

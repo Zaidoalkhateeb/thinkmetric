@@ -382,7 +382,7 @@
 
 .mobile-nav__layout {
   display: grid;
-  gap: var(--space-5);
+  gap: 0;
 }
 
 .mobile-nav__eyebrow {
@@ -396,7 +396,7 @@
 }
 
 .mobile-nav__main-links {
-  border-top: 1px solid var(--border-inverse);
+  border-top: 0;
 }
 
 .mobile-nav__link {
@@ -406,7 +406,7 @@
   color: var(--tm-off-white);
   min-height: 66px;
   padding: 12px 0;
-  border-bottom: 1px solid var(--border-inverse);
+  border-bottom: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
@@ -448,23 +448,22 @@
 }
 
 .mobile-nav__product-card {
-  min-height: 82px;
+  min-height: 66px;
   display: grid;
   grid-template-columns: 46px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  border: 1px solid rgba(220, 235, 226, 0.14);
-  border-radius: var(--radius-md);
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
   color: var(--tm-off-white);
-  background: rgba(255, 255, 255, 0.025);
-  transition: border-color var(--dur-fast) var(--ease-precise), background var(--dur-fast) var(--ease-precise);
+  background: transparent;
+  transition: color var(--dur-fast) var(--ease-precise);
 }
 
 .mobile-nav__product-card:hover,
 .mobile-nav__product-card:focus-visible {
-  border-color: var(--tm-moss);
-  background: rgba(255, 255, 255, 0.06);
+  color: var(--tm-mint);
 }
 
 .mobile-nav__product-icon {
@@ -506,18 +505,17 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) 52px;
   align-items: stretch;
-  border-top: 1px solid var(--border-inverse);
-  border-bottom: 1px solid var(--border-inverse);
+  border: 0;
 }
 
 .mobile-nav__view-all {
   display: inline-flex;
   align-items: center;
-  min-height: 62px;
+  min-height: 66px;
   color: var(--tm-off-white);
   font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: clamp(1.3rem, 6.2vw, 1.65rem);
+  font-weight: 500;
 }
 
 .mobile-nav__products-toggle {
@@ -525,7 +523,7 @@
   align-items: center;
   justify-content: center;
   border: 0;
-  border-left: 1px solid var(--border-inverse);
+  border-left: 0;
   background: transparent;
   color: var(--tm-mint);
   cursor: pointer;
@@ -549,6 +547,6 @@
 
 @media (max-width: 679px) {
   .mobile-nav__view-all {
-    min-height: 58px;
+    min-height: 66px;
   }
 }

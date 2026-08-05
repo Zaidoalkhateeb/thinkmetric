@@ -43,19 +43,21 @@ function ProductDetail() {
           </Link>
 
           <div className="product-detail__grid">
-            <Reveal as="div" variant="left" className="product-detail__media">
-              {product.image ? (
-                <img
-                  src={product.image}
-                  alt={product.modelName}
-                />
-              ) : (
-                <div className="product-detail__placeholder" aria-hidden="true">
-                  {Icon && <Icon />}
-                  <span className="mono">Product visual placeholder — {product.modelName}</span>
-                </div>
-              )}
-            </Reveal>
+            <div className="product-detail__media-column">
+              <Reveal as="div" variant="left" className="product-detail__media">
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.modelName}
+                  />
+                ) : (
+                  <div className="product-detail__placeholder" aria-hidden="true">
+                    {Icon && <Icon />}
+                    <span className="mono">Product visual placeholder — {product.modelName}</span>
+                  </div>
+                )}
+              </Reveal>
+            </div>
 
             <Reveal as="div" variant="right" delay={100} className="product-detail__body">
               <span className="tag-pill">{product.productType}</span>

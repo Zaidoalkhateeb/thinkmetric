@@ -28,10 +28,12 @@ function absoluteUrl(value) {
 }
 
 /** Keeps route-specific search and social metadata in sync after navigation. */
-function SEO({ title, description, path = '/', image, imageAlt, jsonLd, noIndex = false }) {
+function SEO({ title, description, path = '/', image, imageAlt, jsonLd, noIndex = false, exactTitle = false }) {
   useEffect(() => {
     const pageTitle = title || seoDefaults.defaultTitle;
-    const fullTitle = pageTitle.endsWith(seoDefaults.titleSuffix)
+    const fullTitle = exactTitle
+      ? pageTitle
+      : pageTitle.endsWith(seoDefaults.titleSuffix)
       ? pageTitle
       : `${pageTitle}${seoDefaults.titleSuffix}`;
     const fullDescription = description || seoDefaults.description;
@@ -73,7 +75,7 @@ function SEO({ title, description, path = '/', image, imageAlt, jsonLd, noIndex 
     }
 
     return () => document.getElementById('page-jsonld')?.remove();
-  }, [title, description, path, image, imageAlt, jsonLd, noIndex]);
+  }, [title, description, path, image, imageAlt, jsonLd, noIndex, exactTitle]);
 
   return null;
 }

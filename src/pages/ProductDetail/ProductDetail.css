@@ -9,6 +9,7 @@
   align-items: start;
 }
 
+.product-detail__media-column,
 .product-detail__media,
 .product-detail__body {
   min-width: 0;
@@ -45,9 +46,14 @@
 
 }
 
-.product-detail__media {
+.product-detail__media-column {
   position: sticky;
   top: 100px;
+  width: 100%;
+}
+
+.product-detail__media {
+  position: relative;
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
@@ -55,7 +61,7 @@
 }
 
 @media (max-width: 860px) {
-  .product-detail__media {
+  .product-detail__media-column {
     position: static;
   }
 }

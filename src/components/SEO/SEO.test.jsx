@@ -37,4 +37,10 @@ describe('SEO', () => {
     );
     expect(document.querySelector('meta[property="og:site_name"]')).toHaveAttribute('content', 'ThinkMetric');
   });
+
+  it('supports an exact title for the home page', async () => {
+    render(<SEO title="ThinkMetric Home Page" path="/" exactTitle />);
+
+    await waitFor(() => expect(document.title).toBe('ThinkMetric Home Page'));
+  });
 });

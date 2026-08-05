@@ -127,7 +127,8 @@ export const seoDefaults = {
 // across browser tabs, search results, and social previews.
 export const pageSeo = {
   home: {
-    title: seoDefaults.defaultTitle,
+    title: 'ThinkMetric Home Page',
+    exactTitle: true,
     description: seoDefaults.description,
     path: '/',
   },
